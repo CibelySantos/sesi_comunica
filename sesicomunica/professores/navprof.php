@@ -22,7 +22,7 @@
     <div class="menu-container" id="menu">
         <a href="inicialprof.php">Página Inicial</a>
         <a href="calendarioprof.php">Calendário</a>
-        <a href="formulariosprof.php">Formulários</a>
+        <a href="formularioprof.php">Formulários</a>
         <a href="agendamentoprof.php">Agendamentos</a>
         <span class="close-btn" onclick="closeMenu()">✖</span>
     </div>

@@ -6,7 +6,7 @@
 
 <div class="alinhamento-nav">
     <div>
-        <img class="logo-comunica" src="../img/PROJETO GG.png" alt="">
+        <img class="logo-comunica" src="../img/PROJETOGG.png" alt="">
     </div>
 
     <div class="perfil-user">

@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  height: 120px;
+  width: 65%;
+  display: flex;
+  align-items: center;
+}
+
+.logo-comunica {
+  height: 120px;
+}
+
+.icone-user {
+  height: 74px;
+}
+
+.perfil-user {
+  display: flex;
+  align-items: center;
+}
+
+.alinhamento-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #d90c0c;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+ul a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  font-weight: bolder;
+  font-family: "Gabarito";
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10;
+  margin-top: 200px;
+  height: 110px;
+  background-color: #d90c0c;
+}
+
+.localizacao h5 {
+  font-family: "gabarito";
+  color: white;
+  font-weight: 800;
+}
+
+.localizacao p {
+  font-family: "gabarito";
+  color: white;
+  margin-top: 15px;
+  width: 290px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.direitos_reservados {
+  font-family: "gabarito";
+  color: white;
+  display: flex;
+  align-items: end;
+  font-size: 10px;
+  font-weight: lighter;
+}
+
+.tamanho-icones {
+  height: 20px;
+  width: 20px;
+}
+
+.redes_sociais {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+/* Menu hamburguer nav */
+.menu-container {
+  position: fixed;
+  left: 90px;
+  margin-left: 30px;
+  display: flex;
+  transition: left 0.3s ease-in-out;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  border-bottom: red solid 1px;
+}
+
+.menu-container a {
+  display: flex;
+  padding: 15px;
+  font-size: 24px;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  font-family: "gabarito";
+  color: red;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+/* Botão de fechar */
+.close-btn {
+  position: absolute;
+  top: 14px;
+  cursor: pointer;
+  right: -10;
+  color: red;
+}
+
+.close-btn:hover {
+  font-weight: bolder;
+}
+
+/* Ícone do menu hambúrguer */
+.hamburger {
+  top: 15px;
+  left: 15px;
+  padding: 5px;
+  font-size: 24px;
+  font-family: "gabarito";
+  font-weight: bolder;
+  cursor: pointer;
+  color: red;
+}
