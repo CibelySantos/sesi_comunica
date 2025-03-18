@@ -15,11 +15,11 @@
     </div>
 
     <div class="redes_sociais">
-        <a  href="#"><img class="tamanho-icones" src="./img/icone-facebook.png" alt="Facebook"></a>
-        <a  href="#"><img class="tamanho-icones" src="./img/icone-instagram.png" alt="Instagram"></a>
-        <a  href="#"><img class="tamanho-icones" src="./img/icone-youtube.png" alt="YouTube"></a>
-        <a  href="#"><img class="tamanho-icones" src="./img/icone-linkedin.png" alt="LinkedIn"></a>
-        <a  href="#"><img class="tamanho-icones" src="./img/icone-x.png" alt="x"></a>
+        <a  href="#"><img class="tamanho-icones" src="sesicomunica/img/icone-facebook.png" alt="Facebook"></a>
+        <a  href="#"><img class="tamanho-icones" src="sesicomunica/img/icone-instagram.png" alt="Instagram"></a>
+        <a  href="#"><img class="tamanho-icones" src="sesicomunica/img/icone-youtube.png" alt="YouTube"></a>
+        <a  href="#"><img class="tamanho-icones" src="sesicomunica/img/icone-linkedin.png" alt="LinkedIn"></a>
+        <a  href="#"><img class="tamanho-icones" src="sesicomunica/img/icone-x.png" alt="x"></a>
         
     </div>
 </footer>
