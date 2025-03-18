@@ -4,6 +4,6 @@ function openMenu() {
 }
 
 function closeMenu() {
-    document.getElementById("menu").style.left = "-530px"; // Fecha o menu
+    document.getElementById("menu").style.left = "-796px"; // Fecha o menu
     document.getElementById("overlay").style.display = "none"; // Esconde o overlay
 }
