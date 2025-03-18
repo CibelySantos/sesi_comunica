@@ -6,11 +6,11 @@
 
 <div class="alinhamento-nav">
     <div>
-        <img class="logo-comunica" src="sesicomunica/img/PROJETOGG.png" alt="">
+        <img class="logo-comunica" src="../img/PROJETOGG.png" alt="">
     </div>
 
     <div class="perfil-user">
-        <img class="icone-user" src="sesicomunica/img/icone-usuario.png" alt="">
+        <img class="icone-user" src="../img/icone-usuario.png" alt="">
     </div>
 
     
@@ -20,10 +20,10 @@
         <div class="hamburger" onclick="openMenu()">☰ Menu</div>
         <div class="overlay" id="overlay" onclick="closeMenu()"></div>
         <div class="menu-container" id="menu">
-            <a href="index.php">Página Inicial</a>
-            <a href="sesicomunica/aluno/cardapioaluno.php">Cardápio</a>
-            <a href="sesicomunica/aluno/calendarioaluno.php">Calendário</a>
-            <a href="sesicomunica/aluno/formularioaluno.php">Formulários</a>
+            <a href="../../index.php">Página Inicial</a>
+            <a href="cardapioaluno.php">Cardápio</a>
+            <a href="calendarioaluno.php">Calendário</a>
+            <a href="formularioaluno.php">Formulários</a>
             <span class="close-btn" onclick="closeMenu()">✖</span>
         </div>
 </div>

@@ -14,5 +14,5 @@
     <body>
         <?php include 'footer-index.php'?>
     </body>
-    <script src="sesicomunica/js/main.js"></script>
+    <script src="sesicomunica/js/nav-aluno.js"></script>
 </html>

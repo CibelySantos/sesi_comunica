@@ -21,8 +21,10 @@
     <div class="overlay" id="overlay" onclick="closeMenu()"></div>
     <div class="menu-container" id="menu">
         <a href="#">Página Inicial</a>
-        <a href="#">Administrativo</a>
-        <a href="#">Calendário</a>
+        <a href="editarnoticiasadm.php">Administrativo</a>
+        <a href="calendarioadm.php">Calendário</a>
+        <a href="cardapioadm.php">Cardápio</a>
+        <a href="formularioadm.php">Formulário</a>
         <span class="close-btn" onclick="closeMenu()">✖</span>
     </div>
 </div>
