@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/cssaluno/cardapioaluno.css">
         <link rel="shortcut icon" type="" href="../img/icon.png">
-        <title>Calendário</title>
+        <title>Cardápio</title>
     </head>
     <body>
         <?php include 'footeraluno.php'?>

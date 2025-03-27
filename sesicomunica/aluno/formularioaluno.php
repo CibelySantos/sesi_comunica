@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/cssaluno/formularioaluno.css">
         <link rel="shortcut icon" type="" href="../img/icon.png">
-        <title>Calendário</title>
+        <title>Formulário</title>
     </head>
     <body>
         <?php include 'footeraluno.php'?>
