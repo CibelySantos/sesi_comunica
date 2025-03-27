@@ -1,8 +1,6 @@
 <?php 
     include 'navprof.php'; 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
