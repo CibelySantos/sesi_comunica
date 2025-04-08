@@ -92,8 +92,8 @@ footer {
 /* Menu hamburguer nav */
 .menu-container {
   position: fixed;
-  left: 90px;
-  margin-left: 30px;
+  left: 10px;
+  margin-top: 35px;
   display: flex;
   transition: left 0.3s ease-in-out;
 }
@@ -101,7 +101,6 @@ footer {
 .menu {
   display: flex;
   align-items: center;
-  gap: 50px;
   border-bottom: red solid 1px;
 }
 
@@ -121,9 +120,9 @@ footer {
 /* Botão de fechar */
 .close-btn {
   position: absolute;
-  top: 14px;
+  top: 50px;
   cursor: pointer;
-  right: -10;
+  left: 1000px;
   color: red;
 }
 
@@ -134,6 +133,11 @@ footer {
 /* Ícone do menu hambúrguer */
 .hamburger {
   top: 15px;
+  /* display: flex
+; */
+  /* flex-direction: column; */
+  margin-top: 35px;
+  width: 10%;
   left: 15px;
   padding: 5px;
   font-size: 24px;
