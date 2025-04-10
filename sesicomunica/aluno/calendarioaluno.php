@@ -15,5 +15,5 @@
     <body>
         <?php include 'footeraluno.php'?>
     </body>
-    <script src="../js/main.js"></script>
+    <script src="../js/nav-aluno.js"></script>
 </html>

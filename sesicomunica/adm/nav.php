@@ -24,7 +24,7 @@
         <a href="editarnoticiasadm.php">Administrativo</a>
         <a href="calendarioadm.php">Calendário</a>
         <a href="cardapioadm.php">Cardápio</a>
-        <a href="formularioadm.php">Formulário</a>
+        <a href="criar_formulario.php">Formulário</a>
         <span class="close-btn" onclick="closeMenu()">✖</span>
     </div>
 </div>
