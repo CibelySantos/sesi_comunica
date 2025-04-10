@@ -91,9 +91,8 @@ footer {
 
 /* Menu hamburguer nav */
 .menu-container {
-  position: fixed;
+  position: sticky;
   left: 10px;
-  margin-top: 35px;
   display: flex;
   transition: left 0.3s ease-in-out;
 }
@@ -133,10 +132,6 @@ footer {
 /* Ícone do menu hambúrguer */
 .hamburger {
   top: 15px;
-  /* display: flex
-; */
-  /* flex-direction: column; */
-  margin-top: 35px;
   width: 10%;
   left: 15px;
   padding: 5px;
