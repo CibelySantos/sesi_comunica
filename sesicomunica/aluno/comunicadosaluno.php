@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/cssaluno/comunicadosaluno.css">
         <link rel="shortcut icon" type="" href="../img/icon.png">
-        <title>Calendário</title>
+        <title>Comunicados</title>
     </head>
     <body>
         <?php include 'footeraluno.php'?>
