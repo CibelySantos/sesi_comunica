@@ -168,9 +168,311 @@ function removerPergunta(button) {
 }
 
 function abrirModal() {
-    document.getElementById("modalFormulario").classList.remove("hidden");
+    const modal = document.getElementById('modalFormulario');
+    modal.classList.remove('hidden');
+    modal.style.display = 'block';
 }
   
 function fecharModal() {
-    document.getElementById("modalFormulario").classList.add("hidden");
+    const modal = document.getElementById('modalFormulario');
+    modal.classList.add('hidden');
+    modal.style.display = 'none';
 }
+
+window.onclick = function(event) {
+    const modal = document.getElementById('modalFormulario');
+    if (event.target === modal) {
+        fecharModal();
+    }
+}
+// Funções para manipulação de formulários
+function confirmarExclusao(id) {
+    if (confirm('Tem certeza que deseja excluir este formulário?')) {
+        window.location.href = 'deletar_formulario.php?id=' + id;
+    }
+}
+
+// Funções para modal de edição
+let editarModal = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+    const editarModalEl = document.getElementById('editarModal');
+    if (editarModalEl) {
+        editarModal = new bootstrap.Modal(editarModalEl, {
+            backdrop: false,
+            keyboard: true
+        });
+    }
+});
+
+function abrirModalEditar(id) {
+    fetch('get_formulario.php?id=' + id)
+        .then(response => response.json())
+        .then(formulario => {
+            if (formulario.erro) {
+                alert('Erro ao buscar formulário: ' + formulario.erro);
+                return;
+            }
+            preencherModalEditar(formulario);
+            if (!editarModal) {
+                editarModal = new bootstrap.Modal(document.getElementById('editarModal'), {
+                    backdrop: false,
+                    keyboard: true
+                });
+            }
+            editarModal.show();
+        })
+        .catch(err => {
+            alert('Erro ao buscar formulário: ' + err);
+        });
+}
+
+function fecharModalEditar() {
+    if (editarModal) {
+        editarModal.hide();
+    }
+}
+
+function preencherModalEditar(formulario) {
+    document.getElementById('editar-nome-formulario').value = formulario.nome;
+    document.getElementById('editar-publico').value = formulario.publico_alvo;
+    document.getElementById('editar-data-criacao').value = formulario.data_criacao;
+    document.getElementById('editar-data-limite').value = formulario.data_limite;
+    
+    const container = document.getElementById('editar-perguntas-container');
+    container.dataset.formularioId = formulario.id;
+    carregarPerguntasEditar(formulario.perguntas || []);
+}
+
+function carregarPerguntasEditar(perguntas) {
+    const container = document.getElementById('editar-perguntas-container');
+    container.innerHTML = '';
+    
+    perguntas.forEach(pergunta => {
+        const div = document.createElement('div');
+        div.className = 'form-group pergunta-item';
+        if (pergunta.id) {
+            div.dataset.perguntaId = pergunta.id;
+        }
+        
+        let inner = `<div class='pergunta-header'><label>Pergunta:</label>`;
+        inner += `<select class='form-control tipo-pergunta' onchange='handleTipoPerguntaEditar(this)'>`;
+        inner += `<option value='dissertativa' ${pergunta.tipo === 'dissertativa' ? 'selected' : ''}>Dissertativa</option>`;
+        inner += `<option value='objetiva' ${pergunta.tipo === 'objetiva' ? 'selected' : ''}>Objetiva</option>`;
+        inner += `<option value='classificacao' ${pergunta.tipo === 'classificacao' ? 'selected' : ''}>Classificação</option>`;
+        inner += `</select>`;
+        inner += `<button type='button' class='btn btn-danger btn-sm' onclick='removerPerguntaEditar(this)'>Remover</button></div>`;
+        inner += `<input type='text' class='form-control mt-2' value='${pergunta.texto || ''}' required>`;
+        inner += `<input type='hidden' value='${pergunta.tipo}'>`;
+        inner += `<div class='opcoes-container mt-2'>`;
+        
+        if (pergunta.tipo === 'objetiva' && pergunta.opcoes) {
+            pergunta.opcoes.forEach(opcao => {
+                inner += `<div class='opcao-item input-group mb-2'>
+                    <input type='text' class='form-control' value='${opcao}' required>
+                    <div class='input-group-append'>
+                        <button type='button' class='btn btn-danger' onclick='this.closest(".opcao-item").remove()'>Remover</button>
+                    </div>
+                </div>`;
+            });
+            inner += `<button type='button' class='btn btn-secondary btn-sm' onclick='adicionarOpcaoEditar(this)'>+ Adicionar alternativa</button>`;
+        }
+        if (pergunta.tipo === 'classificacao') {
+            inner += `<div class='classificacao-container'>
+                <div class='classificacao-range'>
+                    <label>Escala de classificação (max 10):</label>
+                    <div class='range-inputs input-group'>
+                        <input type='number' class='form-control' value='${pergunta.min || 1}' min='0' max='10' required>
+                        <div class='input-group-prepend input-group-append'>
+                            <span class='input-group-text'>até</span>
+                        </div>
+                        <input type='number' class='form-control' value='${pergunta.max || 5}' min='1' max='10' required>
+                    </div>
+                </div>
+            </div>`;
+        }
+        inner += `</div>`;
+        div.innerHTML = inner;
+        container.appendChild(div);
+    });
+}
+
+function criarPerguntaEditar() {
+    const container = document.getElementById('editar-perguntas-container');
+    const div = document.createElement('div');
+    div.className = 'form-group pergunta-item';
+    
+    let inner = `<div class='pergunta-header'><label>Pergunta:</label>`;
+    inner += `<select class='form-control tipo-pergunta' onchange='handleTipoPerguntaEditar(this)'>`;
+    inner += `<option value='dissertativa'>Dissertativa</option>`;
+    inner += `<option value='objetiva'>Objetiva</option>`;
+    inner += `<option value='classificacao'>Classificação</option>`;
+    inner += `</select>`;
+    inner += `<button type='button' class='btn btn-danger btn-sm' onclick='removerPerguntaEditar(this)'>Remover</button></div>`;
+    inner += `<input type='text' class='form-control mt-2' required>`;
+    inner += `<input type='hidden' value='dissertativa'>`;
+    inner += `<div class='opcoes-container mt-2'></div>`;
+    div.innerHTML = inner;
+    container.appendChild(div);
+}
+
+function handleTipoPerguntaEditar(select) {
+    const perguntaItem = select.closest('.pergunta-item');
+    const opcoesContainer = perguntaItem.querySelector('.opcoes-container');
+    const tipoHidden = perguntaItem.querySelector('input[type="hidden"]');
+    tipoHidden.value = select.value;
+    opcoesContainer.innerHTML = '';
+    
+    if (select.value === 'objetiva') {
+        const btnAddOpcao = document.createElement('button');
+        btnAddOpcao.type = 'button';
+        btnAddOpcao.className = 'btn btn-secondary btn-sm';
+        btnAddOpcao.textContent = '+ Adicionar alternativa';
+        btnAddOpcao.onclick = function() { adicionarOpcaoEditar(btnAddOpcao); };
+        opcoesContainer.appendChild(btnAddOpcao);
+        adicionarOpcaoEditar(btnAddOpcao);
+        adicionarOpcaoEditar(btnAddOpcao);
+    } else if (select.value === 'classificacao') {
+        const classificacaoDiv = document.createElement('div');
+        classificacaoDiv.className = 'classificacao-container';
+        classificacaoDiv.innerHTML = `<div class='classificacao-range'>
+            <label>Escala de classificação:</label>
+            <div class='range-inputs input-group'>
+                <input type='number' class='form-control' value='1' min='0' max='10' required>
+                <div class='input-group-prepend input-group-append'>
+                    <span class='input-group-text'>até</span>
+                </div>
+                <input type='number' class='form-control' value='5' min='1' max='10' required>
+            </div>
+        </div>`;
+        opcoesContainer.appendChild(classificacaoDiv);
+    }
+}
+
+function adicionarOpcaoEditar(btnAdd) {
+    const container = btnAdd.parentNode;
+    const opcaoDiv = document.createElement('div');
+    opcaoDiv.className = 'opcao-item input-group mb-2';
+    opcaoDiv.innerHTML = `
+        <input type='text' class='form-control' required>
+        <div class='input-group-append'>
+            <button type='button' class='btn btn-danger' onclick='this.closest(".opcao-item").remove()'>Remover</button>
+        </div>
+    `;
+    container.insertBefore(opcaoDiv, btnAdd);
+}
+
+function removerPerguntaEditar(btn) {
+    const perguntaItem = btn.closest('.pergunta-item');
+    perguntaItem.remove();
+}
+
+async function salvarAlteracoes() {
+    const container = document.getElementById('editar-perguntas-container');
+    const formId = container.dataset.formularioId;
+    
+    if (!formId) {
+        alert('ID do formulário não encontrado');
+        return;
+    }
+    
+    try {
+        const data = {
+            id: formId,
+            nome: document.getElementById('editar-nome-formulario').value,
+            publico_alvo: document.getElementById('editar-publico').value,
+            data_criacao: document.getElementById('editar-data-criacao').value,
+            data_limite: document.getElementById('editar-data-limite').value,
+            perguntas: []
+        };
+        
+        const perguntasItems = container.querySelectorAll('.pergunta-item');
+        perguntasItems.forEach(item => {
+            const pergunta = {
+                texto: item.querySelector('input[type="text"]').value,
+                tipo: item.querySelector('select.tipo-pergunta').value
+            };
+            
+            if (item.dataset.perguntaId) {
+                pergunta.id = item.dataset.perguntaId;
+            }
+            
+            if (pergunta.tipo === 'objetiva') {
+                pergunta.opcoes = Array.from(item.querySelectorAll('.opcao-item input[type="text"]')).map(input => input.value);
+            }
+            
+            if (pergunta.tipo === 'classificacao') {
+                const [min, max] = item.querySelectorAll('.range-inputs input[type="number"]');
+                pergunta.min = parseInt(min.value);
+                pergunta.max = parseInt(max.value);
+            }
+            
+            data.perguntas.push(pergunta);
+        });
+        
+        const response = await fetch('atualizar_formulario.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        if (result.erro) {
+            throw new Error(result.erro);
+        }
+        
+        alert('Formulário atualizado com sucesso!');
+        window.location.reload();
+    } catch (erro) {
+        alert('Erro ao salvar formulário: ' + erro.message);
+    }
+}
+
+// Event listener para o formulário de criação
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form[action="criar_formulario.php"]');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validar se há pelo menos uma pergunta
+            const perguntas = form.querySelectorAll('.pergunta-item');
+            if (perguntas.length === 0) {
+                alert('Adicione pelo menos uma pergunta ao formulário.');
+                return;
+            }
+
+            // Validar campos obrigatórios das perguntas
+            let valid = true;
+            perguntas.forEach(pergunta => {
+                const textoPergunta = pergunta.querySelector('input[name="perguntas[]"]');
+                if (!textoPergunta.value.trim()) {
+                    valid = false;
+                }
+
+                const tipo = pergunta.querySelector('input[name="tipos_pergunta[]"]').value;
+                if (tipo === 'objetiva') {
+                    const opcoes = pergunta.querySelectorAll('input[name^="opcoes"]');
+                    opcoes.forEach(opcao => {
+                        if (!opcao.value.trim()) {
+                            valid = false;
+                        }
+                    });
+                    if (opcoes.length < 2) {
+                        valid = false;
+                    }
+                }
+            });
+
+            if (!valid) {
+                alert('Por favor, preencha todas as perguntas e opções corretamente.');
+                return;
+            }
+
+            // Se tudo estiver válido, enviar o formulário
+            form.submit();
+        });
+    }
+});
