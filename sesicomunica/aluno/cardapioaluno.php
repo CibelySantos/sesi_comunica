@@ -13,6 +13,8 @@
         <title>Cardápio</title>
     </head>
     <body>
+        <h1 style="display: flex; align-items: center; justify-content: center; margin-top: 20px; font-family: Arial, sans-serif;">Cardápio Atual:</h1>
+        <img src="../img/cardapio.png" alt="Cardápio" style="display: block; margin: 30px auto 10px auto; width: 50%; max-width: 800px;">
         <?php include 'footeraluno.php'?>
     </body>
     <script src="../js/nav-aluno.js"></script>
