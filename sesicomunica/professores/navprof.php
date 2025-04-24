@@ -16,14 +16,16 @@
     
 </div>
 
-<div class="menu">
-    <div class="hamburger" onclick="openMenu()">☰ Menu</div>
-    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
-    <div class="menu-container" id="menu">
-        <a href="inicialprof.php">Página Inicial</a>
-        <a href="calendarioprof.php">Calendário</a>
-        <a href="formularioprof.php">Formulários</a>
-        <a href="agendamentoprof.php">Agendamentos</a>
-        <span class="close-btn" onclick="closeMenu()">✖</span>
+<div class="nav-wrapper">
+    <div class="menu">
+        <div class="hamburger" onclick="openMenu()">☰ Menu</div>
+        <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+        <div class="menu-container" id="menu">
+            <a href="inicialprof.php">Página Inicial</a>
+            <a href="calendarioprof.php">Calendário</a>
+            <a href="formularioprof.php">Formulários</a>
+            <a href="agendamentoprof.php">Agendamentos</a>
+            <span class="close-btn" onclick="closeMenu()">✖</span>
+        </div>
     </div>
 </div>
