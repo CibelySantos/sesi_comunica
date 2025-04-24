@@ -1,144 +1,60 @@
-* {
+/* Arquivo: inicialprof.css */
+
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
-nav {
-  height: 120px;
-  width: 65%;
-  display: flex;
-  align-items: center;
+.content {
+  text-align: center;
+  position: relative;
+  height: 100vh; /* Faz a página ocupar toda a altura da tela */
 }
 
-.logo-comunica {
-  height: 120px;
-}
-
-.icone-user {
-  height: 74px;
-}
-
-.perfil-user {
-  display: flex;
-  align-items: center;
-}
-
-.alinhamento-nav {
-  display: flex;
-  justify-content: space-between;
-  background-color: #d90c0c;
-}
-
-ul {
-  list-style-type: none;
-  display: flex;
+.banner {
+  position: relative;
+  height: 100%; /* A imagem vai ocupar toda a altura da tela */
   width: 100%;
-  justify-content: space-between;
 }
 
-ul a {
-  text-decoration: none;
-  color: white;
-  font-size: 24px;
-  font-weight: bolder;
-  font-family: "Gabarito";
-}
-
-/* Footer */
-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 10;
-  margin-top: 200px;
-  height: 110px;
-  background-color: #d90c0c;
-}
-
-.localizacao h5 {
-  font-family: "gabarito";
-  color: white;
-  font-weight: 800;
-}
-
-.localizacao p {
-  font-family: "gabarito";
-  color: white;
-  margin-top: 15px;
-  width: 290px;
-  font-size: 16px;
-  font-weight: lighter;
-}
-
-.direitos_reservados {
-  font-family: "gabarito";
-  color: white;
-  display: flex;
-  align-items: end;
-  font-size: 10px;
-  font-weight: lighter;
-}
-
-.tamanho-icones {
-  height: 20px;
-  width: 20px;
-}
-
-.redes_sociais {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-}
-
-/* Menu hamburguer nav */
-.menu-container {
-  position: fixed;
-  left: 90px;
-  margin-left: 30px;
-  display: flex;
-  transition: left 0.3s ease-in-out;
-}
-
-.menu {
-  display: flex;
-  align-items: center;
-  gap: 50px;
-  border-bottom: red solid 1px;
-}
-
-.menu-container a {
-  display: flex;
-  padding: 15px;
-  font-size: 24px;
-  justify-content: center;
-  align-items: center;
-  height: 20px;
-  font-family: "gabarito";
-  color: red;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-/* Botão de fechar */
-.close-btn {
+.main-image {
+  object-fit: cover; /* A imagem vai cobrir toda a área */
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 14px;
-  cursor: pointer;
-  right: -10;
-  color: red;
+  top: 0;
+  left: 0;
 }
 
-.close-btn:hover {
-  font-weight: bolder;
+.info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza o texto */
+  color: white; /* Cor do texto */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombras para melhorar a leitura */
+  z-index: 10; /* Garante que o texto fique acima da imagem */
 }
 
-/* Ícone do menu hambúrguer */
-.hamburger {
-  top: 15px;
-  left: 15px;
-  padding: 5px;
-  font-size: 24px;
-  font-family: "gabarito";
-  font-weight: bolder;
-  cursor: pointer;
-  color: red;
+.info h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.info p {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
 }

@@ -9,10 +9,11 @@
 </head>
 <body>
 <div class="container">
-        <div class="left"></div>
+        <div class="left">
+        <img src="../img/imgAlunosLogin.jpg" alt="">
+        </div>
         <div class="right">
             <div class="login-box">
-                <img src="../img/icon.png" alt="">
                 <h2>SESI COMUNICA</h2>
                 <form>
                     <label for="cpf">CPF</label>

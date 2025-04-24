@@ -117,7 +117,9 @@ footer {
   align-items: center;
   height: 20px;
   font-family: "gabarito";
-  color: red;
+  color: rgb(236, 4, 4);
+  background-color: #fff;
+
   text-decoration: none;
   transition: background 0.3s;
 }
@@ -131,6 +133,7 @@ footer {
     cursor: pointer;
     right: -10;
     color: red;
+  
 }
 
 .close-btn:hover {
@@ -147,5 +150,6 @@ footer {
   font-family: "gabarito";
   font-weight: bolder;
   cursor: pointer;
-  color: red;
+  color: rgb(242, 3, 3);
+  background-color: #fff;
 }
