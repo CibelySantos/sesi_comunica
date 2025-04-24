@@ -13,6 +13,7 @@
         <title>Cardápio</title>
     </head>
     <body>
+        <img src="../img/cardapio.png" alt="Cardápio" style="display: block; margin: 30px auto 10px auto; width: 60%; max-width: 800px;">
         <?php include 'footeraluno.php'?>
     </body>
     <script src="../js/nav-aluno.js"></script>
