@@ -520,3 +520,22 @@ button[type="submit"],
   color: #ff3333;
 }
 
+@media (min-width: 400px) and (max-width: 1000px) {
+  
+  .coluna-scroll{
+    width: 100%;
+  }
+
+  .card-criacao-formulario-content {
+    margin-bottom: 190px !important;
+  }
+
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .card-criacao-formulario{
+    width: 100%;
+    margin-top: 100px;
+  }
+}
