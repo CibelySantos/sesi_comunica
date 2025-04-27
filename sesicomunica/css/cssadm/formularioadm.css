@@ -373,7 +373,7 @@ body {
 }
 
 #espacamento {
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 .titulo-coluna {
@@ -394,6 +394,7 @@ body {
 .coluna-scroll {
   max-height: 60vh;
   overflow-y: auto;
+  margin-top: 45px;
   padding-right: 10px;
 }
 
@@ -518,3 +519,4 @@ button[type="submit"],
 .icon-link i.fa-trash-alt {
   color: #ff3333;
 }
+

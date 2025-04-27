@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+}
+.container {
+    display: flex;
+    height: 100%;
+    margin-top: 100px;
+}
+.calendar-container {
+    width: 60%;
+    padding: 20px;
+}
+.activities-container {
+    width: 40%;
+    padding: 20px;
+    border-left: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.activity-box {
+    background: #fff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 5px;
+}
+.label {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.fundamental1 {
+    background: #f9e88d;
+    color: #333;
+}
+.fundamental2 {
+    background: #f4b7b7;
+    color: #333;
+}
+.medio {
+    background: #8ad1f3;
+    color: #333;
+}
+.activity-text {
+    color: #555;
+    font-size: 16px;
+}
+.highlight {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+@media (min-width: 400px) and (max-width: 1000px) {
+    .container {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 100px;
+    }
+
+    .activities-container {
+        border-left: none;
+    }
+}
