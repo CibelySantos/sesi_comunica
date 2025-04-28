@@ -530,6 +530,11 @@ button[type="submit"],
     margin-bottom: 190px !important;
   }
 
+  .modal-content {
+    width: 100%;
+    max-width: 1000px;
+  }
+
   .flex-container {
     flex-direction: column;
   }

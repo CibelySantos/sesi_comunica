@@ -67,11 +67,12 @@ body {
 
 /* Footer */
 footer {
+  overflow-x: hidden !important;
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  position: fixed;
-  bottom: 0;
+  width: auto !important;
+  position: static; /* Footer estático no fluxo normal */
   left: 0;
   width: 100%;
   height: 130px !important;
@@ -182,5 +183,20 @@ footer {
       flex-direction: column;
       margin-bottom: 0px !important;
       align-items: start;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .container-adm {
+      flex-grow: 1;
+  }
+
+  footer {
+      position: static; /* Garante que o footer esteja no fluxo normal em telas menores */
   }
 }

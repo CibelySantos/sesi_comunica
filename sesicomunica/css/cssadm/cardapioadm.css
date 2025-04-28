@@ -1,0 +1,236 @@
+/* Estilos gerais */
+* {
+    margin: 0;
+    font-family: 'Gabarito';
+    padding: 0;
+}
+
+#text-princ-caradapio-adm {
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #d90c0c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px; /* Reduzi a margem superior padrão */
+}
+
+footer{
+    margin-top: 100px !important; /* Adicionei margem superior para o footer */
+}
+
+.container-adm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    margin: 20px auto; /* Reduzi as margens */
+    border-radius: 30px;
+    height: 55vh; /* Altura automática para responsividade */
+    flex-direction: column;
+    width: 90%; /* Largura mais responsiva */
+    max-width: 110vh; /* Mantém a largura máxima */
+    position: relative;
+    overflow: hidden;
+    padding: 20px; /* Adicionei padding interno */
+}
+
+.container-adm embed {
+    width: 100%;
+    height: auto; /* Altura automática para manter a proporção */
+    min-height: 400px; /* Altura mínima para o embed */
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#icone-pdf-adm {
+    height: 30px; /* Reduzi o tamanho do ícone */
+    width: 30px; /* Reduzi o tamanho do ícone */
+    margin-right: 10px;
+}
+
+#text-subirPdf {
+    font-size: 18px; /* Reduzi o tamanho do texto */
+    color: black;
+    font-weight: bold;
+}
+
+#btn-upload-pdf {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px; /* Reduzi o padding do botão */
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#img-cardapio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alinha-button-pdf {
+    position: relative; /* Alterei para relative para melhor fluxo em telas menores */
+    bottom: auto; /* Removi o posicionamento absoluto do bottom */
+    left: auto; /* Removi o posicionamento absoluto da esquerda */
+    transform: translateX(0); /* Removi a transformação */
+    margin-top: 20px; /* Adicionei margem superior */
+    text-align: center; /* Centralizei o botão */
+    padding-left: 0; /* Removi o padding esquerdo */
+}
+
+.sublinhado {
+    text-decoration: none !important;
+    display: inline-flex; /* Alterei para inline-flex */
+    align-items: center;
+    padding-left: 0; /* Removi o padding esquerdo */
+}
+
+/* modal.css */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 40px; /* Reduzi o padding superior */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Ajustei a margem vertical */
+    padding: 20px; /* Reduzi o padding interno */
+    border-radius: 12px;
+    width: 85%; /* Largura mais responsiva */
+    max-width: 400px; /* Aumentei a largura máxima para telas maiores dentro do intervalo */
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 5px; /* Ajustei a posição do botão fechar */
+    right: 10px; /* Ajustei a posição do botão fechar */
+    font-size: 24px; /* Reduzi o tamanho da fonte */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+#text-princp-pdf {
+    font-size: 22px; /* Reduzi o tamanho da fonte */
+    margin-bottom: 15px; /* Reduzi a margem inferior */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px; /* Reduzi o gap */
+    align-items: center;
+}
+
+.form-container input[type="date"],
+.form-container input[type="file"] {
+    width: 90%; /* Aumentei a largura dos inputs */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.btn-enviar {
+    background-color: #d90c0c !important;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    font-size: 16px; /* Ajustei o tamanho da fonte do botão */
+}
+
+.btn-enviar:hover {
+    background-color: #b80a0a !important; /* Cor ligeiramente mais escura ao hover */
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px; /* Reduzi a margem superior */
+}
+
+/* Media Query para telas entre 400px e 1000px */
+@media (min-width: 400px) and (max-width: 1000px) {
+    #text-princ-caradapio-adm {
+        font-size: 30px; /* Aumenta o título */
+        margin-top: 50px;
+    }
+
+    .container-adm {
+        width: auto; /* Ocupa mais largura */
+        height: auto; /* Altura automática */
+        padding: 30px;
+        margin-bottom: 100px;
+    }
+
+    .container-adm embed {
+        min-height: 500px; /* Altura mínima maior para tablets */
+    }
+
+    #icone-pdf-adm {
+        height: 40px;
+        width: 40px;
+        margin-right: 15px;
+    }
+
+    #text-subirPdf {
+        font-size: 22px;
+    }
+
+    .alinha-button-pdf {
+        margin-top: 30px;
+    }
+
+    .modal-content {
+        margin: 15% auto;
+        padding: 40px;
+        width: 70%;
+    }
+
+    #text-princp-pdf {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .form-container input[type="date"],
+    .form-container input[type="file"] {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .btn-enviar {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+}
