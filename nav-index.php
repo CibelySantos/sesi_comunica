@@ -17,7 +17,7 @@
         </div>
 
         <div class="menu">
-            <div class="hamburger" onclick="openMenu()">☰ Menu</div>
+            <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
             <div class="overlay" id="overlay" onclick="closeMenu()"></div>
             <div class="menu-container" id="menu">
                 <a href="index.php">Página Inicial</a>

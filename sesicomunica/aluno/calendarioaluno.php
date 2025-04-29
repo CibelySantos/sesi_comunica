@@ -52,7 +52,7 @@
   <?php include '../../footer-index.php'?>
 
   <!-- Scripts -->
-  <script src="../js/nav-prof.js"></script>
+  <script src="../js/nav-aluno.js"></script>
 
   <!-- FullCalendar JS -->
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>

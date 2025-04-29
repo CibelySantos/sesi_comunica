@@ -27,4 +27,5 @@
   </main>
   <?php include 'footerprof.php'; ?>
 </body>
+<script src="../js/nav-prof.js"></script>
 </html>
