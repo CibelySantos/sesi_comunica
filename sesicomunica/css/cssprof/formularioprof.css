@@ -1,4 +1,3 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,53 +5,12 @@
   font-family: 'Gabarito', sans-serif;
 }
 
-/* Navbar */
-.navbar {
-  background-color: #d50000;
-  color: white;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-links li a:hover {
-  color: #ffcdd2;
-}
-
-.menu-icon {
-  display: none;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-/* Container principal */
 .container {
   padding: 50px;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 100px; 
+  min-height: 100vh;
 }
 
 .container h1 {
@@ -64,7 +22,6 @@
   width: fit-content;
 }
 
-/* Cards dos comunicados */
 .comunicados-container {
   display: flex;
   flex-wrap: wrap;
@@ -99,55 +56,6 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Footer */
-.footer {
-  background-color: #d50000;
-  color: white;
-  padding: 30px 20px;
-  margin-top: 50px;
-}
-
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.footer-left, .footer-right {
-  flex: 1 1 300px;
-}
-
-.footer-left p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.social-icons {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.social-icons a {
-  font-size: 24px;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #ffcdd2;
-}
-
-.footer-right p {
-  font-size: 12px;
-  margin-top: 5px;
-  text-align: right;
-}
-
-/* Responsivo */
 @media (max-width: 900px) {
   .container {
     padding: 30px 20px;
@@ -155,10 +63,6 @@
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
   .menu-icon {
     display: block;
   }
@@ -174,14 +78,5 @@
 
   .comunicado {
     width: 90%;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-right p {
-    text-align: center;
   }
 }
