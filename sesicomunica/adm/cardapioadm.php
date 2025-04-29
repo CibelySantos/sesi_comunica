@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../css/cssadm/cardapioadm.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../img/icon.png">
+    <title>Cardápio - SESI Comunica</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
-    <title>Cardapio</title>
 </head>
 <body>
     <?php include_once 'nav.php' ?>

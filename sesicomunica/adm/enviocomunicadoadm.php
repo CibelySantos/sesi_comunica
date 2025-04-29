@@ -8,6 +8,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/cssadm/navadm.css">
+        <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/cssadm/enviocomunicadoadm.css">
         <link rel="shortcut icon" type="" href="../img/icon.png">
         <title>Página inicial</title>

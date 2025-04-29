@@ -99,7 +99,7 @@
     <link rel="shortcut icon" href="../img/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
-    <title>Criar Formulário</title>
+    <title>Criar Formulário - SESI Comunica</title>
 </head>
     <body>
 
