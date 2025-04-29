@@ -73,4 +73,48 @@ body {
     .activities-container {
         border-left: none;
     }
+
+    .fc-header-toolbar.fc-toolbar.fc-toolbar-ltr {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: 0.7em;
+        margin: 0;
+        text-align: center;
+    }
+
+    nav {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+    
+      ul {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      ul a {
+        font-size: 20px;
+        margin: 10px 0;
+      }
+    
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        padding: 20px 10px;
+      }
+    
+      .localizacao p {
+        width: auto;
+      }
+
+    
 }

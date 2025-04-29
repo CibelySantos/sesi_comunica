@@ -16,7 +16,7 @@
         <button class="hamburger" onclick="toggleMenu()">☰ Menu</button>
         <div class="menu-container" id="menu">
             <a href="inicialadm.php">Página Inicial</a>
-            <a href="editarnoticiasadm.php">Administrativo</a>
+            <a href="administrativo.php">Administrativo</a>
             <a href="calendarioadm.php">Calendário</a>
             <a href="cardapioadm.php">Cardápio</a>
             <a href="criar_formulario.php">Formulário</a>

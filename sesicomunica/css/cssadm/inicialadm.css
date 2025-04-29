@@ -14,15 +14,19 @@ body {
 .banner {
   position: relative;
   width: 100%;
-  height: 500px;
-  background-image: url("/sesi_comunica-main/sesi_comunica-main/sesicomunica/img/img-paginaInicial.jpg");
+  aspect-ratio: 16 / 5.9; /* Mais achatado */
+  background-image: url("../../img/fundo-tela-inicial.jpg") !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
+
+
+
 
 /* camada de fundo */
 .banner::after {
@@ -42,6 +46,10 @@ body {
   z-index: 2;
   text-align: center;
   padding: 30px 50px;
+}
+
+footer{
+  margin-top: 0px !important;
 }
 
 .infor-banner h1 {
@@ -80,7 +88,6 @@ body {
     align-items: center;
     text-align: center;
     height: auto;
-    margin-top: 100px;
     padding: 20px 10px;
   }
 
@@ -89,7 +96,8 @@ body {
   }
 
   .banner {
-    height: 300px;
+    height: 64vh !important;
+    margin-top: 0px !important;
   }
 
   .banner-content {
