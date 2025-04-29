@@ -9,14 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/cssaluno/cardapioaluno.css">
-<<<<<<< HEAD
-        <link rel="shortcut icon" type="" href="../img/icon.png">
-        <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
-        <title>Cardápio</title>
-=======
         <link rel="shortcut icon" href="../img/icon.png">
         <title>Cardápio - SESI Comunica</title>
->>>>>>> 345c5237bc122ecda5140cb82d525b6044b8b23f
     </head>
     <body>
         <h1 style="display: flex; align-items: center; justify-content: center; margin-top: 80px; font-family: 'Gabarito';">Cardápio Semanal:</h1>
