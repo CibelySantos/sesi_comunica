@@ -17,7 +17,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px; /* Adiciona um pouco de espaço nas laterais */
+  padding: 0 20px; 
+  background-color: #d90c0c;
 }
 
 .logo-link {
@@ -35,8 +36,8 @@ body {
 }
 
 .icone-user {
-  height: auto; /* Ajusta a altura automaticamente */
-  max-height: 74px; /* Altura máxima do ícone em telas maiores */
+  height: auto;
+  max-height: 74px; 
 }
 
 .hamburger {
@@ -76,6 +77,7 @@ footer {
   left: 0;
   width: 100%;
   height: 130px !important;
+  margin-top: 70px;
   background-color: #d90c0c;
 }
 
@@ -94,18 +96,21 @@ footer {
   font-weight: lighter;
 }
 
+
 .direitos_reservados {
   font-family: "gabarito";
   color: white;
   display: flex;
-  align-items: end;
-  font-size: 10px;
+  font-size: 17px;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
   font-weight: lighter;
 }
 
 .tamanho-icones {
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
 }
 
 .redes_sociais {
@@ -114,6 +119,32 @@ footer {
   align-items: end;
   margin-right: 20px;
 }
+
+.menu {
+  position: absolute;
+  width: 100%; /* Ajusta a largura ao conteúdo (hambúrguer) */
+  z-index: 10; /* Garante que fique acima de outros elementos */
+  padding: 10px 20px;
+  box-sizing: border-box;
+  gap: 0px !important;
+  margin-bottom: 100px;
+  display: flex !important;
+  border-bottom: none !important;
+}
+
+.menu-container a {
+display: flex;
+padding: 15px;
+font-size: 24px;
+justify-content: center;
+align-items: center;
+height: 20px;
+font-family: "gabarito";
+color: red;
+text-decoration: none;
+transition: background 0.3s;
+}
+
 
 
 
@@ -151,13 +182,14 @@ footer {
     background-color: transparent;
     margin-left: 0;
     margin-top: 10px;
+    color: #d90c0c;
 }
 
   .menu-container a {
       padding: 15px 20px;
       border-bottom: 1px solid #eee;
       width: 100%;
-      color: #333; /* Cor do texto dos links no menu hamburguer */
+      color: #d90c0c; /* Cor do texto dos links no menu hamburguer */
   }
 
   .menu-container a:last-child {
@@ -168,7 +200,7 @@ footer {
       display: flex;
       justify-content: start;
       width: 100% !important;
-      color: #333; 
+      color: #d90c0c; 
   }
 
   .alinhamento-nav {

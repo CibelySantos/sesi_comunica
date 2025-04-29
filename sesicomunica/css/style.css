@@ -3,19 +3,27 @@
   padding: 0;
 }
 
-nav {
-  height: 120px;
-  width: 65%;
+.nav-wrapper {
+  width: 100%; /* A navbar ocupa toda a largura */
+  position: relative; /* Para posicionar o menu absoluto dentro */
+  z-index: 20; /* Garante que a navbar fique acima do conteúdo */
+}
+
+.alinhamento-nav {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 20px; 
+  background-color: #d90c0c;
+}
+
+.logo-link {
+  display: block;
 }
 
 .logo-comunica {
-  height: 120px;
-}
-
-.icone-user {
-  height: 74px;
+  height: auto; /* Ajusta a altura automaticamente */
+  max-height: 120px; /* Altura máxima da logo em telas maiores */
 }
 
 .perfil-user {
@@ -23,34 +31,52 @@ nav {
   align-items: center;
 }
 
-.alinhamento-nav {
-  display: flex;
-  justify-content: space-between;
-  background-color: #d90c0c;
-}
-
-ul {
-  list-style-type: none;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-ul a {
-  text-decoration: none;
+.icone-lupa {
   color: white;
-  font-size: 24px;
-  font-weight: bolder;
-  font-family: "Gabarito";
+  height: auto; /* Ajusta a altura automaticamente */
+  max-height: 74px; /* Altura máxima do ícone em telas maiores */
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none; /* Oculto por padrão em telas maiores */
+}
+
+
+
+.close-btn{
+  display: none!important;
+}
+
+.menu-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 0; /* Remove margem superior padrão */
+}
+
+.menu-container a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 8px 10px;
 }
 
 /* Footer */
 footer {
+  overflow-x: hidden !important;
   display: flex;
   justify-content: space-between;
-  padding: 10;
-  margin-top: 70px;
+  padding: 10px;
+  width: auto !important;
+  position: static; /* Footer estático no fluxo normal */
+  left: 0;
+  width: 100%;
   height: 130px !important;
+  margin-top: 70px;
   background-color: #d90c0c;
 }
 
@@ -69,100 +95,67 @@ footer {
   font-weight: lighter;
 }
 
+
 .direitos_reservados {
   font-family: "gabarito";
   color: white;
   display: flex;
-  font-size: 10px;
+  font-size: 17px;
   flex-direction: column;
   align-items: center !important;
   justify-content: center !important;
   font-weight: lighter;
-  flex-direction: column;
-  justify-content: end;
 }
 
 .tamanho-icones {
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
 }
 
 .redes_sociais {
   display: flex;
   justify-content: space-between;
   align-items: end;
-}
-
-/* Menu hamburguer nav */
-.menu-container {
-  position: static !important;
-  display: flex;
-  transition: left 0.3s ease-in-out;
-  margin-left: 0px !important;
+  margin-right: 20px;
 }
 
 .menu {
-    position: absolute;
-    width: 100%; /* Ajusta a largura ao conteúdo (hambúrguer) */
-    z-index: 10; /* Garante que fique acima de outros elementos */
-    padding: 10px 20px;
-    box-sizing: border-box;
-    gap: 0px !important;
-    margin-bottom: 100px;
-    display: flex !important;
-    border-bottom: none !important;
+  position: absolute;
+  width: 100%; /* Ajusta a largura ao conteúdo (hambúrguer) */
+  z-index: 10; /* Garante que fique acima de outros elementos */
+  padding: 10px 20px;
+  box-sizing: border-box;
+  gap: 0px !important;
+  margin-bottom: 100px;
+  display: flex !important;
+  border-bottom: none !important;
 }
 
 .menu-container a {
-  display: flex;
-  padding: 15px;
-  font-size: 24px;
-  justify-content: center;
-  align-items: center;
-  height: 20px;
-  font-family: "gabarito";
-  color: red;
-  text-decoration: none;
-  transition: background 0.3s;
+display: flex;
+padding: 15px;
+font-size: 24px;
+justify-content: center;
+align-items: center;
+height: 20px;
+font-family: "gabarito";
+color: red;
+text-decoration: none;
+transition: background 0.3s;
 }
 
-/* Botão de fechar */
-.close-btn {
-    position: static !important;
-    display: flex;
-    align-items: center;
-    top: 14px;
-    cursor: pointer;
-    right: -10;
-    color: red;
-}
-
-.close-btn:hover {
-  font-weight: bolder;
-}
-
-/* Ícone do menu hambúrguer */
-.hamburger {
-  top: 15px;
-  width: 10%;
-  left: 15px;
-  padding: 5px;
-  font-size: 24px;
-  font-family: "gabarito";
-  font-weight: bolder;
-  cursor: pointer;
-  color: red;
 
 /* Configurar imagem de fundo com opacidade */
 .info {
   position: relative;
-  background: url('./sesicomunica/img/imgFundoSesi.png') no-repeat center center;
+  background: url('../img/fundo-tela-inicial.jpg') no-repeat center center;
   background-size: cover;
   padding: 50px 0; /* Espaçamento superior e inferior */
   height: 100vh; /* Tamanho total da viewport */
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 70px;
   color: white; /* Cor dos textos */
 }
 
@@ -187,9 +180,6 @@ footer {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Sombra no parágrafo */
 }
 
-body {
-  margin-top: 120px; /* Espaçamento para a navbar */
-}
 .botao-logar {
   margin-top: 10px;
   display: flex;
@@ -212,9 +202,81 @@ body {
   background-color: #f0f0f0;
 }
 
-@media (max-width: 768px) {
+@media (min-width:400px) and (max-width: 1000px) {
+
   .botao-logar button {
     padding: 8px 16px;
     font-size: 14px;
+  }
+
+  .menu-container {
+    display: none !important; /* Oculta o menu por padrão em telas pequenas */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Abaixo da navbar */
+    left: 0;
+    background-color: #f8f8f8; /* Cor de fundo do menu hamburguer */
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 15; /* Garante que o menu fique acima do conteúdo */
+    align-items: flex-start;
+  }
+
+  .menu-container.active {
+      display: flex !important; /* Exibe o menu quando a classe 'active' é adicionada */
+  }
+
+  .nav-wrapper {
+    height: 200px;
+    background-color: #f8f8f8;
+  }
+
+  .direitos_reservados{
+    display: none !important;
+  }
+
+  .close-btn {
+    display: block !important;
+    border: none;
+    background-color: transparent;
+    margin-left: 0;
+    margin-top: 10px;
+}
+
+  .menu-container a {
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+      width: 100%;
+      color: #333; /* Cor do texto dos links no menu hamburguer */
+  }
+
+  .menu-container a:last-child {
+      border-bottom: none;
+  }
+
+  .hamburger {
+      display: flex;
+      justify-content: start;
+      width: 100% !important;
+      color: #333; 
+  }
+
+  .alinhamento-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .menu{
+      display: flex;
+      width: 100% !important;
+      flex-direction: column;
+      margin-bottom: 0px !important;
+      align-items: start;
+  }
+  
+  footer {
+      position: static; /* Garante que o footer esteja no fluxo normal em telas menores */
   }
 }
