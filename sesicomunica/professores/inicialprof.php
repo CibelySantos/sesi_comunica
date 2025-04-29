@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/cssprof/inicialprof.css">
     <link rel="stylesheet" href="../css/cssprof/navprof.css">
     <link rel="shortcut icon" href="../img/icon.png">
-    <title>Página inicial</title>
+    <title>Página Inicials - SESI Comunica</title>
 </head>
 
 <body>

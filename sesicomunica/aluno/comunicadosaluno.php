@@ -9,8 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/cssaluno/comunicadosaluno.css">
-        <link rel="shortcut icon" type="" href="../img/icon.png">
-        <title>Comunicados</title>
+        <link rel="shortcut icon" href="../img/icon.png">
+        <title>Comunicados - SESI Comunica</title>
     </head>
     <body>
         <?php include 'footeraluno.php'?>

@@ -10,8 +10,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/cssprof/calendarioprof.css">
         <link rel="stylesheet" href="../css/cssprof/navprof.css">
-        <link rel="shortcut icon" type="" href="../img/icon.png">
-        <title>Página inicial</title>
+        <link rel="shortcut icon" href="../img/icon.png">
+        <title>Calendário - SESI Comunica</title>
     </head>
     <body>
         <?php include 'footerprof.php'?>

@@ -10,8 +10,8 @@
         <link rel="stylesheet" href="../css/cssadm/navadm.css">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/cssadm/administrativo.css">
-        <link rel="shortcut icon" type="" href="../img/icon.png">
-        <title>Página inicial</title>
+        <link rel="shortcut icon" href="../img/icon.png">
+        <title>Adiministrativo - SESI Comunica</title>
     </head>
     <body>
         <main class="container">

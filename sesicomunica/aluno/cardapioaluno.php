@@ -9,8 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/cssaluno/cardapioaluno.css">
-        <link rel="shortcut icon" type="" href="../img/icon.png">
-        <title>Cardápio</title>
+        <link rel="shortcut icon" href="../img/icon.png">
+        <title>Cardápio - SESI Comunica</title>
     </head>
     <body>
         <h1 style="display: flex; align-items: center; justify-content: center; margin-top: 80px; font-family: Arial, sans-serif;">Cardápio Atual:</h1>
