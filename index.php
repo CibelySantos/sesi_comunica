@@ -209,8 +209,8 @@
 
             <section class="info">
                 <div class="overlay">
-                    <h1>Bem-vindo, Aluno</h1>
-                    <p>Fiquem por dentro de todos os recados e cronogramas da nossa escola.</p>
+                    <h1>Bem-vindo(a)!</h1>
+                    <p>Fique por dentro de todos os recados e cronogramas da nossa escola.</p>
                 </div>
             </section>
 
