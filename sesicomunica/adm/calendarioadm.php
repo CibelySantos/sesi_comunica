@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Calendário de Atividades</title>
+    <link rel="shortcut icon" href="../img/icon.png">
+    <title>Calendário - SESI Comunica</title>
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/cssadm/navadm.css">
     <link rel="stylesheet" href="../css/cssadm/calendarioadm.css">

@@ -26,8 +26,9 @@
     <script>
         function login() {
             // Substitua 'outra_pagina.html' pelo URL da página para a qual você quer redirecionar
-            window.location.href = '../adm/inicialadm.php';
+            window.location.href = '../professores/inicialprof.php';
         }
     </script>
 </body>
 </html>
+

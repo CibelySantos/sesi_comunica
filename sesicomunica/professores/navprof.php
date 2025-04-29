@@ -25,6 +25,7 @@
             <a href="calendarioprof.php">Calendário</a>
             <a href="formularioprof.php">Formulários</a>
             <a href="agendamentoprof.php">Agendamentos</a>
+            <a href="comunicadosprof.php">Comunicados</a>
             <span class="close-btn" onclick="closeMenu()">✖</span>
         </div>
     </div>

@@ -7,60 +7,53 @@
     <link rel="stylesheet" href="../css/cssprof/inicialprof.css">
     <link rel="stylesheet" href="../css/cssprof/navprof.css">
     <link rel="shortcut icon" href="../img/icon.png">
-    <title>Página inicial</title>
+    <title>Página Inicial - SESI Comunica</title>
 </head>
 
 <body>
-    <!-- Navbar inclusa -->
-    <?php include 'navprof.php'; ?>
+  <!-- Navbar -->
+  <?php include 'navprof.php'; ?>
 
-    <div class="content">
-        <section class="banner">
-            <img src="../img/imgFundoSesi.png" alt="Imagem principal" class="main-image">
-        </section>
+  <div class="content">
+    <section class="banner">
+      <img src="../img/imgFundoSesi.png" alt="Imagem principal" class="main-image">
 
-        <section class="info">
-            <h1>Bem-vindo Professor</h1>
-            <p>Fique por dentro de todos os recados e cronogramas da nossa escola.</p>
-        </section>
+      <div class="info">
+        <h1>Bem-vindo Professor</h1>
+        <p>Fique por dentro de todos os recados e cronogramas da nossa escola.</p>
+      </div>
+    </section>
 
-        <!-- Imagem extra ao descer a página -->
-        <section class="imagem-extra" style="margin-top: 40px; text-align: center;">
-            <img src="../img/bannerCarrossel.png" alt="Banner adicional" style="max-width: 100%; height: auto;">
-        </section>
+    <section class="imagem-extra">
+      <img src="../img/bannerCarrossel.png" alt="Banner adicional">
+    </section>
 
-        <!-- Três cards fixos com imagens -->
-        <section class="cards" style="display: flex; justify-content: space-around; margin: 40px 0;">
-            <div class="card" style="width: 30%; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
-                <img src="../img/card1.jpg" alt="Card 1" style="width: 100%; height: auto;">
-                <div style="padding: 15px; text-align: center;">
-                    <h3>Card 1</h3>
-                    <p>Descrição do card 1.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 30%; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
-                <img src="../img/card2.jpg" alt="Card 2" style="width: 100%; height: auto;">
-                <div style="padding: 15px; text-align: center;">
-                    <h3>Card 2</h3>
-                    <p>Descrição do card 2.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 30%; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
-                <img src="../img/card3.jpg" alt="Card 3" style="width: 100%; height: auto;">
-                <div style="padding: 15px; text-align: center;">
-                    <h3>Card 3</h3>
-                    <p>Descrição do card 3.</p>
-                </div>
-            </div>
-        </section>
+    <section class="cards">
+      <div class="card" onclick="window.location.href='./agendamentoprof.php';">
+        <img src="../img/agendamento.png" alt="Card 1">
+        <div class="card-content">
+          <h3>Agendamentos</h3>
+        </div>
+      </div>
+      <div class="card" onclick="window.location.href='./formularioprof.php';">
+        <img src="../img/formulario.png" alt="Card 2">
+        <div class="card-content">
+          <h3>Formularios</h3>
+        </div>
+      </div>
+      <div class="card" onclick="window.location.href='./calendarioprof.php';">
+        <img src="../img/calendario.png" alt="Card 3">
+        <div class="card-content">
+          <h3>Calendário</h3>
+        </div>
+      </div>
+    </section>
+  </div>
 
+  <!-- Footer -->
+  <?php include 'footerprof.php'; ?>
 
-    </div>
-
-    <!-- Rodapé -->
-    <?php include 'footerprof.php'; ?>
-
-    <script src="../js/nav-prof.js"></script>
+  <script src="../js/nav-prof.js"></script>
 </body>
 
 </html>
