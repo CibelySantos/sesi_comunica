@@ -95,6 +95,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/cssadm/navadm.css">
     <link rel="stylesheet" href="../css/cssadm/formularioadm.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../img/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
@@ -188,7 +189,6 @@
                                 <option value="">Selecione</option>
                                 <option value="alunos">Alunos</option>
                                 <option value="professores">Professores</option>
-                                <option value="ambos">Ambos</option>
                                 </select>
                             </div>
 
@@ -228,7 +228,6 @@
                                         <option value="">Selecione</option>
                                         <option value="alunos">Alunos</option>
                                         <option value="professores">Professores</option>
-                                        <option value="ambos">Ambos</option>
                                     </select>
                                 </div>
                                 <div class="row mb-3">

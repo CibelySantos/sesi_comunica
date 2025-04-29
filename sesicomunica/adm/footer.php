@@ -11,7 +11,10 @@
     </div>
 
     <div class="direitos_reservados">
-        <p>Copyright 2025 © Todos os direitos reservados. - J91</p> 
+        <p>Copyright 2025 © Todos os direitos reservados. - J91</p>
+        <div class="botao-logar">
+            <a href="login3-visual.php">Sair</a>
+        </div>
     </div>
 
     <div class="redes_sociais">

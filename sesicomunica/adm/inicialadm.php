@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/cssadm/navadm.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/cssadm/inicialadm.css">
   <link rel="shortcut icon" href="../img/icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;900&display=swap" rel="stylesheet">

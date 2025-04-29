@@ -40,14 +40,13 @@
 
                     <label>Upload comunicados:</label>
                     <div class="upload-box">
-                        <img class="icon-uploadBox" src="../img/img-iconArquivo.png" alt="">
+                        <span>⬆️</span>
                     </div>
 
                     <label for="destinatario">Destinatário:</label>
                     <select id="destinatario" name="destinatario">
-                        <option value="aluno">Aluno</option>
-                        <option value="professor">Professor</option>
-                        <option value="Ambos">Ambos</option>
+                        <option value="aluno">aluno</option>
+                        <option value="professor">professor</option>
                     </select>
 
                     <button type="submit" class="publicar-btn">Publicar comunicado</button>

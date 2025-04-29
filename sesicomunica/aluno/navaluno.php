@@ -10,7 +10,7 @@
     </div>
 
     <div class="perfil-user">
-        <img class="icone-lupa" src="../img/lupa.png" alt="">
+        <img class="icone-user" src="../img/icone-usuario.png" alt="">
     </div>
 
     

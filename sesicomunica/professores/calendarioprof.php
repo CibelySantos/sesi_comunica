@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/cssadm/navadm.css">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/cssprof/navprof.css">
   <link rel="stylesheet" href="../css/cssprof/calendarioprof.css">
   <link rel="shortcut icon" href="../img/icon.png">
   
@@ -39,7 +39,7 @@
       <div class="activity-box">
         <div class="label medio">Ensino Médio</div>
         <div class="activity-text">
-          <span class="highlight">27/01 - Volta às aulas</span>
+          <span class="highlight">27 / 01 - Volta às aulas</span>
         </div>
       </div>
     </div>

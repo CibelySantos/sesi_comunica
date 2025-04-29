@@ -5,82 +5,76 @@ body {
     background: white;
 }
 
-.container {
+.calendario-flexbox {
     display: flex;
+    padding: 50px 70px;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
-    height: auto;
-    margin-top: 100px;
-    padding: 20px;
-    gap: 20px;
-  }
-  
-  .calendar-container {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.lado-esquerdo {
     flex: 2;
-    min-width: 300px;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .calendar-container .fc {
+    min-width: 400px;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
+
+.calendario-img {
     width: 100%;
-    max-width: 800px;
-    height: 100%;
-  }
-  
-  .activities-container {
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+    object-fit: contain;
+}
+
+.lado-direito {
     flex: 1;
-    min-width: 280px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-  }
-  
-  .activity-box {
+    gap: 35px; /* Espaço maior entre blocos */
+}
+
+.caixa-evento {
     background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .label {
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    padding: 25px 20px;
+    border-left: 5px solid transparent;
+    border-radius: 4px;
+}
+
+.rotulo {
     display: inline-block;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    margin-bottom: 10px;
+    padding: 6px 12px;
     font-weight: bold;
-  }
-  
-  .fundamental1 {
-    background-color: #f9e88d;
-    color: #555;
-  }
-  
-  .fundamental2 {
-    background-color: #f4b7b7;
-    color: #555;
-  }
-  
-  .medio {
-    background-color: #8ad1f3;
-    color: #555;
-  }
-  
-  .activity-text {
-    color: #444;
+    font-size: 13px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.descricao {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.destaque {
+    font-weight: bold;
     font-size: 16px;
-  }
-  
-  .highlight {
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 10px;
-  }
-  
+}
+
+.fundamental1 .rotulo {
+    background-color: #f7e28d;
+    color: #333;
+}
+
+.fundamental2 .rotulo {
+    background-color: #f3a3a0;
+    color: #333;
+}
+
+.medio .rotulo {
+    background-color: #a7d9f7;
+    color: #333;
+}

@@ -10,7 +10,7 @@
     </div>
 
     <div class="perfil-user">
-        <a href="../adm/inicialadm.php"><img class="icone-user" src="../img/sair.png" alt="" ></a>
+        <a href="../adm/inicialadm.php"><img class="icone-user" src="../img/icone-usuario.png" alt="" ></a>
     </div>
 
     
@@ -18,7 +18,7 @@
 
 <div class="nav-wrapper">
     <div class="menu">
-        <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
+        <div class="hamburger" onclick="openMenu()">☰ Menu</div>
         <div class="overlay" id="overlay" onclick="closeMenu()"></div>
         <div class="menu-container" id="menu">
             <a href="inicialprof.php">Página Inicial</a>

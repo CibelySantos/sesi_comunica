@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$db = "sesicomunica_db";
+$db = "sesicomunica_db (1)";
 
 $conn = new mysqli($host, $user, $password, $db);
 
