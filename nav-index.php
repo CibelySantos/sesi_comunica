@@ -9,11 +9,15 @@
         <div>
             <img class="logo-comunica" src="sesicomunica/img/PROJETOGG.png" alt="">
         </div>
+
+        <div>
+            <img class="icone-lupa" src="sesicomunica/img/lupa.png" alt="">
+        </div>
         
         </div>
 
         <div class="menu">
-            <div class="hamburger" onclick="openMenu()">☰ Menu</div>
+            <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
             <div class="overlay" id="overlay" onclick="closeMenu()"></div>
             <div class="menu-container" id="menu">
                 <a href="index.php">Página Inicial</a>

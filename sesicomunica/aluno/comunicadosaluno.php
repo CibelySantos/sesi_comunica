@@ -28,7 +28,7 @@
     </main>
 
   
-    
+    <?php include '../../footer-index.php'?>
     <script src="../js/nav-aluno.js"></script>
 </body>
 </html>

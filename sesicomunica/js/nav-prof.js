@@ -7,3 +7,9 @@ function closeMenu() {
     document.getElementById("menu").style.left = "-690px"; // Fecha o menu
     document.getElementById("overlay").style.display = "none"; // Esconde o overlay
 }
+
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("active");
+  }
+  
