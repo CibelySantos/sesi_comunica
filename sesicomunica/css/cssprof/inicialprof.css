@@ -1,41 +1,42 @@
-/* Arquivo: inicialprof.css */
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
-  text-align: center;
-  position: relative;
-  height: 100vh; /* Faz a página ocupar toda a altura da tela */
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
 }
 
+/* === Banner === */
 .banner {
   position: relative;
-  height: 100%; /* A imagem vai ocupar toda a altura da tela */
   width: 100%;
+  height: 70vh;
+  overflow: hidden;
 }
 
 .main-image {
-  object-fit: cover; /* A imagem vai cobrir toda a área */
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  object-fit: cover;
 }
 
 .info {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centraliza o texto */
-  color: white; /* Cor do texto */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombras para melhorar a leitura */
-  z-index: 10; /* Garante que o texto fique acima da imagem */
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  z-index: 10;
 }
 
 .info h1 {
@@ -50,11 +51,107 @@ body {
   line-height: 1.6;
 }
 
-footer {
-  background-color: #333;
-  color: white;
+/* === Imagem extra === */
+.imagem-extra {
+  margin-top: 40px;
   text-align: center;
-  padding: 20px;
-  margin-top: auto;
-  margin-bottom: auto;
+}
+
+.imagem-extra img {
+  max-width: 90%;
+  height: auto;
+}
+
+/* === Cards === */
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 40px 0;
+  padding: 0 20px;
+}
+
+.card {
+  width: 30%;
+  min-width: 250px;
+  max-width: 350px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #be1f1f;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-content h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.card-content p {
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* === Responsividade === */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 80%;
+  }
+
+  .info h1 {
+    font-size: 2.5rem;
+  }
+
+  .info p {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 50vh;
+  }
+
+  .info h1 {
+    font-size: 2rem;
+  }
+
+  .info p {
+    font-size: 1rem;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .imagem-extra img {
+    max-width: 95%;
+  }
 }

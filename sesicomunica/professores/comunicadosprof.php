@@ -4,23 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulários - SESI Comunica</title>
   <link rel="stylesheet" href="../css/cssprof/navprof.css">
+  <link rel="stylesheet" href="../css/cssprof/comunicadosprof.css">
   <link rel="shortcut icon" href="../img/icon.png">
-  <link rel="stylesheet" href="../css/cssprof/formularioprof.css">
+  <title>Comunicados - SESI Comunica</title>
+
 </head>
+
 <body>
   <main class="container">
-    <h1>Formulários</h1>
+    <h1>Comunicados</h1>
     <div class="comunicados-container">
       <div class="comunicado">
-        <p>Formulário de satisfação</p>
+        <p>Comunicado 029 - Conselho de classe</p>
       </div>
       <div class="comunicado">
-        <p>Autorização</p>
+        <p>Comunicado 030 - Formação acadêmica</p>
       </div>
       <div class="comunicado">
-        <p>Súde e bem-estar</p>
+        <p>Comunicado 031 - Momento cívico</p>
       </div>
     </div>
   </main>
