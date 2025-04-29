@@ -10,10 +10,11 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/cssaluno/cardapioaluno.css">
         <link rel="shortcut icon" type="" href="../img/icon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
         <title>Cardápio</title>
     </head>
     <body>
-        <h1 style="display: flex; align-items: center; justify-content: center; margin-top: 80px; font-family: Arial, sans-serif;">Cardápio Atual:</h1>
+        <h1 style="display: flex; align-items: center; justify-content: center; margin-top: 80px; font-family: 'Gabarito';">Cardápio Semanal:</h1>
         <img src="../img/cardapio.png" alt="Cardápio" style="display: block; margin: 30px auto 10px auto; width: 50%; max-width: 800px; box-shadow: 10px 10px 20px rgba(1, 1, 1, 0.5); border-radius: 10px;">
         <?php include 'footeraluno.php'?>
     </body>

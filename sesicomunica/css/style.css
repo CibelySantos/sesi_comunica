@@ -149,3 +149,40 @@ footer {
   cursor: pointer;
   color: red;
 }
+/* Configurar imagem de fundo com opacidade */
+.info {
+  position: relative;
+  background: url('./sesicomunica/img/imgFundoSesi.png') no-repeat center center;
+  background-size: cover;
+  padding: 50px 0; /* Espaçamento superior e inferior */
+  height: 100vh; /* Tamanho total da viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Cor dos textos */
+}
+
+.info .overlay {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5); /* Escurece o fundo */
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.info h1 {
+  font-size: 48px;
+  font-family: 'Gabarito', sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Efeito de sombra */
+  margin-bottom: 20px;
+}
+
+.info p {
+  font-size: 20px;
+  font-family: 'Gabarito', sans-serif;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Sombra no parágrafo */
+}
+
+body {
+  margin-top: 120px; /* Espaçamento para a navbar */
+}
