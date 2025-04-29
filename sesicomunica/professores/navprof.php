@@ -10,7 +10,7 @@
     </div>
 
     <div class="perfil-user">
-        <a href="../adm/inicialadm.php"><img class="icone-user" src="../img/icone-usuario.png" alt="" ></a>
+        <a href="../adm/inicialadm.php"><img class="icone-user" src="../img/sair.png" alt="" ></a>
     </div>
 
     

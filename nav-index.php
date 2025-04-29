@@ -9,6 +9,10 @@
         <div>
             <img class="logo-comunica" src="sesicomunica/img/PROJETOGG.png" alt="">
         </div>
+
+        <div>
+            <img class="icone-lupa" src="sesicomunica/img/lupa.png" alt="">
+        </div>
         
         </div>
 
