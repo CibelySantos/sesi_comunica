@@ -10,6 +10,58 @@
         <link rel="stylesheet" href="sesicomunica/css/style.css">
         <link rel="shortcut icon" type="" href="sesicomunica/img/icon.png">
         <style>
+
+            @media screen and (max-width: 768px) {
+                nav {
+                    flex-direction: column;
+                    height: auto;
+                    text-align: center;
+                }
+
+                .logo-comunica {
+                    height: 60px;
+                }
+
+                .icone-user {
+                    height: 40px;
+                }
+
+                ul {
+                    flex-direction: column;
+                }
+
+                ul a {
+                    font-size: 16px;
+                    padding: 10px;
+                }
+
+                footer {
+                    flex-direction: column;
+                }
+
+                .info h1 {
+                    font-size: 28px;
+                }
+
+                .info p {
+                    font-size: 16px;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                .info h1 {
+                    font-size: 24px;
+                }
+
+                .info p {
+                    font-size: 14px;
+                }
+
+                .imagem-extra img {
+                    border-radius: 10px;
+                }
+            }
+
             /* Estilos Globais */
             * {
                 margin: 0;
