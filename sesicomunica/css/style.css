@@ -73,8 +73,10 @@ footer {
   font-family: "gabarito";
   color: white;
   display: flex;
-  align-items: center;
   font-size: 10px;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
   font-weight: lighter;
   flex-direction: column;
   justify-content: end;
@@ -150,8 +152,7 @@ footer {
   font-weight: bolder;
   cursor: pointer;
   color: red;
-}
-<<<<<<< HEAD
+
 /* Configurar imagem de fundo com opacidade */
 .info {
   position: relative;
@@ -188,8 +189,7 @@ footer {
 
 body {
   margin-top: 120px; /* Espaçamento para a navbar */
-=======
-
+}
 .botao-logar {
   margin-top: 10px;
   display: flex;
@@ -217,5 +217,4 @@ body {
     padding: 8px 16px;
     font-size: 14px;
   }
->>>>>>> 345c5237bc122ecda5140cb82d525b6044b8b23f
 }
