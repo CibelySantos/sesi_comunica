@@ -9,22 +9,21 @@
   <link rel="stylesheet" href="../css/cssprof/comunicadosprof.css">
   <link rel="shortcut icon" href="../img/icon.png">
   <title>Comunicados - SESI Comunica</title>
-
 </head>
 
 <body>
   <main class="container">
     <h1>Comunicados</h1>
     <div class="comunicados-container">
-      <div class="comunicado">
-        <p>Comunicado 029 - Conselho de classe</p>
-      </div>
-      <div class="comunicado">
-        <p>Comunicado 030 - Formação acadêmica</p>
-      </div>
-      <div class="comunicado">
-        <p>Comunicado 031 - Momento cívico</p>
-      </div>
+      <button class="comunicado" onclick="location.href='#'">
+        Comunicado 029 - Conselho de classe
+      </button>
+      <button class="comunicado" onclick="location.href='#'">
+        Comunicado 030 - Formação acadêmica
+      </button>
+      <button class="comunicado" onclick="location.href='#'">
+        Comunicado 031 - Momento cívico
+      </button>
     </div>
   </main>
   <?php include 'footerprof.php'; ?>

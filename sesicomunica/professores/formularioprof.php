@@ -14,16 +14,11 @@
   <main class="container">
     <h1>Formulários</h1>
     <div class="comunicados-container">
-      <div class="comunicado">
-        <p>Formulário de satisfação</p>
-      </div>
-      <div class="comunicado">
-        <p>Autorização</p>
-      </div>
-      <div class="comunicado">
-        <p>Súde e bem-estar</p>
-      </div>
+      <button class="comunicado" onclick="location.href='#'">Formulário de satisfação</button>
+      <button class="comunicado" onclick="location.href='#'">Autorização</button>
+      <button class="comunicado" onclick="location.href='#'">Saúde e bem-estar</button>
     </div>
+
   </main>
   <?php include 'footerprof.php'; ?>
 </body>
