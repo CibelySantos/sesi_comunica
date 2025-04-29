@@ -9,11 +9,12 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .main {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 10%;
     padding: 0 1rem;
     flex: 1;
 }
@@ -25,7 +26,7 @@ h1 {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 cards por linha */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 2rem;
     padding: 0 2rem;
     max-width: 1200px;
@@ -88,16 +89,15 @@ h1 {
     margin-top: 2rem;
 }
 
-/* Responsividade */
 @media (max-width: 992px) {
     .cards {
-        grid-template-columns: repeat(2, 1fr); /* 2 cards por linha */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
 @media (max-width: 600px) {
     .cards {
-        grid-template-columns: 1fr; /* 1 card por linha */
+        grid-template-columns: 1fr; 
     }
 
     h1 {

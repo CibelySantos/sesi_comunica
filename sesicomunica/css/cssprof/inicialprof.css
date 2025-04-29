@@ -14,7 +14,6 @@ body {
   flex-direction: column;
 }
 
-/* === Banner === */
 .banner {
   position: relative;
   width: 100%;
@@ -51,7 +50,6 @@ body {
   line-height: 1.6;
 }
 
-/* === Imagem extra === */
 .imagem-extra {
   margin-top: 40px;
   text-align: center;
@@ -62,7 +60,6 @@ body {
   height: auto;
 }
 
-/* === Cards === */
 .cards {
   display: flex;
   justify-content: space-around;
@@ -113,7 +110,6 @@ body {
   line-height: 1.4;
 }
 
-/* === Responsividade === */
 @media (max-width: 768px) {
   .cards {
     flex-direction: column;
