@@ -7,7 +7,6 @@
 body {
   font-family: 'Poppins', sans-serif;
   background: #f9f9f9;
-  min-height: 100vh;
 }
 
 .container {
@@ -85,8 +84,11 @@ body {
 
 .highlight {
   font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
+/* Responsividade Master */
 @media (max-width: 1000px) {
   .container {
       flex-direction: column;
@@ -116,6 +118,7 @@ body {
   }
 }
 
+/* FullCalendar Estilo */
 .fc-toolbar-title {
   font-size: 28px;
   font-weight: bold;
