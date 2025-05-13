@@ -40,13 +40,13 @@
 
                     <label>Upload comunicados:</label>
                     <div class="upload-box">
-                        <span>⬆️</span>
+                            <img id= "icone-arquivo-adm" src="../img/img-iconArquivo-adm.png" alt="Ícone de Arquivo Administrativo">
                     </div>
 
                     <label for="destinatario">Destinatário:</label>
                     <select id="destinatario" name="destinatario">
-                        <option value="aluno">aluno</option>
-                        <option value="professor">professor</option>
+                        <option value="aluno">Aluno</option>
+                        <option value="professor">Professor</option>
                     </select>
 
                     <button type="submit" class="publicar-btn">Publicar comunicado</button>

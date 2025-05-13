@@ -120,6 +120,10 @@
     cursor: pointer;
     margin-bottom: 10px;
   }
+
+  #icone-arquivo-adm{
+    width: 25px !important;
+  }
   
   .publicar-btn {
     background-color: red;
