@@ -6,6 +6,7 @@
   font-family: 'Arial', sans-serif;
 }
 
+
 /* Navbar */
 .navbar {
   background-color: #d50000;
@@ -48,8 +49,10 @@
   cursor: pointer;
 }
 
+
+
 /* Container principal */
-.container {
+.container2 {
   padding: 50px;
   max-width: 1200px;
   margin: 0 auto;
@@ -58,10 +61,10 @@
 .container h1 {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 30px;
   border-bottom: 3px solid #d50000;
-  padding-bottom: 10px;
   width: fit-content;
+  margin-top: 30px;
+  display: flex;
 }
 
 /* Cards dos comunicados */
@@ -185,3 +188,5 @@
     text-align: center;
   }
 }
+
+
