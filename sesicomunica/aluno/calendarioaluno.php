@@ -42,7 +42,7 @@
       <div class="activity-box">
         <div class="label medio">Ensino Médio</div>
         <div class="activity-text">
-          <span class="highlight">27 / 01 - Volta às aulas</span>
+          <span class="highlight">27/01 - Volta às aulas</span>
         </div>
       </div>
     </div>
