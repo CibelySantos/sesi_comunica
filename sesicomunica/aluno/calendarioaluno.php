@@ -1,6 +1,3 @@
-<?php 
-    include 'navaluno.php'; 
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Estilos -->
-  <link rel="stylesheet" href="../css/cssprof/navprof.css">
-  <link rel="stylesheet" href="../css/cssprof/calendarioprof.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/calendario.css">
   <link rel="shortcut icon" href="../img/icon.png">
   
   <!-- FullCalendar CSS -->
@@ -21,7 +18,7 @@
 
 <body>
   <!-- Navbar -->
- 
+  <?php include 'navaluno.php'; ?>
 
   <div class="container">
     <div class="calendar-container">
@@ -42,7 +39,7 @@
       <div class="activity-box">
         <div class="label medio">Ensino Médio</div>
         <div class="activity-text">
-          <span class="highlight">27/01 - Volta às aulas</span>
+          <span class="highlight">27 / 01 - Volta às aulas</span>
         </div>
       </div>
     </div>

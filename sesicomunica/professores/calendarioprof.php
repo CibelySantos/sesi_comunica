@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Estilos -->
-  <link rel="stylesheet" href="../css/cssprof/navprof.css">
-  <link rel="stylesheet" href="../css/cssprof/calendarioprof.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/calendario.css">
   <link rel="shortcut icon" href="../img/icon.png">
   
   <!-- FullCalendar CSS -->

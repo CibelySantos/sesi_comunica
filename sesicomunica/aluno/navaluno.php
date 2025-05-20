@@ -23,6 +23,7 @@
             <a href="../../index.php">Página Inicial</a>
             <a href="cardapioaluno.php">Cardápio</a>
             <a href="calendarioaluno.php">Calendário</a>
+            <a href="comunicadosaluno.php">Comunicados</a>
             <a href="formularioaluno.php">Formulários</a>
             <span class="close-btn" onclick="closeMenu()">✖</span>
         </div>
