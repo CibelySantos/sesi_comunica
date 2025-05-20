@@ -13,14 +13,13 @@
     </div>
 
     <div class="menu">
-        <button class="hamburger" onclick="toggleMenu()">☰ Menu</button>
         <div class="menu-container" id="menu">
             <a href="inicialadm.php">Página Inicial</a>
             <a href="administrativo.php">Administrativo</a>
             <a href="calendarioadm.php">Calendário</a>
             <a href="cardapioadm.php">Cardápio</a>
             <a href="criar_formulario.php">Formulário</a>
-            <button class="close-btn" onclick="toggleMenu()">✖</button>
+            <a href="cadastrar.php">Cadastro</a>
         </div>
     </div>
 </div>
