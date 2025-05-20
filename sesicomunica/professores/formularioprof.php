@@ -18,10 +18,10 @@
 
 #barra-pesquisa {
   width: 80%;
-  max-width: 600px; /* barra maior */
+  max-width: 600px;
   padding: 15px;
   font-size: 18px;
-  border: 2px solid #d50000; /* borda vermelha */
+  border: 2px solid #d50000; 
   border-radius: 8px;
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);

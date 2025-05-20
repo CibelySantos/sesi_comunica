@@ -50,7 +50,9 @@
 }
 
 
-
+.container{
+  margin: 5%;
+}
 /* Container principal */
 .container2 {
   padding: 50px;
@@ -73,6 +75,7 @@
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 40px;
+  margin: 10%;
   justify-content: center;
 }
 
