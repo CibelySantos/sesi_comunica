@@ -1,6 +1,6 @@
 <?php 
 include 'nav.php'; 
-include '../adm/conexaoComunicado.php';
+include '../../conexao.php';
 
 // Enviar comunicado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -46,7 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="comunicados">
             <?php
-            include '../adm/conexaoComunicado.php';
 
             $result = $conn->query("SELECT id, nome FROM comunicados ORDER BY data_comunicado DESC");
 

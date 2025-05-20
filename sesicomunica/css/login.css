@@ -1,6 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0; 
+    padding: 0; 
     box-sizing: border-box;
 }
 
@@ -18,7 +18,7 @@ body {
     display: flex;
     background: rgb(248, 240, 240);
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     overflow: hidden;
     max-width: 800px;
     width: 100%;
@@ -36,7 +36,6 @@ body {
     max-width: 100%;
     height: auto;
 }
-
 
 .login-form {
     width: 50%;
@@ -71,6 +70,7 @@ body {
     margin-bottom: 15px;
     border: 1px solid #888585;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 .login-form button {
@@ -87,6 +87,12 @@ body {
 
 .login-form button:hover {
     background: #b50808;
+}
+
+.error {
+    color: #cc0000;
+    margin-bottom: 15px;
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -116,4 +122,3 @@ body {
         width: 100%;
     }
 }
-
