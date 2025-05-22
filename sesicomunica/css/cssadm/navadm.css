@@ -36,7 +36,7 @@ body {
 
 .icone-user {
   height: auto; /* Ajusta a altura automaticamente */
-  max-height: 74px; /* Altura máxima do ícone em telas maiores */
+  max-height: 34px; /* Altura máxima do ícone em telas maiores */
 }
 
 .hamburger {

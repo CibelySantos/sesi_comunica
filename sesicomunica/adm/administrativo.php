@@ -1,6 +1,16 @@
-<?php 
-include 'nav.php'; 
+<?php
+session_start();
+include 'nav.php';
 include '../../conexao.php';
+
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+if (!isset($_SESSION['id_users'])) {
+    header('Location: ../../index.php');
+    exit();
+}
 
 // Enviar comunicado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,9 +26,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->send_long_data(2, $conteudo_pdf);
 
         if ($stmt->execute()) {
-            echo "<script>alert('Comunicado enviado com sucesso!'); window.location.href = window.location.href;</script>";
-            exit();
-        } else {
+            echo "
+                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sucesso!',
+                        text: 'Comunicado enviado com sucesso!'
+                    });
+                    document.querySelector('form').reset();
+                    document.getElementById('nome-arquivo').textContent = '';
+                    document.getElementById('modal').style.display = 'none';
+                </script>";
+        }
+        else {
             echo "<p class='error'>Erro ao enviar comunicado: " . $stmt->error . "</p>";
         }
 
@@ -31,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="shortcut icon" href="../img/icon.png">
     <title>Administrativo - SESI Comunica</title>
 </head>
+
 <body>
     <main class="container">
         <h1>Comunicados enviados</h1>
@@ -117,43 +140,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include 'footer.php'; ?>
 
     <script src="../js/nav-adm.js"></script>
-    <script>
-        const modal = document.getElementById("modal");
 
-        document.querySelector(".enviar-box").addEventListener("click", () => {
-            modal.style.display = "flex";
-        });
+    <script src="../js/comunicados.js"></script>
 
-        window.addEventListener("click", function (e) {
-            if (e.target === modal) {
-                fecharModal();
-            }
-        });
-
-        document.getElementById('arquivo_pdf').addEventListener('change', function () {
-            const nomeArquivo = this.files[0]?.name || 'Nenhum arquivo selecionado';
-            document.getElementById('nome-arquivo').textContent = nomeArquivo;
-        });
-
-        function abrirComunicado(id) {
-    fetch('get_comunicado.php?id=' + id)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('modal-nome-comunicado').innerText = data.nome;
-            document.getElementById('pdf-frame').src = 'data:application/pdf;base64,' + data.pdf;
-            document.getElementById('comunicado-modal').style.display = 'flex';
-        })
-        .catch(error => {
-            alert('Erro ao carregar comunicado.');
-            console.error(error);
-        });
-}
-
-function fecharModal() {
-    document.getElementById('comunicado-modal').style.display = 'none';
-    document.getElementById('modal').style.display = 'none';
-}
-
-    </script>
 </body>
+
 </html>

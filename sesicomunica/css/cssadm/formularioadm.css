@@ -129,6 +129,13 @@ body {
   justify-content: center;
 }
 
+.modal.show .modal-dialog {
+  transform: none;
+  justify-content: center;
+  display: flex
+;
+}
+
 .modal-dialog.modal-lg {
   width: 90%;
   max-width: 1000px;

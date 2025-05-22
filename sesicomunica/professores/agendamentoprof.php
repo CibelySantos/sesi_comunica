@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Agendamento - SESI Comunica</title>
     <link rel="stylesheet" href="../css/cssprof/agendamentoprof.css">
-    <link rel="stylesheet" href="../css/cssprof/navprof.css">
+    <link rel="stylesheet" href="../css/nav.css">
     <link rel="shortcut icon" href="../img/icon.png">
 </head>
 <body>
