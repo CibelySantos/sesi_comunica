@@ -133,7 +133,7 @@ body {
 /* Estilo para eventos no calendário */
 a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-event-end.fc-event-past {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     color: white !important;
     padding: 5px;
@@ -171,6 +171,18 @@ a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-
 #eventForm .close-btn:hover {
     color: #000;
 }
+
+  .fc-event-dot {
+    display: none !important;
+  }
+
+  /* Estilo para o evento com fundo colorido */
+  .fc-daygrid-event {
+    color: white !important;
+    border: none !important;
+    border-radius: 4px;
+    padding: 2px 4px;
+  }
 
 
 /* Responsividade */
