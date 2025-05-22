@@ -46,13 +46,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="comunicados">
             <?php
-
             $result = $conn->query("SELECT id, nome FROM comunicados ORDER BY data_comunicado DESC");
 
             if ($result->num_rows > 0) {
                 $numero = 1;
                 while ($row = $result->fetch_assoc()) {
-                    echo "<div class='comunicado'>Comunicado " . str_pad($numero++, 3, "0", STR_PAD_LEFT) . " -<br>" . htmlspecialchars($row['nome']) . "</div>";
+                    $id = $row['id'];
+                    $nome = htmlspecialchars($row['nome']);
+                    $numeroFormatado = str_pad($numero++, 3, "0", STR_PAD_LEFT);
+
+                    echo "
+                        <a href='#' onclick='abrirComunicado($id)'>
+                            <div class='comunicado'>
+                                Comunicado $numeroFormatado -<br>$nome
+                            </div>
+                        </a>
+                    ";
+
+
                 }
             } else {
                 echo "<p>Nenhum comunicado encontrado.</p>";
@@ -60,6 +71,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $conn->close();
             ?>
+        </div>
+
+        <div class="modal-comunicados">
+            <div id="comunicado-modal" class="modal-overlay" style="display:none;">
+                <div class="modal-content">
+                    <button class="close-btn" onclick="fecharModal()">x</button> 
+                    <h2 id="modal-nome-comunicado"></h2>
+                    <iframe id="pdf-frame" style="width:101%; height:300px;" frameborder="0"></iframe>
+                </div>
+            </div>
         </div>
 
         <h2>Enviar comunicado</h2>
@@ -71,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="modal-content">
                 <button class="close-btn" onclick="fecharModal()">x</button>
                 <form method="POST" enctype="multipart/form-data">
-                    <label for="nome">Nome do comunicado :</label>
+                    <label for="nome">Nome do comunicado:</label>
                     <input type="text" id="nome" name="nome" required>
 
                     <label for="arquivo_pdf">Upload comunicado (PDF):</label>
@@ -103,10 +124,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             modal.style.display = "flex";
         });
 
-        function fecharModal() {
-            modal.style.display = "none";
-        }
-
         window.addEventListener("click", function (e) {
             if (e.target === modal) {
                 fecharModal();
@@ -117,6 +134,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             const nomeArquivo = this.files[0]?.name || 'Nenhum arquivo selecionado';
             document.getElementById('nome-arquivo').textContent = nomeArquivo;
         });
+
+        function abrirComunicado(id) {
+    fetch('get_comunicado.php?id=' + id)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('modal-nome-comunicado').innerText = data.nome;
+            document.getElementById('pdf-frame').src = 'data:application/pdf;base64,' + data.pdf;
+            document.getElementById('comunicado-modal').style.display = 'flex';
+        })
+        .catch(error => {
+            alert('Erro ao carregar comunicado.');
+            console.error(error);
+        });
+}
+
+function fecharModal() {
+    document.getElementById('comunicado-modal').style.display = 'none';
+    document.getElementById('modal').style.display = 'none';
+}
+
     </script>
 </body>
 </html>
