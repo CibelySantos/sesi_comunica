@@ -74,7 +74,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($result->num_rows > 0) {
                 $numero = 1;
                 while ($row = $result->fetch_assoc()) {
-                    echo "<div class='comunicado'>Comunicado " . str_pad($numero++, 3, "0", STR_PAD_LEFT) . " -<br>" . htmlspecialchars($row['nome']) . "</div>";
+                    $id = $row['id'];
+                    $nome = htmlspecialchars($row['nome']);
+                    $numeroFormatado = str_pad($numero++, 3, "0", STR_PAD_LEFT);
+
+                    echo "
+                        <a href='#' onclick='abrirComunicado($id)'>
+                            <div class='comunicado'>
+                                Comunicado $numeroFormatado -<br>$nome
+                            </div>
+                        </a>
+                    ";
+
+
                 }
             } else {
                 echo "<p>Nenhum comunicado encontrado.</p>";
@@ -82,6 +94,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $conn->close();
             ?>
+        </div>
+
+        <div class="modal-comunicados">
+            <div id="comunicado-modal" class="modal-overlay" style="display:none;">
+                <div class="modal-content">
+                    <button class="close-btn" onclick="fecharModal()">x</button> 
+                    <h2 id="modal-nome-comunicado"></h2>
+                    <iframe id="pdf-frame" style="width:101%; height:300px;" frameborder="0"></iframe>
+                </div>
+            </div>
         </div>
 
         <h2>Enviar comunicado</h2>
@@ -118,7 +140,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include 'footer.php'; ?>
 
     <script src="../js/nav-adm.js"></script>
+
     <script src="../js/comunicados.js"></script>
+
 </body>
 
 </html>
