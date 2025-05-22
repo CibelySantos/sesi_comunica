@@ -1,14 +1,13 @@
-<?php include 'navprof.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulários - SESI Comunica</title>
   <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/comunicados.css">
   <link rel="shortcut icon" href="../img/icon.png">
-  <link rel="stylesheet" href="../css/formulario.css">
-  
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Comunicados - SESI Comunica</title>
   <style>
     .pesquisa-container {
   margin-bottom: 30px;
@@ -18,10 +17,10 @@
 
 #barra-pesquisa {
   width: 80%;
-  max-width: 600px;
+  max-width: 600px; /* barra maior */
   padding: 15px;
   font-size: 18px;
-  border: 2px solid #d50000; 
+  border: 2px solid #d50000; /* borda vermelha */
   border-radius: 8px;
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -35,12 +34,15 @@
 
 </style>
 </head>
+
 <body>
+<?php include ('navprof.php'); ?>
   <main class="container">
     <h1>Formulários</h1>
 
+    <!-- Barra de pesquisa -->
     <div class="pesquisa-container">
-      <input type="text" id="barra-pesquisa" placeholder="Pesquisar comunicados...">
+      <input type="text" id="barra-pesquisa" placeholder="Pesquisar formulários...">
     </div>
 
     <div class="comunicados-container">
@@ -55,6 +57,24 @@
       </div>
     </div>
   </main>
+
   <?php include 'footerprof.php'; ?>
+
+  <script>
+  function removerAcentos(texto) {
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+
+  document.getElementById('barra-pesquisa').addEventListener('input', function () {
+    const filtro = removerAcentos(this.value);
+    const comunicados = document.querySelectorAll('.comunicado');
+
+    comunicados.forEach(function (comunicado) {
+      const texto = removerAcentos(comunicado.textContent);
+      comunicado.style.display = texto.includes(filtro) ? '' : 'none';
+    });
+  });
+</script>
+
 </body>
 </html>
