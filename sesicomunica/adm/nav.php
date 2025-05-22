@@ -8,7 +8,7 @@
             <img class="logo-comunica" src="../img/PROJETOGG.png" alt="Logo">
         </a>
         <div class="perfil-user">
-            <img class="icone-user" src="../img/icone-usuario.png" alt="Perfil">
+            <a href="../../logout.php"><img class="icone-user" src="../img/sair.png" alt="Perfil"></a>
         </div>
     </div>
 

@@ -56,23 +56,42 @@ body {
     font-size: 16px;
 }
 .highlight {
-
     font-weight: bold;
-    font-size: 16px; /* Tamanho ajustado para uma boa visualização */
+    font-size: 16px;
     margin-top: 10px;
 }
 
-/* Melhorando o design do modal */
+/* NOVO: Overlay escuro ao fundo */
+#modalOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9998;
+}
+
+/* Atualizado: Modal flutuando no centro */
 #eventForm {
     display: none;
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: white;
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    z-index: 100;
+    z-index: 9999;
     width: 300px;
+    max-width: 90%;
+}
+
+#eventForm h2 {
+    margin-top: 0;
 }
 
 #eventForm label {
@@ -83,13 +102,16 @@ body {
 }
 
 #eventForm input[type="text"],
-#eventForm select {
+#eventForm input[type="date"],
+#eventForm select,
+#eventForm textarea {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    font-family: Arial, sans-serif;
 }
 
 #eventForm button {
@@ -108,6 +130,7 @@ body {
     background-color: #1976d2;
 }
 
+/* Estilo para eventos no calendário */
 a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-event-end.fc-event-past {
     display: flex;
     justify-content: space-between;
@@ -120,17 +143,37 @@ a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-
 
 a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-event-end.fc-event-past .fc-event-title {
     display: block;
-    font-size: 12px;  /* Tamanho do título ajustado para caber bem no calendário */
+    font-size: 12px;
     font-weight: bold;
 }
 
 a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-event-end.fc-event-past .fc-event-description {
     display: block;
-    font-size: 10px;  /* Tamanho da descrição ajustado */
+    font-size: 10px;
     color: #fff;
     font-weight: normal;
 }
 
+/* Botão "X" para fechar o modal */
+#eventForm .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 10000;
+}
+
+#eventForm .close-btn:hover {
+    color: #000;
+}
+
+
+/* Responsividade */
 @media (min-width: 400px) and (max-width: 1000px) {
     .container {
         display: flex;

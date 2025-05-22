@@ -12,7 +12,11 @@
 
     <div class="direitos_reservados">
         <p>Copyright 2025 © Todos os direitos reservados. - J91</p>
+        <div class="botao-logar">
+            <a href="login.php">Logar</a>
+        </div>
     </div>
+    
 
     <div class="redes_sociais">
         <a  href="https://www.facebook.com/senaisp.taubate/"><img class="tamanho-icones" src="../img/icone-facebook.png" alt="Facebook"></a>

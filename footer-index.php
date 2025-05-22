@@ -13,7 +13,7 @@
     <div class="direitos_reservados">
         <p>Copyright 2025 © Todos os direitos reservados. - J91</p>
         <div class="botao-logar">
-            <a href="sesicomunica/professores/login2.php">Logar</a>
+            <a href="login.php">Logar</a>
         </div>
     </div>
 

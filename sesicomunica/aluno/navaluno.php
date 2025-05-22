@@ -17,7 +17,6 @@
     </div>
 
     <div class="menu">
-        <div class="hamburger" onclick="openMenu()">☰ Menu</div>
         <div class="overlay" id="overlay" onclick="closeMenu()"></div>
         <div class="menu-container" id="menu">
             <a href="../../index.php">Página Inicial</a>
@@ -25,6 +24,5 @@
             <a href="calendarioaluno.php">Calendário</a>
             <a href="comunicadosaluno.php">Comunicados</a>
             <a href="formularioaluno.php">Formulários</a>
-            <span class="close-btn" onclick="closeMenu()">✖</span>
         </div>
 </div>

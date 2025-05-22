@@ -2,6 +2,17 @@
     include_once 'nav.php';
     include_once '../../conexao.php';
 
+    session_start();
+
+    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+    header("Pragma: no-cache"); // HTTP 1.0
+    header("Expires: 0"); // Proxies
+
+    if (!isset($_SESSION['id_users'])) {
+        header('Location: ../../index.php');
+        exit();
+    }
+
     if ($conn->connect_error) {
         die("Erro de conexão: " . $conn->connect_error);
     }
@@ -74,11 +85,30 @@
                 }
 
                 $conn->commit();
-                echo "<script>alert('Formulário criado com sucesso!'); window.location.href = '../adm/criar_formulario.php';</script>";
+                echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+                echo "<script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Formulário criado com sucesso!',
+                        confirmButtonText: 'Ok'
+                    }).then(() => {
+                        window.location.href = '../adm/criar_formulario.php';
+                    });
+                </script>";
+
                 exit;
             } catch (Exception $e) {
                 $conn->rollback();
-                echo "<script>alert('Erro ao criar formulário: " . $e->getMessage() . "');</script>";
+               echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+                echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro ao criar formulário',
+                        text: '" . addslashes($e->getMessage()) . "',
+                        confirmButtonText: 'Ok'
+                    });
+                </script>";
+
             }
         }
     }
