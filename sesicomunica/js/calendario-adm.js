@@ -1,31 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
     const calendarEl = document.getElementById("calendar");
+
     const calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: "dayGridMonth",
         locale: "pt-br",
-        selectable: true,
-        dateClick: function (info) {
-            document.getElementById("eventDate").value = info.dateStr;
-            openForm();
+        headerToolbar: {
+            left: "prev,next today",
+            center: "title",
+            right: "dayGridMonth,timeGridWeek",
         },
-        events: "carregaEventos.php",
-        eventClick: function (info) {
-            const evento = info.event;
-            alert(
-                "Título: " +
-                    evento.title +
-                    "\n" +
-                    "Descrição: " +
-                    (evento.extendedProps.description || "Sem descrição") +
-                    "\n" +
-                    "Categoria: " +
-                    (evento.extendedProps.category || "Não informada") +
-                    "\n" +
-                    "Data: " +
-                    evento.start.toLocaleDateString("pt-BR"),
-            );
+        events: {
+            url: "carregaEventos.php", // ajustado para seu caminho
+            failure: function () {
+                alert("Erro ao carregar eventos!");
+            },
         },
+        eventDisplay: "block", // Faz o evento usar cor de fundo
+        eventDidMount: function (info) {
+            // Remove o bullet (bolinha)
+            info.el.style.border = "none";
+        },
+        eventColor: "", // evita cor padrão do FullCalendar
+        eventTextColor: "#fff", // texto branco para contraste
     });
+
     calendar.render();
 
     fetch("carregaEventos.php")

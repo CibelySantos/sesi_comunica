@@ -154,6 +154,7 @@
                         echo "<div class='card-header'>";
                         echo "<h3>" . htmlspecialchars($row['nome']) . "</h3>";
                         echo "<div class='card-icons'>";
+                        echo "<a href='exportar_formularios.php' class='icon-link' title='Exportar CSV'><i class='fas fa-file-csv'></i></a>";
                         echo "<a href='#' onclick='abrirModalEditar(" . $row['id'] . ")' class='icon-link'><i class='fas fa-edit'></i></a>";
                         echo "<a href='#' onclick='confirmarExclusao(" . $row['id'] . ")' class='icon-link'><i class='fas fa-trash-alt'></i></a>";
                         echo "</div>";

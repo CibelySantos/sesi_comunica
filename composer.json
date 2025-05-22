@@ -1,0 +1,18 @@
+{
+    "name": "phpoffice/spreadsheet",
+    "description": "excel",
+    "autoload": {
+        "psr-4": {
+            "Phpoffice\\Spreadsheet\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "JacquysBarbosadaSilva",
+            "email": "jacquys0801@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.2"
+    }
+}
