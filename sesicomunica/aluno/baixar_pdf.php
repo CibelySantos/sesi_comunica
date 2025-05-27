@@ -1,22 +1,20 @@
 <?php
 include '../../conexao.php';
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if (isset($_FILES['pdf']) && $_FILES['pdf']['error'] == 0) {
+    $arquivo = $_FILES['pdf']['tmp_name'];
+    $conteudo = addslashes(file_get_contents($arquivo));
 
-    $sql = "SELECT arquivo_pdf, data_pdf FROM pdf WHERE id = $id";
-    $res = mysqli_query($conn, $sql);
+    $data = date('Y-m-d'); // 👈 PEGA A DATA ATUAL
 
-    if (mysqli_num_rows($res) > 0) {
-        $row = mysqli_fetch_assoc($res);
+    $sql = "INSERT INTO pdf (arquivo_pdf, data_pdf) VALUES ('$conteudo', '$data')";
 
-        header("Content-Type: application/pdf");
-        header("Content-Disposition: attachment; filename=cardapio_" . date('d-m-Y', strtotime($row['data_pdf'])) . ".pdf");
-        echo $row['arquivo_pdf'];
+    if (mysqli_query($conn, $sql)) {
+        echo "<script>alert('PDF enviado com sucesso!'); window.location.href='pagina_de_upload.php';</script>";
     } else {
-        echo "Arquivo não encontrado.";
+        echo "Erro ao enviar: " . mysqli_error($conn);
     }
 } else {
-    echo "ID não informado.";
+    echo "Nenhum arquivo enviado ou erro no upload.";
 }
 ?>
