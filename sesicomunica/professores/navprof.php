@@ -17,7 +17,7 @@
             <a href="inicialprof.php">Página Inicial</a>
             <a href="agendamentoprof.php">Agendamentos</a>
             <a href="calendarioprof.php">Calendário</a>
-            <a href="comunicadosprof.php">Comunicaods</a>
+            <a href="comunicadosprof.php">Comunicados</a>
             <a href="formularioprof.php">Formulário</a>
         </div>
     </div>
