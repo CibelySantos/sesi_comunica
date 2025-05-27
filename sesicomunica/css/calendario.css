@@ -1,34 +1,38 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BASE */
 body {
   font-family: 'Poppins', sans-serif;
   background: #f9f9f9;
 }
 
+/* LAYOUT PRINCIPAL */
 .container {
   display: flex;
   flex-wrap: wrap;
-  height: auto;
-  margin-top: 100px;
-  padding: 20px;
   gap: 20px;
+  padding: 20px;
+  margin-top: 100px;
+  height: auto;
 }
 
+/* CALENDÁRIO */
 .calendar-container {
-  background: #ffffff;
+  background: #fff;
   padding: 20px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   flex: 2;
   min-width: 300px;
-  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .calendar-container .fc {
@@ -37,6 +41,7 @@ body {
   height: 100%;
 }
 
+/* ATIVIDADES */
 .activities-container {
   flex: 1;
   min-width: 280px;
@@ -83,42 +88,12 @@ body {
 }
 
 .highlight {
-  font-weight: bold;
+  font-weight: normal;
   font-size: 20px;
   margin-top: 10px;
 }
 
-/* Responsividade Master */
-@media (max-width: 1000px) {
-  .container {
-      flex-direction: column;
-      align-items: center;
-  }
-}
-
-@media (max-width: 600px) {
-  .calendar-container {
-      padding: 15px;
-  }
-
-  .calendar-container .fc {
-      max-width: 100%;
-  }
-
-  .activities-container {
-      padding: 10px;
-  }
-
-  .activity-box {
-      padding: 15px;
-  }
-
-  .highlight {
-      font-size: 18px;
-  }
-}
-
-/* FullCalendar Estilo */
+/* FULLCALENDAR CUSTOMIZAÇÕES */
 .fc-toolbar-title {
   font-size: 28px;
   font-weight: bold;
@@ -148,6 +123,15 @@ body {
   background: #b0bec5;
 }
 
+.fc-header-toolbar {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
 .fc-col-header-cell-cushion {
   padding: 10px 0;
   font-weight: bold;
@@ -164,37 +148,82 @@ body {
   background: #e3f2fd;
 }
 
-.fc-event {
-  background: #2196f3;
-  border: none;
-  border-radius: 6px;
-  font-size: 13px;
-  padding: 4px 8px;
-  color: #fff;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.fc-event:hover {
-  background: #1976d2;
-}
-
-.fc-daygrid-day-frame {
-  padding: 10px;
-}
-
 .fc-day-today {
   background: #e3f2fd !important;
   border: 1px solid #2196f3;
   border-radius: 8px;
 }
 
-.fc-header-toolbar {
-  margin-bottom: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
+.fc-daygrid-day-frame {
+  padding: 10px;
 }
 
+/* EVENTOS PERSONALIZADOS */
+.fc-event {
+  background-color: transparent !important;
+  border: none;
+  color: #000 !important;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 4px;
+}
+
+.fc-event:hover {
+  background-color: #f0f0f0;
+}
+
+.fc-daygrid-dot-event {
+  background: transparent !important;
+  padding: 2px;
+}
+
+.fc-event .fc-daygrid-event-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* CORES DAS BOLINHAS POR CATEGORIA */
+.fundamental1 .fc-daygrid-event-dot {
+  background-color: #2196f3;
+}
+
+.fundamental2 .fc-daygrid-event-dot {
+  background-color: #ff9800;
+}
+
+.medio .fc-daygrid-event-dot {
+  background-color: #4caf50;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .calendar-container {
+    padding: 15px;
+  }
+
+  .calendar-container .fc {
+    max-width: 100%;
+  }
+
+  .activities-container {
+    padding: 10px;
+  }
+
+  .activity-box {
+    padding: 15px;
+  }
+
+  .highlight {
+    font-size: 18px;
+  }
+}
