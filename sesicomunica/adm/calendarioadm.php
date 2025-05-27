@@ -28,7 +28,7 @@ if (!isset($_SESSION['id_users'])) {
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body data-tipo-usuario="<?= $_SESSION['tipo_usuario'] ?? 'commum' ?>">
   <?php include('nav.php'); ?>
 
   <div class="container">

@@ -1,5 +1,11 @@
 <?php
-include('../../conexao.php'); // ajuste para o caminho correto do seu banco
+include('../../conexao.php'); 
+
+if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_tipo'] !== 'adm') {
+    http_response_code(403);
+    echo json_encode(['erro' => 'Acesso negado']);
+    exit;
+}
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);

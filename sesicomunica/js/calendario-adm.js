@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const calendarEl = document.getElementById("calendar");
 
@@ -17,6 +19,16 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
         eventClick: function (info) {
+            const event = info.event;
+
+            let html = `<strong>${event.title}</strong><br>${event.start.toLocaleString()}<br>${
+                event.extendedProps.descricao || ""
+            }`;
+
+            if (tipoUsuario === "adm") {
+                html += `<br><button onclick="excluirEvento(${event.id})">Excluir</button>`;
+            }
+
             info.jsEvent.preventDefault(); // evita comportamento padrão
 
             // Pega os dados do evento
@@ -64,50 +76,52 @@ document.addEventListener("DOMContentLoaded", function () {
         eventDisplay: "block", // Faz o evento usar cor de fundo
         eventDidMount: function (info) {
             // Remove borda
+            const tipoUsuario = document.body.dataset.tipoUsuario || 'comum';
+            console.log(tipoUsuario); // Verifica o tipo de usuário
             info.el.style.border = "none";
 
-            // Remove conteúdo indesejado (como os "00" que aparecem)
-            if (info.el.querySelector(".fc-event-time")) {
-                info.el.querySelector(".fc-event-time").remove();
+            // Remove horário, se existir
+            const timeEl = info.el.querySelector(".fc-event-time");
+            if (timeEl) {
+                timeEl.remove();
             }
 
-            // Criar botão "X" para excluir
-            const deleteBtn = document.createElement("span");
-            deleteBtn.innerHTML = "✖"; // ou "x"
-            deleteBtn.style.float = "left"; // POSICIONA NO CANTO ESQUERDO
-            deleteBtn.style.marginRight = "5px";
-            deleteBtn.style.color = "#fff";
-            deleteBtn.style.cursor = "pointer";
-            deleteBtn.style.fontWeight = "bold";
-            deleteBtn.style.fontSize = "14px";
-            deleteBtn.title = "Excluir evento";
+            if (tipoUsuario === "administrador") {
+                const deleteBtn = document.createElement("span");
+                deleteBtn.innerHTML = "✖";
+                deleteBtn.style.float = "left";
+                deleteBtn.style.marginRight = "5px";
+                deleteBtn.style.color = "#fff";
+                deleteBtn.style.cursor = "pointer";
+                deleteBtn.style.fontWeight = "bold";
+                deleteBtn.style.fontSize = "14px";
+                deleteBtn.title = "Excluir evento";
 
-            // Evento de clique no "X"
-            deleteBtn.addEventListener("click", function (e) {
-                e.stopPropagation(); // Impede abrir detalhes do evento
-                if (confirm("Deseja excluir este evento?")) {
-                    fetch(`excluir_evento.php?id=${info.event.id}`, {
-                        method: "GET",
-                    })
-                        .then((response) => response.text())
-                        .then((data) => {
-                            if (data.trim() === "ok") {
-                                info.event.remove(); // Remove da visualização
-                            } else {
-                                alert("Erro ao excluir evento: " + data);
-                            }
+                deleteBtn.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    if (confirm("Deseja excluir este evento?")) {
+                        fetch(`excluir_evento.php?id=${info.event.id}`, {
+                            method: "GET",
                         })
-                        .catch((error) => {
-                            console.error("Erro:", error);
-                            alert("Erro ao excluir evento.");
-                        });
-                }
-            });
+                            .then((response) => response.text())
+                            .then((data) => {
+                                if (data.trim() === "ok") {
+                                    info.event.remove();
+                                } else {
+                                    alert("Erro ao excluir evento: " + data);
+                                }
+                            })
+                            .catch((error) => {
+                                console.error("Erro:", error);
+                                alert("Erro ao excluir evento.");
+                            });
+                    }
+                });
 
-            // Adiciona o botão antes do título
-            const titleEl = info.el.querySelector(".fc-event-title");
-            if (titleEl) {
-                titleEl.prepend(deleteBtn);
+                const titleEl = info.el.querySelector(".fc-event-title");
+                if (titleEl) {
+                    titleEl.prepend(deleteBtn);
+                }
             }
         },
 
@@ -180,17 +194,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function openForm() {
-
     document.getElementById("eventForm").style.display = "block";
-        document.getElementById('overlay').style.display = 'block';
+    document.getElementById("overlay").style.display = "block";
 }
 
 function closeForm() {
     document.getElementById("eventForm").style.display = "none";
-    document.getElementById('overlay').style.display = 'none';
+    document.getElementById("overlay").style.display = "none";
 }
-
-
 
 function addEvent() {
     const title = document.getElementById("eventTitle").value;
