@@ -23,6 +23,7 @@ while ($row = $result->fetch_assoc()) {
   }
 
   $eventos[] = array(
+  'id' => $row['id'],  
   "title" => $row['titulo'],
   "start" => $row['data_inicio'],
   "description" => $row['descricao'],

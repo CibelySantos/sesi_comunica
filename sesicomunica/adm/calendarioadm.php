@@ -7,8 +7,8 @@ header("Pragma: no-cache"); // HTTP 1.0
 header("Expires: 0"); // Proxies
 
 if (!isset($_SESSION['id_users'])) {
-    header('Location: ../../index.php');
-    exit();
+  header('Location: ../../index.php');
+  exit();
 }
 
 
@@ -40,21 +40,21 @@ if (!isset($_SESSION['id_users'])) {
       <div class="activity-box" style="border: 2px solid #2196f3;">
         <div class="label fundamental1">Ensino Fundamental I</div>
         <div class="activity-text">
-          
+
         </div>
       </div>
 
       <div class="activity-box">
         <div class="label fundamental2">Ensino Fundamental II</div>
         <div class="activity-text">
-          
+
         </div>
       </div>
 
       <div class="activity-box">
         <div class="label medio">Ensino Médio</div>
         <div class="activity-text">
-          
+
         </div>
       </div>
     </div>
@@ -63,36 +63,39 @@ if (!isset($_SESSION['id_users'])) {
   <?php include('footer.php'); ?>
 
   <!-- Formulário flutuante -->
-  <form onsubmit="addEvent(event)">
-    <div id="eventForm" class="event-form" style="display: none;">
-      <h2>Criar Evento</h2>
+  <div id="overlay">
+    <form onsubmit="addEvent(event)">
+      <div id="eventForm" class="event-form" style="display: none;">
+        <h2>Criar Evento</h2>
+        <div class="form-scrollable">
+          <label for="eventTitle">Título do Evento:<br>
+            <input type="text" id="eventTitle" name="titulo" maxlength="30" required />
+          </label><br><br>
 
-      <label for="eventTitle">Título do Evento:<br>
-        <input type="text" id="eventTitle" name="titulo" maxlength="30" required />
-      </label><br><br>
+          <label for="eventDescription">Descrição:<br>
+            <textarea id="eventDescription" name="descricao" required></textarea>
+          </label><br><br>
 
-      <label for="eventDescription">Descrição:<br>
-        <textarea id="eventDescription" name="descricao" required></textarea>
-      </label><br><br>
+          <label for="eventCategory">Categoria:<br>
+            <select id="eventCategory" name="categoria" required>
+              <option value="fundamental1">Ensino Fundamental I</option>
+              <option value="fundamental2">Ensino Fundamental II</option>
+              <option value="medio">Ensino Médio</option>
+            </select>
+          </label><br><br>
 
-      <label for="eventCategory">Categoria:<br>
-        <select id="eventCategory" name="categoria" required>
-          <option value="fundamental1">Ensino Fundamental I</option>
-          <option value="fundamental2">Ensino Fundamental II</option>
-          <option value="medio">Ensino Médio</option>
-        </select>
-      </label><br><br>
+          <label for="eventDate">Data:<br>
+            <input type="date" id="eventDate" name="data" required />
+          </label><br><br>
 
-      <label for="eventDate">Data:<br>
-        <input type="date" id="eventDate" name="data" required />
-      </label><br><br>
+        </div>
+        <button type="submit">Adicionar Evento</button>
+        <button type="button" onclick="closeForm()">Cancelar</button>
+    </form>
+  </div>
+  </div>
 
-      <button type="submit">Adicionar Evento</button>
-      <button type="button" onclick="closeForm()">Cancelar</button>
-    </div>
-  </form>
-
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
   <script src="../js/calendario-adm.js"></script>
 </body>

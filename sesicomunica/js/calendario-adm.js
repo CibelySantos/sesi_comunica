@@ -15,13 +15,118 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("Erro ao carregar eventos!");
             },
         },
+
+        eventClick: function (info) {
+            info.jsEvent.preventDefault(); // evita comportamento padrão
+
+            // Pega os dados do evento
+            const title = info.event.title;
+            const description = info.event.extendedProps.description || "Sem descrição";
+            const category = info.event.extendedProps.category || "Categoria não informada";
+            const date = info.event.start; // objeto Date
+
+            // Formata a data para dd/mm/yyyy
+            const dataFormatada = date.toLocaleDateString("pt-BR", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+            });
+
+            // Mapeia categoria para nome amigável (opcional)
+            const categoriasMap = {
+                fundamental1: "Ensino Fundamental I",
+                fundamental2: "Ensino Fundamental II",
+                medio: "Ensino Médio",
+            };
+
+            const categoriaNome = categoriasMap[category] || category;
+
+            // Monta o conteúdo HTML para mostrar no SweetAlert
+            const htmlContent = `
+        <p><strong>Título:</strong> ${title}</p>
+        <p><strong>Descrição:</strong> ${description}</p>
+        <p><strong>Categoria:</strong> ${categoriaNome}</p>
+        <p><strong>Data:</strong> ${dataFormatada}</p>
+    `;
+
+            // Exibe SweetAlert com as informações
+            Swal.fire({
+                title: "Detalhes do Evento",
+                html: htmlContent,
+                icon: "info",
+                confirmButtonText: "Fechar",
+                customClass: {
+                    popup: "swal2-custom-popup", // opcional para customização CSS
+                },
+            });
+        },
+
         eventDisplay: "block", // Faz o evento usar cor de fundo
         eventDidMount: function (info) {
-            // Remove o bullet (bolinha)
+            // Remove borda
             info.el.style.border = "none";
+
+            // Remove conteúdo indesejado (como os "00" que aparecem)
+            if (info.el.querySelector(".fc-event-time")) {
+                info.el.querySelector(".fc-event-time").remove();
+            }
+
+            // Criar botão "X" para excluir
+            const deleteBtn = document.createElement("span");
+            deleteBtn.innerHTML = "✖"; // ou "x"
+            deleteBtn.style.float = "left"; // POSICIONA NO CANTO ESQUERDO
+            deleteBtn.style.marginRight = "5px";
+            deleteBtn.style.color = "#fff";
+            deleteBtn.style.cursor = "pointer";
+            deleteBtn.style.fontWeight = "bold";
+            deleteBtn.style.fontSize = "14px";
+            deleteBtn.title = "Excluir evento";
+
+            // Evento de clique no "X"
+            deleteBtn.addEventListener("click", function (e) {
+                e.stopPropagation(); // Impede abrir detalhes do evento
+                if (confirm("Deseja excluir este evento?")) {
+                    fetch(`excluir_evento.php?id=${info.event.id}`, {
+                        method: "GET",
+                    })
+                        .then((response) => response.text())
+                        .then((data) => {
+                            if (data.trim() === "ok") {
+                                info.event.remove(); // Remove da visualização
+                            } else {
+                                alert("Erro ao excluir evento: " + data);
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Erro:", error);
+                            alert("Erro ao excluir evento.");
+                        });
+                }
+            });
+
+            // Adiciona o botão antes do título
+            const titleEl = info.el.querySelector(".fc-event-title");
+            if (titleEl) {
+                titleEl.prepend(deleteBtn);
+            }
         },
+
         eventColor: "", // evita cor padrão do FullCalendar
         eventTextColor: "#fff", // texto branco para contraste
+
+        dateClick: function (info) {
+            // Mostra o modal
+            openForm();
+
+            // Coloca a data clicada no input de data do formulário
+            // info.dateStr vem no formato YYYY-MM-DD, que é aceito pelo input type=date
+            document.getElementById("eventDate").value = info.dateStr;
+
+            // Limpa os outros campos para novo evento
+            document.getElementById("eventTitle").value = "";
+            document.getElementById("eventDescription").value = "";
+            document.getElementById("eventCategory").value = "fundamental1"; // valor padrão
+        },
     });
 
     calendar.render();
@@ -75,12 +180,17 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function openForm() {
+
     document.getElementById("eventForm").style.display = "block";
+        document.getElementById('overlay').style.display = 'block';
 }
 
 function closeForm() {
     document.getElementById("eventForm").style.display = "none";
+    document.getElementById('overlay').style.display = 'none';
 }
+
+
 
 function addEvent() {
     const title = document.getElementById("eventTitle").value;
