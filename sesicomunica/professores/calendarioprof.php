@@ -23,7 +23,7 @@ header("Expires: 0"); // Proxies
 </head>
 
 <body>
-  <?php include('../adm/nav.php'); ?>
+  <?php include('navprof.php'); ?>
 
   <div class="container">
     <div class="calendar-container">
