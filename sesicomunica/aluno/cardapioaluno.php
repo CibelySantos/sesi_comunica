@@ -1,51 +1,58 @@
-<?php 
-    include 'navaluno.php'; 
-    include '../../conexao.php';
+<?php
+include_once 'navaluno.php';
+include('../../conexao.php');
+
+// Buscar o PDF mais recente
+$stmt = $conn->prepare("SELECT data_pdf, arquivo_pdf FROM pdf WHERE data_pdf = (SELECT MAX(data_pdf) FROM pdf)");
+$stmt->execute();
+$stmt->store_result();
+
+$pdfBase64 = "";
+$data_mais_recente = "Nenhuma data encontrada";
+
+if ($stmt->num_rows > 0) {
+    $stmt->bind_result($data_pdf, $arquivo_pdf);
+    $stmt->fetch();
+
+    $data_mais_recente = date("d/m/Y", strtotime($data_pdf));
+    $pdfBase64 = base64_encode($arquivo_pdf);
+}
+
+$stmt->close();
+$conn->close();
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cardápio - SESI Comunica</title>
+    <link rel="stylesheet" href="../css/cssaluno/navaluno.css">
+    <link rel="stylesheet" href="../css/cssadm/cardapioadm.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cssaluno/cardapioaluno.css">
     <link rel="shortcut icon" href="../img/icon.png">
+    <title>Cardápio - SESI Comunica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <h1 id="text-princ-caradapio-adm">CARDÁPIO SEMANAL</h1>
+    <p style="text-align: center; font-weight: bold; margin-bottom: 20px;">
+        Última atualização: <?php echo $data_mais_recente; ?>
+    </p>
 
-    <h1 style="display: flex; align-items: center; justify-content: center; margin-top: 80px; font-family: 'Gabarito';">
-        Cardápio Semanal:
-    </h1>
+    <div class="container-adm">
+        <?php if (!empty($pdfBase64)): ?>
+            <embed src="data:application/pdf;base64,<?php echo $pdfBase64; ?>" type="application/pdf" />
+        <?php else: ?>
+            <div style="text-align: center; color: red;">Nenhum PDF encontrado.</div>
+        <?php endif; ?>
 
-    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 40px;">
-        <?php
-            $sql = "SELECT * FROM pdf ORDER BY data_pdf DESC LIMIT 1"; // pega o cardápio mais recente
-            $res = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($res) > 0) {
-                $row = mysqli_fetch_assoc($res);
-                $id = $row['id'];
-                $data = date('d/m/Y', strtotime($row['data_pdf']));
-
-                echo "<p><strong>Data do Cardápio:</strong> $data</p>";
-
-                // Exibir PDF embed na página (como visualização direta)
-                echo "<iframe src='exibir_pdf.php?id=$id' width='80%' height='600px' style='border: none;'></iframe>";
-
-                // Botão para baixar o PDF
-                echo "<br><a href='baixar_pdf.php?id=$id' download style='padding: 10px 20px; background-color:rgb(225, 0, 0); color: white; text-decoration: none; border-radius: 8px;'>
-                        📥 Baixar PDF
-                      </a>";
-            } else {
-                echo "<p>⚠️ Nenhum cardápio encontrado.</p>";
-            }
-        ?>
     </div>
 
-    <?php include 'footeraluno.php' ?>
-
+    <?php include_once 'footeraluno.php' ?>
 </body>
-<script src="../js/nav-aluno.js"></script>
+
 </html>

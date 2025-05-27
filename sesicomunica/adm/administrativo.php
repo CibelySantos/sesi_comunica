@@ -38,8 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     document.getElementById('nome-arquivo').textContent = '';
                     document.getElementById('modal').style.display = 'none';
                 </script>";
-        }
-        else {
+        } else {
             echo "<p class='error'>Erro ao enviar comunicado: " . $stmt->error . "</p>";
         }
 
@@ -52,32 +51,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/cssadm/navadm.css">
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/cssadm/administrativo.css">
     <link rel="shortcut icon" href="../img/icon.png">
     <title>Administrativo - SESI Comunica</title>
 </head>
-
 <body>
-    <main class="container">
-        <h1>Comunicados enviados</h1>
+<main class="container">
+    <h1>Comunicados enviados</h1>
+    
+    <div class="alinha-comunicados">
 
         <div class="comunicados">
+    
+            <!-- Botão para abrir comunicados passados -->
+            <a href="#" class="comunicado" onclick="abrirModalAntigos()">
+                <div>
+                    <p>Comunicados Passados</p>
+                </div>
+            </a>
+    
+            <!-- Modal dos comunicados antigos -->
+            <div id="modal-antigos" class="modal-overlay" style="display: none;">
+                <div class="modal-content">
+                    <button class="close-btn" onclick="fecharModalAntigos()">x</button>
+                    <h2>Comunicados Antigos</h2>
+                    <div id="lista-comunicados-antigos">
+                        <?php
+                        $dataLimite = date('Y-m-d', strtotime('-1 month'));
+                        $resultAntigos = $conn->query("SELECT id, nome FROM comunicados WHERE data_comunicado < '$dataLimite' ORDER BY data_comunicado DESC");
+    
+                        if ($resultAntigos->num_rows > 0) {
+                            $num = 1;
+                            while ($row = $resultAntigos->fetch_assoc()) {
+                                $id = $row['id'];
+                                $nome = htmlspecialchars($row['nome']);
+                                $numFormatado = str_pad($num++, 3, "0", STR_PAD_LEFT);
+                                echo "
+                                    <a href='#' onclick='abrirComunicado($id)'>
+                                        <div class='comunicado'>
+                                            Comunicado $numFormatado -<br>$nome
+                                        </div>
+                                    </a>
+                                ";
+                            }
+                        } else {
+                            echo "<p>Nenhum comunicado antigo encontrado.</p>";
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Lista de comunicados recentes (menos de 1 mês) -->
             <?php
-            $result = $conn->query("SELECT id, nome FROM comunicados ORDER BY data_comunicado DESC");
-
+            $dataLimite = date('Y-m-d', strtotime('-1 month'));
+            $result = $conn->query("SELECT id, nome FROM comunicados WHERE data_comunicado >= '$dataLimite' ORDER BY data_comunicado DESC");
+    
             if ($result->num_rows > 0) {
                 $numero = 1;
                 while ($row = $result->fetch_assoc()) {
                     $id = $row['id'];
                     $nome = htmlspecialchars($row['nome']);
                     $numeroFormatado = str_pad($numero++, 3, "0", STR_PAD_LEFT);
-
                     echo "
                         <a href='#' onclick='abrirComunicado($id)'>
                             <div class='comunicado'>
@@ -85,64 +124,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         </a>
                     ";
-
-
                 }
             } else {
-                echo "<p>Nenhum comunicado encontrado.</p>";
+                echo "<p>Nenhum comunicado recente encontrado.</p>";
             }
-
+    
             $conn->close();
             ?>
         </div>
+    </div>
 
-        <div class="modal-comunicados">
-            <div id="comunicado-modal" class="modal-overlay" style="display:none;">
-                <div class="modal-content">
-                    <button class="close-btn" onclick="fecharModal()">x</button> 
-                    <h2 id="modal-nome-comunicado"></h2>
-                    <iframe id="pdf-frame" style="width:101%; height:300px;" frameborder="0"></iframe>
-                </div>
-            </div>
-        </div>
-
-        <h2>Enviar comunicado</h2>
-        <div class="enviar-box">
-            <span>+</span>
-        </div>
-
-        <div class="modal-overlay" id="modal">
+    <!-- Modal de visualização de comunicado -->
+    <div class="modal-comunicados">
+        <div id="comunicado-modal" class="modal-overlay" style="display:none;">
             <div class="modal-content">
-                <button class="close-btn" onclick="fecharModal()">x</button>
-                <form method="POST" enctype="multipart/form-data">
-                    <label for="nome">Nome do comunicado:</label>
-                    <input type="text" id="nome" name="nome" required>
-
-                    <label for="arquivo_pdf">Upload comunicado (PDF):</label>
-                    <input type="file" id="arquivo_pdf" name="arquivo_pdf" accept=".pdf" required hidden>
-                    <label for="arquivo_pdf" class="upload-label">
-                        <img src="../img/img-iconArquivo-adm.png" alt="Selecionar arquivo PDF" class="upload-icon">
-                    </label>
-                    <span id="nome-arquivo" style="margin-top: 8px; display: block;"></span>
-
-                    <label for="destinatario">Destinatário:</label>
-                    <select id="destinatario" name="destinatario" required>
-                        <option value="aluno">Aluno</option>
-                        <option value="professor">Professor</option>
-                    </select>
-
-                    <button type="submit" class="publicar-btn">Publicar comunicado</button>
-                </form>
+                <button class="close-btn" onclick="fecharModal()">x</button> 
+                <h2 id="modal-nome-comunicado"></h2>
+                <iframe id="pdf-frame" style="width:101%; height:300px;" frameborder="0"></iframe>
             </div>
         </div>
-    </main>
+    </div>
 
-    <?php include 'footer.php'; ?>
+    <h2>Enviar comunicado</h2>
+    <div class="enviar-box">
+        <span>+</span>
+    </div>
 
-    <script src="../js/nav-adm.js"></script>
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="fecharModal()">x</button>
+            <form method="POST" enctype="multipart/form-data">
+                <label for="nome">Nome do comunicado:</label>
+                <input type="text" id="nome" name="nome" required>
 
-    <script src="../js/comunicados.js"></script>
+                <label for="arquivo_pdf">Upload comunicado (PDF):</label>
+                <input type="file" id="arquivo_pdf" name="arquivo_pdf" accept=".pdf" required hidden>
+                <label for="arquivo_pdf" class="upload-label">
+                    <img src="../img/img-iconArquivo-adm.png" alt="Selecionar arquivo PDF" class="upload-icon">
+                </label>
+                <span id="nome-arquivo" style="margin-top: 8px; display: block;"></span>
+
+                <label for="destinatario">Destinatário:</label>
+                <select id="destinatario" name="destinatario" required>
+                    <option value="aluno">Aluno</option>
+                    <option value="professor">Professor</option>
+                </select>
+
+                <button type="submit" class="publicar-btn">Publicar comunicado</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<?php include 'footer.php'; ?>
+
+<script src="../js/comunicados.js"></script>
 
 </body>
-
 </html>

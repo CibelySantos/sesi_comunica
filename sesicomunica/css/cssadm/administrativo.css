@@ -36,10 +36,34 @@ h2::after {
 
 .comunicados {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 400px; 
+  overflow-y: auto;  
   margin-bottom: 40px;
   cursor: pointer !important;
+  padding-right: 10px;
+  scrollbar-width: thin; 
+  scrollbar-color: red #f0f0f0; 
+}
+
+.comunicado{
+  width: 100%;
+}
+.comunicados::-webkit-scrollbar {
+  width: 8px;
+}
+
+.comunicados::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.comunicados::-webkit-scrollbar-thumb {
+  background-color: red;
+  border-radius: 10px;
+  border: 2px solid #f0f0f0;
 }
 
 .comunicado {
@@ -50,9 +74,10 @@ h2::after {
   font-weight: bold;
   font-size: 16px;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  background-color: white; /* Para melhor contraste */
 }
 
-.comunicados a{
+.comunicados a {
   text-decoration: none;
   text-transform: none;
   color: black;
@@ -98,6 +123,8 @@ h2::after {
   width: 100%;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   position: relative;
+  overflow-y: auto; /* Para scroll interno caso necessário */
+  max-height: 80vh; /* Limita altura para scroll no modal */
 }
 
 .modal-content label {
@@ -109,9 +136,19 @@ h2::after {
 }
 
 button.close-btn {
-    display: flex !important;
-    width: 100%;
-    justify-content: end;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  z-index: 1001;
+  display: flex !important;
+  justify-content: end;
+  width: auto;
 }
 
 .modal-content input,
@@ -189,9 +226,8 @@ button.close-btn {
   z-index: 1001;
 }
 
-
 footer {
-  margin-top: 0px !important;
+  margin-top: 200px !important;
 }
 
 /* Responsividade */
@@ -228,6 +264,7 @@ footer {
   .comunicado {
     font-size: 14px;
   }
+  
   .enviar-box {
     width: 80px;
     height: 60px;

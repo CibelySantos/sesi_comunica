@@ -98,7 +98,6 @@ if (!isset($_SESSION['id_users'])) {
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
   <script src="../js/calendario-adm.js"></script>
-  <script src="../js/nav-adm.js"></script>
 </body>
 
 </html>
