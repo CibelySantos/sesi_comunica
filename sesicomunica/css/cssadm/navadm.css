@@ -309,4 +309,16 @@ footer {
     .imagem-extra img {
         border-radius: 10px;
     }
+
+    footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    padding: 20px 10px;
+  }
+
+  .localizacao p {
+    width: auto;
+  }
 }
