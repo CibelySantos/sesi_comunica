@@ -1,85 +1,63 @@
+<?php
+
+session_start();
+
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0"); // Proxies
+
+?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Estilos -->
-  <link rel="stylesheet" href="../css/nav.css">
-  <link rel="stylesheet" href="../css/calendario.css">
   <link rel="shortcut icon" href="../img/icon.png">
-  
-  <!-- FullCalendar CSS -->
+  <title>Calendário - SESI Comunica</title>
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
-
-  <title>Calendário</title>
+  <link rel="stylesheet" href="../css/cssadm/navadm.css">
+  <link rel="stylesheet" href="../css/calendario.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Navbar -->
-  <?php include 'navaluno.php'; ?>
+  <?php include('./navaluno.php'); ?>
 
   <div class="container">
     <div class="calendar-container">
       <div id="calendar"></div>
     </div>
-    
+
     <div class="activities-container">
       <div class="activity-box" style="border: 2px solid #2196f3;">
         <div class="label fundamental1">Ensino Fundamental I</div>
-        <div class="activity-text">Não há nenhuma atividade para esse período</div>
+        <div class="activity-text">
+          
+        </div>
       </div>
 
       <div class="activity-box">
         <div class="label fundamental2">Ensino Fundamental II</div>
-        <div class="activity-text">Não há nenhuma atividade para esse período</div>
+        <div class="activity-text">
+          
+        </div>
       </div>
 
       <div class="activity-box">
         <div class="label medio">Ensino Médio</div>
         <div class="activity-text">
-          <span class="highlight">27 / 01 - Volta às aulas</span>
+          
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <?php include 'footeraluno.php'; ?>
+  <?php include('./footeraluno.php'); ?>
 
-  <!-- Scripts -->
-  <script src="../js/nav-prof.js"></script>
-
-  <!-- FullCalendar JS -->
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-
-  <!-- Inicializar o calendário -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth', // Visualização em grade mensal
-        locale: 'pt-br', // Deixar em português
-        headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        },
-        events: [
-          {
-            title: 'Volta às Aulas',
-            start: '2025-01-27', // exemplo de evento
-            color: '#2196f3'
-          }
-        ]
-      });
-
-      calendar.render();
-    });
-  </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script src="../js/calendario-adm.js"></script>
 </body>
 
 </html>

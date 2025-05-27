@@ -22,14 +22,15 @@ while ($row = $result->fetch_assoc()) {
       $cor = '#cccccc'; // Cor para quando for categoria adm ou professores
   }
 
-  $eventos[] = [
-    'id' => $row['id'],
-    'title' => $row['titulo'],
-    'description' => $row['descricao'],
-    'category' => $row['categoria'],
-    'start' => $row['data_inicio'], 
-    'color' => $cor
-  ];
+  $eventos[] = array(
+  'id' => $row['id'],  
+  "title" => $row['titulo'],
+  "start" => $row['data_inicio'],
+  "description" => $row['descricao'],
+  "category" => $row['categoria'],
+  "color" => $cor
+);
+
 }
 header('Content-Type: application/json');
 echo json_encode($eventos);

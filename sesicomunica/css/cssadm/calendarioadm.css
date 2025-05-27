@@ -3,7 +3,7 @@
     padding: 0;
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Gabarito", sans-serif;
     background: #f9f9f9;
 }
 .container {
@@ -62,7 +62,7 @@ body {
 }
 
 /* NOVO: Overlay escuro ao fundo */
-#modalOverlay {
+#overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -71,6 +71,13 @@ body {
     height: 100%;
     background-color: rgba(0,0,0,0.5);
     z-index: 9998;
+}
+
+.form-scrollable {
+    max-height: 500px;
+    overflow-y: auto;
+    height: 420px;
+    padding-right: 10px;
 }
 
 /* Atualizado: Modal flutuando no centro */
@@ -86,54 +93,64 @@ body {
     border-radius: 8px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     z-index: 9999;
-    width: 300px;
+    height: 600px;
+    max-height: 1000px;
+    margin: auto;
+    width: 400px;
     max-width: 90%;
 }
 
 #eventForm h2 {
     margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #d90c0c;
+    font-family: "Gabarito", sans-serif;
 }
 
 #eventForm label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 14px;
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #333;
 }
 
 #eventForm input[type="text"],
 #eventForm input[type="date"],
 #eventForm select,
 #eventForm textarea {
+    display: block;
     width: 100%;
-    padding: 8px;
+    padding: 8px 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    font-family: "Gabarito", sans-serif;
+    resize: vertical;
 }
 
 #eventForm button {
-    background-color: #2196f3;
+    background-color: #d90c0c;
     color: white;
     padding: 10px;
     width: 100%;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 30px;
     font-size: 16px;
 }
 
 #eventForm button:hover {
-    background-color: #1976d2;
+    background-color: #a70b0b;
 }
 
 /* Estilo para eventos no calendário */
 a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-event-end.fc-event-past {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     color: white !important;
     padding: 5px;
@@ -142,7 +159,7 @@ a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-
 }
 
 a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-event-end.fc-event-past .fc-event-title {
-    display: block;
+    display: flex;
     font-size: 12px;
     font-weight: bold;
 }
@@ -153,6 +170,14 @@ a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-
     color: #fff;
     font-weight: normal;
 }
+
+.fc-event-title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
 
 /* Botão "X" para fechar o modal */
 #eventForm .close-btn {
@@ -171,6 +196,18 @@ a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-
 #eventForm .close-btn:hover {
     color: #000;
 }
+
+  .fc-event-dot {
+    display: none !important;
+  }
+
+  /* Estilo para o evento com fundo colorido */
+  .fc-daygrid-event {
+    color: white !important;
+    border: none !important;
+    border-radius: 4px;
+    padding: 2px 4px;
+  }
 
 
 /* Responsividade */

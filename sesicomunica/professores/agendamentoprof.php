@@ -40,7 +40,7 @@
                 <div class="label">Computadores</div>
             </div>
         </div>
-        <button class="agendar-btn">Agendar</button>
+        <a href="https://outlook.office.com/owa/calendar/CE207AgendamentodeEspaos@sesisenaisp.onmicrosoft.com/bookings/"><button class="agendar-btn">Agendar</button></a>
     </section>
 
     <?php include 'footerprof.php'; ?>

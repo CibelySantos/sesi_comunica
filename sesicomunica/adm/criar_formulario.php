@@ -123,9 +123,9 @@
     <title>Criar Formulário</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/cssadm/navadm.css">
+
     <link rel="stylesheet" href="../css/cssadm/formularioadm.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cssadm/navadm.css">
     <link rel="shortcut icon" href="../img/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
@@ -154,6 +154,7 @@
                         echo "<div class='card-header'>";
                         echo "<h3>" . htmlspecialchars($row['nome']) . "</h3>";
                         echo "<div class='card-icons'>";
+                        echo "<a href='exportar_formularios.php' class='icon-link' title='Exportar CSV'><i class='fas fa-file-csv'></i></a>";
                         echo "<a href='#' onclick='abrirModalEditar(" . $row['id'] . ")' class='icon-link'><i class='fas fa-edit'></i></a>";
                         echo "<a href='#' onclick='confirmarExclusao(" . $row['id'] . ")' class='icon-link'><i class='fas fa-trash-alt'></i></a>";
                         echo "</div>";

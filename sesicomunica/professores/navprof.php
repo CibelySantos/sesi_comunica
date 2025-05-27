@@ -8,18 +8,18 @@
             <img class="logo-comunica" src="../img/PROJETOGG.png" alt="Logo">
         </a>
         <div class="perfil-user">
-            <img class="icone-user" src="../img/icone-usuario.png" alt="Perfil">
+            <a href="../../logout.php"><img class="icone-user" src="../img/sair.png" alt="Perfil"></a>
         </div>
     </div>
 
     <div class="menu">
         <div class="menu-container" id="menu">
             <a href="inicialprof.php">Página Inicial</a>
-            <a href="calendarioprof.php">Calendário</a>
-            <a href="formularioprof.php">Formulários</a>
             <a href="agendamentoprof.php">Agendamentos</a>
+            <a href="calendarioprof.php">Calendário</a>
             <a href="comunicadosprof.php">Comunicados</a>
+            <a href="formularioprof.php">Formulário</a>
         </div>
     </div>
 </div>
-<script src="../js/nav-prof.js"></script>
+<script src="../js/nav-adm.js"></script>
