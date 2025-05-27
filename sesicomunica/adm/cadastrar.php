@@ -124,7 +124,6 @@ $result_usuarios = $conn->query("SELECT id_users, nome_usuario, email_usuario, t
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/cssadm/navadm.css">
     <link rel="stylesheet" href="../css/cssadm/cadastrar.css">
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/cssadm/cadastro_usuarios.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>

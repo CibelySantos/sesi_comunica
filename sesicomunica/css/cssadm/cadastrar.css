@@ -1,7 +1,6 @@
 body {
     font-family: Arial;
     background: #f9f9f9;
-    padding: 20px;
 }
 
 .container {
@@ -178,4 +177,12 @@ button.editar-excluir-btn {
 
 .fechar-btn:hover {
     color: red;
+}
+
+@media (max-width: 400px){
+    .container{
+        flex-direction: column;
+    }
+
+    
 }
