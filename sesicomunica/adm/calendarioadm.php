@@ -24,7 +24,7 @@ if (!isset($_SESSION['id_users'])) {
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/cssadm/navadm.css">
   <link rel="stylesheet" href="../css/cssadm/calendarioadm.css">
-  <link rel="stylesheet" href="../css/style.css">
+
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
@@ -98,6 +98,7 @@ if (!isset($_SESSION['id_users'])) {
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
   <script src="../js/calendario-adm.js"></script>
+  <script src="../js/nav-adm.js"></script>
 </body>
 
 </html>
