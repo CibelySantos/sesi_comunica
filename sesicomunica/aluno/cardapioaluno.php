@@ -35,7 +35,7 @@
                 echo "<iframe src='exibir_pdf.php?id=$id' width='80%' height='600px' style='border: none;'></iframe>";
 
                 // Botão para baixar o PDF
-                echo "<br><a href='baixar_pdf.php?id=$id' download style='padding: 10px 20px; background-color: #ff6b00; color: white; text-decoration: none; border-radius: 8px;'>
+                echo "<br><a href='baixar_pdf.php?id=$id' download style='padding: 10px 20px; background-color:rgb(225, 0, 0); color: white; text-decoration: none; border-radius: 8px;'>
                         📥 Baixar PDF
                       </a>";
             } else {
