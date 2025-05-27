@@ -60,17 +60,20 @@
                         $pergunta_id = $conn->insert_id;
 
                         // Se for pergunta objetiva, inserir opções
-                        if ($tipos[$i] === 'objetiva' && isset($_POST["opcoes"][$i])) {
-                            $opcoes = $_POST["opcoes"][$i];
-                            $sql_opcao = "INSERT INTO respostas (pergunta_id, texto_opcao, ordem) VALUES (?, ?, ?)";
-                            $stmt_opcao = $conn->prepare($sql_opcao);
-                            
-                            foreach ($opcoes as $ordem => $opcao) {
-                                $ordem_num = $ordem + 1;
-                                $stmt_opcao->bind_param("isi", $pergunta_id, $opcao, $ordem_num);
-                                $stmt_opcao->execute();
-                            }
+                     if ($tipos[$i] === 'objetiva' && isset($_POST["opcoes"][$i])) {
+                        $opcoes = $_POST["opcoes"][$i];
+                        
+                        // Altere a tabela para 'questoes_objetivas'
+                        $sql_opcao = "INSERT INTO questoes_objetivas (pergunta_id, texto_opcao, ordem) VALUES (?, ?, ?)";
+                        $stmt_opcao = $conn->prepare($sql_opcao);
+                        
+                    foreach ($opcoes as $ordem => $opcao) {
+                            $ordem_num = $ordem + 1;
+                            $stmt_opcao->bind_param("isi", $pergunta_id, $opcao, $ordem_num);
+                            $stmt_opcao->execute();
                         }
+                    }
+
 
                         // Se for pergunta de classificação, inserir min e max
                         if ($tipos[$i] === 'classificacao' && isset($_POST["classificacao_min"][$i]) && isset($_POST["classificacao_max"][$i])) {
