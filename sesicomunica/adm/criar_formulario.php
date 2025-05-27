@@ -292,6 +292,6 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/formulario.js" defer></script>
-    <script src="../js/nav-adm.js"></script>
+
 </body>
 </html>
