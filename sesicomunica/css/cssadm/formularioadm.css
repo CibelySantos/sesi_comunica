@@ -529,6 +529,7 @@ button[type="submit"],
 @media screen and (max-width: 480px) {
     footer {
         padding: 0px !important;
+        height: auto !important;
     }
 
     .flex-container{
@@ -596,6 +597,7 @@ button[type="submit"],
     align-items: center;
     text-align: center;
     height: auto;
+    height: auto !important;
 
   }
 
