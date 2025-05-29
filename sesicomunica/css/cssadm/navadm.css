@@ -196,6 +196,7 @@ footer {
     justify-content: space-between;
     padding: 10px;
     margin-top: 70px;
+    height: 130px !important;
     background-color: #d90c0c;
 }
 
@@ -308,16 +309,4 @@ footer {
     .imagem-extra img {
         border-radius: 10px;
     }
-
-    footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: auto;
-    padding: 20px 10px;
-  }
-
-  .localizacao p {
-    width: auto;
-  }
 }

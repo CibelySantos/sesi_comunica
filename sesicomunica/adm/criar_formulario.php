@@ -60,17 +60,20 @@
                         $pergunta_id = $conn->insert_id;
 
                         // Se for pergunta objetiva, inserir opções
-                        if ($tipos[$i] === 'objetiva' && isset($_POST["opcoes"][$i])) {
-                            $opcoes = $_POST["opcoes"][$i];
-                            $sql_opcao = "INSERT INTO respostas (pergunta_id, texto_opcao, ordem) VALUES (?, ?, ?)";
-                            $stmt_opcao = $conn->prepare($sql_opcao);
-                            
-                            foreach ($opcoes as $ordem => $opcao) {
-                                $ordem_num = $ordem + 1;
-                                $stmt_opcao->bind_param("isi", $pergunta_id, $opcao, $ordem_num);
-                                $stmt_opcao->execute();
-                            }
+                     if ($tipos[$i] === 'objetiva' && isset($_POST["opcoes"][$i])) {
+                        $opcoes = $_POST["opcoes"][$i];
+                        
+                        // Altere a tabela para 'questoes_objetivas'
+                        $sql_opcao = "INSERT INTO questoes_objetivas (pergunta_id, texto_opcao, ordem) VALUES (?, ?, ?)";
+                        $stmt_opcao = $conn->prepare($sql_opcao);
+                        
+                    foreach ($opcoes as $ordem => $opcao) {
+                            $ordem_num = $ordem + 1;
+                            $stmt_opcao->bind_param("isi", $pergunta_id, $opcao, $ordem_num);
+                            $stmt_opcao->execute();
                         }
+                    }
+
 
                         // Se for pergunta de classificação, inserir min e max
                         if ($tipos[$i] === 'classificacao' && isset($_POST["classificacao_min"][$i]) && isset($_POST["classificacao_max"][$i])) {
@@ -198,11 +201,11 @@
                                     <div class="pergunta-header">
                                         <div class="pergunta-titulo">
                                             <label>Pergunta:</label>
-                                            <select class="tipo-pergunta" disabled>
-                                                <option value="dissertativa" selected>Dissertativa</option>
+                                            <select class="tipo-pergunta" onchange="handleTipoPergunta(this)">
+                                                <option value="dissertativa">Dissertativa</option>
+                                                <option value="objetiva">Objetiva</option>
+                                                <option value="classificacao">Classificação</option>
                                             </select>
-                                            <input type="hidden" name="tipos_pergunta[]" value="dissertativa">
-
                                         </div>
                                         <button type="button" class="btn-remover-pergunta" 
                                         onclick="removerPergunta(this)">Remover</button>

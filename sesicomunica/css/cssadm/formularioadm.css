@@ -526,30 +526,6 @@ button[type="submit"],
 .icon-link i.fa-trash-alt {
   color: #ff3333;
 }
-@media screen and (max-width: 480px) {
-    footer {
-        padding: 0px !important;
-        height: auto !important;
-    }
-
-    .flex-container{
-      flex-direction: column;
-    }
-
-    .coluna{
-      width: 100%;
-    }
-
-    .card-criacao-formulario-content{
-      margin-top: 40px;
-    }
-
-    .card-criacao-formulario{
-      width: 100%;
-    }
-
-    
-}
 
 @media (min-width: 400px) and (max-width: 1000px) {
   
@@ -597,8 +573,7 @@ button[type="submit"],
     align-items: center;
     text-align: center;
     height: auto;
-    height: auto !important;
-
+    padding: 20px 10px;
   }
 
   .localizacao p {

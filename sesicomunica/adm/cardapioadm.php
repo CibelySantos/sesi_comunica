@@ -42,6 +42,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/cssadm/navadm.css">
     <link rel="stylesheet" href="../css/cssadm/cardapioadm.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../img/icon.png">
     <title>Cardápio - SESI Comunica</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -140,6 +141,7 @@ $conn->close();
     <?php include_once 'footer.php' ?>
 </body>
 
+<script src="../js/nav-adm.js"></script>
 <script>
     const modal = document.getElementById("pdfModal");
     const btn = document.getElementById("openModal");

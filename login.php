@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script>alert("<?= htmlspecialchars($erro) ?>");</script>
 <?php elseif ($sucesso): ?>
     <script>
+        alert("Login realizado com sucesso!");
         <?php if ($_SESSION['tipo_usuario'] === 'administrador'): ?>
             window.location.href = "sesicomunica/adm/inicialadm.php";
         <?php elseif ($_SESSION['tipo_usuario'] === 'professor'): ?>

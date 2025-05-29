@@ -16,7 +16,6 @@
 
     #barra-pesquisa {
       width: 80%;
-      margin-top: 5%;
       max-width: 600px;
       padding: 15px;
       font-size: 18px;

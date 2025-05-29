@@ -14,56 +14,43 @@ body {
   flex-direction: column;
 }
 
+/* === Banner === */
 .banner {
+  margin-top: 5%;
   position: relative;
   width: 100%;
-  height: 85vh; /* altura maior */
+  height: 70vh;
   overflow: hidden;
 }
 
-/* Névoa branca translúcida */
-.banner .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
-  z-index: 5;
-}
-
-.banner .main-image {
+.main-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
-/* Texto centralizado */
-.banner .info {
+.info {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #333;
-  text-shadow: 0 2px 4px rgba(36, 35, 35, 0.74);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
   z-index: 10;
   padding: 0 20px;
 }
 
-.banner .info h1 {
-  font-size: 36px;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 20px;
+.info h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin: 0;
 }
 
-.banner .info p {
-  font-size: 18px;
-  color: #fff;
+.info p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin-top: 20px;
+  max-width: 700px;
+  line-height: 1.6;
 }
 
 /* === Imagem extra === */
