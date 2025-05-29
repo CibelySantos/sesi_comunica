@@ -1,7 +1,9 @@
 <?php
+
+session_start();
 include('../../conexao.php'); 
 
-if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_tipo'] !== 'adm') {
+if (!isset($_SESSION['id_users']) || $_SESSION['tipo_usuario'] !== 'administrador') {
     http_response_code(403);
     echo json_encode(['erro' => 'Acesso negado']);
     exit;

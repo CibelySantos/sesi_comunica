@@ -16,7 +16,9 @@
 
   <div class="content">
     <section class="banner">
-      <img src="../img/imgFundoSesi.png" alt="Imagem principal" class="main-image">
+      <img src="../img/fundo-tela-inicial.jpg" alt="Imagem principal" class="main-image">
+
+      <div class="overlay"></div>
 
       <div class="info">
         <h1>Bem-vindo Professor</h1>
@@ -55,5 +57,8 @@
 
   <script src="../js/nav-prof.js"></script>
 </body>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 44c5685dff3e98c3ae5ed52d1d4a77b92be68051
 </html>

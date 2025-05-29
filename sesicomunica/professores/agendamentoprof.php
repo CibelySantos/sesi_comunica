@@ -44,6 +44,5 @@
     </section>
 
     <?php include 'footerprof.php'; ?>
-    <script src="../js/nav-prof.js"></script>
 </body>
 </html>

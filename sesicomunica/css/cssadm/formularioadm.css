@@ -526,6 +526,33 @@ button[type="submit"],
 .icon-link i.fa-trash-alt {
   color: #ff3333;
 }
+<<<<<<< HEAD
+=======
+@media screen and (max-width: 480px) {
+    footer {
+        padding: 0px !important;
+        height: auto !important;
+    }
+
+    .flex-container{
+      flex-direction: column;
+    }
+
+    .coluna{
+      width: 100%;
+    }
+
+    .card-criacao-formulario-content{
+      margin-top: 40px;
+    }
+
+    .card-criacao-formulario{
+      width: 100%;
+    }
+
+    
+}
+>>>>>>> 44c5685dff3e98c3ae5ed52d1d4a77b92be68051
 
 @media (min-width: 400px) and (max-width: 1000px) {
   
@@ -573,7 +600,12 @@ button[type="submit"],
     align-items: center;
     text-align: center;
     height: auto;
+<<<<<<< HEAD
     padding: 20px 10px;
+=======
+    height: auto !important;
+
+>>>>>>> 44c5685dff3e98c3ae5ed52d1d4a77b92be68051
   }
 
   .localizacao p {
