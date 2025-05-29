@@ -22,6 +22,7 @@
 <ul class="menu-container" id="menu" role="menu" aria-labelledby="hamburger">
     <li role="none"><a role="menuitem" href="../inicialprof.php">Página Inicial</a></li>
     <li role="none"><a role="menuitem" href="../calendarioprof.php">Calendário</a></li>
+    <li role="none"><a role="menuitem" href="../comunicadosprof.php">Comunicados</a></li>
     <li role="none"><a role="menuitem" href="../formularioprof.php">Formulário</a></li>
     <li role="none"><a role="menuitem" href="../agendamentoprof.php">Agendamentos</a></li>
     <li role="none"><a role="menuitem" href="galeria.php">Galeria</a></li>
