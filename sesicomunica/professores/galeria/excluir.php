@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../../../conexao.php';
 
 $id = $_GET['id'] ?? null;
 if ($id) {

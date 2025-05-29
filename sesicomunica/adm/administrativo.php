@@ -178,8 +178,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </main>
 
 <?php include 'footer.php'; ?>
-
-<script src="../js/nav-adm.js"></script>
 <script src="../js/comunicados.js"></script>
 
 </body>

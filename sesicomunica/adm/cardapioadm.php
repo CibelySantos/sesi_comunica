@@ -141,7 +141,6 @@ $conn->close();
     <?php include_once 'footer.php' ?>
 </body>
 
-<script src="../js/nav-adm.js"></script>
 <script>
     const modal = document.getElementById("pdfModal");
     const btn = document.getElementById("openModal");

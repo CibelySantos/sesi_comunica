@@ -1,459 +1,137 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-nav {
-  height: 120px;
-  width: 65%;
-  display: flex;
-  align-items: center;
-}
-
-.logo-comunica {
-  height: 120px;
-}
-
-.icone-user {
-  height: 74px;
-}
-
-.perfil-user {
-  display: flex;
-  align-items: center;
-}
-
-.alinhamento-nav {
-  display: flex;
-  justify-content: space-between;
-  background-color: #d90c0c;
-}
-
-ul {
-  list-style-type: none;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-ul a {
-  text-decoration: none;
-  color: white;
-  font-size: 24px;
-  font-weight: bolder;
-  font-family: "Gabarito";
-}
-
-/* Footer */
-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 10;
-  margin-top: 70px;
-  height: 130px !important;
-  background-color: #d90c0c;
-}
-
-.localizacao h5 {
-  font-family: "gabarito";
-  color: white;
-  font-weight: 800;
-}
-
-.localizacao p {
-  font-family: "gabarito";
-  color: white;
-  margin-top: 15px;
-  width: 290px;
-  font-size: 16px;
-  font-weight: lighter;
-}
-
-.direitos_reservados {
-  font-family: "gabarito";
-  color: white;
-  display: flex;
-  font-size: 10px;
-  flex-direction: column;
-  align-items: center !important;
-  justify-content: center !important;
-  font-weight: lighter;
-  flex-direction: column;
-  justify-content: end;
-}
-
-.tamanho-icones {
-  height: 20px;
-  width: 20px;
-}
-
-.redes_sociais {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-}
-
-/* Menu hamburguer nav */
-.menu-container {
-  position: static !important;
-  display: flex;
-  transition: left 0.3s ease-in-out;
-  margin-left: 0px !important;
-}
-
-.menu {
-  position: absolute;
-  width: 100%; /* Ajusta a largura ao conteúdo (hambúrguer) */
-  z-index: 10; /* Garante que fique acima de outros elementos */
-  padding: 10px 20px;
   box-sizing: border-box;
-  gap: 0px !important;
-  margin-bottom: 100px;
-  display: flex !important;
-  border-bottom: none !important;
 }
 
-.menu-container a {
-  display: flex;
-  padding: 15px;
-  font-size: 24px;
-  justify-content: center;
-  align-items: center;
-  height: 20px;
-  font-family: "gabarito";
-  color: red;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-/* Botão de fechar */
-.close-btn {
-  position: static !important;
-  display: flex;
-  align-items: center;
-  top: 14px;
-  cursor: pointer;
-  right: -10;
-  color: red;
-}
-
-.close-btn:hover {
-  font-weight: bolder;
-}
-
-/* Ícone do menu hambúrguer */
-.hamburger {
-  top: 15px;
-  width: 10%;
-  left: 15px;
-  padding: 5px;
-  font-size: 24px;
-  font-family: "gabarito";
-  font-weight: bolder;
-  cursor: pointer;
-  color: red;
-}
-/* Configurar imagem de fundo com opacidade */
-.info {
-  position: relative;
-  background: url("./sesicomunica/img/imgFundoSesi.png") no-repeat center center;
-  background-size: cover;
-  padding: 50px 0; /* Espaçamento superior e inferior */
-  height: 100vh; /* Tamanho total da viewport */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white; /* Cor dos textos */
-}
-
-.info .overlay {
-  position: relative;
-  background: rgba(0, 0, 0, 0.5); /* Escurece o fundo */
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-}
-
-.info h1 {
-  font-size: 48px;
+body {
   font-family: "Gabarito", sans-serif;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Efeito de sombra */
+}
+
+/* BANNER */
+.banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 5.9; /* Mais achatado */
+  background-image: url("../img/fundo-tela-inicial.jpg") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 63.3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+/* camada de fundo */
+.banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(69, 68, 68, 0.5) !important;
+  z-index: 1;
+}
+
+/* conteúdo do banner */
+.banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 30px 50px;
+}
+
+footer {
+  margin-top: 0px !important;
+}
+
+.infor-banner h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
   margin-bottom: 20px;
 }
-.info p {
-  font-size: 20px;
-  font-family: "Gabarito", sans-serif;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Sombra no parágrafo */
+
+.infor-banner p {
+  font-size: 18px;
+  color: #fff;
 }
 
-.botao-logar {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.botao-logar button {
-  background-color: white;
-  border: none;
-  color: black;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-family: "Gabarito", sans-serif;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.botao-logar button:hover {
-  background-color: #f0f0f0;
-}
-
-@media screen and (max-width: 768px) {
+/* 📱 RESPONSIVIDADE */
+@media (max-width: 768px) {
   nav {
-    flex-direction: column;
+    width: 90%;
     height: auto;
-    text-align: center;
-  }
-
-  .logo-comunica {
-    height: 60px;
-  }
-
-  .icone-user {
-    height: 40px;
+    flex-direction: column;
+    padding: 10px 0;
   }
 
   ul {
     flex-direction: column;
+    align-items: center;
   }
 
   ul a {
-    font-size: 16px;
-    padding: 10px;
+    font-size: 20px;
+    margin: 10px 0;
   }
 
   footer {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    padding: 20px 10px;
   }
 
-  .info h1 {
+  .localizacao p {
+    width: auto;
+  }
+
+  .banner {
+    height: 77.1vh !important;
+    margin-top: 0px !important;
+  }
+
+  .banner-content {
+    padding: 20px 30px;
+  }
+
+  .infor-banner h1 {
     font-size: 28px;
   }
 
-  .info p {
+  .infor-banner p {
     font-size: 16px;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .info h1 {
+@media (max-width: 480px) {
+  nav {
+    width: 100%;
+    padding: 10px;
+  }
+
+  ul a {
+    font-size: 18px;
+  }
+
+  .banner {
+    height: 250px;
+  }
+
+  .banner-content {
+    padding: 15px 20px;
+  }
+
+  .infor-banner h1 {
     font-size: 24px;
   }
 
-  .info p {
-    font-size: 14px;
-  }
-
-  .imagem-extra img {
-    border-radius: 10px;
-  }
-}
-
-/* Estilos Globais */
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* Estilos da Navbar */
-nav {
-  height: 120px;
-  width: 65%;
-  display: flex;
-  align-items: center;
-}
-
-.logo-comunica {
-  height: 120px;
-}
-
-.icone-user {
-  height: 74px;
-}
-
-.perfil-user {
-  display: flex;
-  align-items: center;
-}
-
-.alinhamento-nav {
-  display: flex;
-  justify-content: space-between;
-  background-color: #d90c0c;
-}
-
-ul {
-  list-style-type: none;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-ul a {
-  text-decoration: none;
-  color: white;
-  font-size: 24px;
-  font-weight: bolder;
-  font-family: "Gabarito";
-}
-
-/* Footer */
-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  margin-top: 70px;
-  height: 130px !important;
-  background-color: #d90c0c;
-}
-
-.localizacao h5 {
-  font-family: "Gabarito";
-  color: white;
-  font-weight: 800;
-}
-
-.localizacao p {
-  font-family: "Gabarito";
-  color: white;
-  margin-top: 15px;
-  width: 290px;
-  font-size: 16px;
-  font-weight: lighter;
-}
-
-.direitos_reservados {
-  font-family: "Gabarito";
-  color: white;
-  display: flex;
-  align-items: end;
-  font-size: 10px;
-  font-weight: lighter;
-}
-
-.tamanho-icones {
-  height: 20px;
-  width: 20px;
-}
-
-.redes_sociais {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-}
-
-/* Menu Hamburguer */
-.menu-container {
-  position: static !important;
-  display: flex;
-  transition: left 0.3s ease-in-out;
-  margin-left: 0px !important;
-}
-
-.menu {
-  position: absolute;
-  width: 100%;
-  z-index: 10;
-  padding: 10px 20px;
-  box-sizing: border-box;
-  gap: 0px !important;
-  margin-bottom: 100px;
-  display: flex !important;
-  border-bottom: none !important;
-}
-
-.menu-container a {
-  display: flex;
-  padding: 15px;
-  font-size: 24px;
-  justify-content: center;
-  align-items: center;
-  height: 20px;
-  font-family: "Gabarito";
-  color: red;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.close-btn {
-  position: static !important;
-  display: flex;
-  align-items: center;
-  top: 14px;
-  cursor: pointer;
-  right: -10;
-  color: red;
-}
-
-.close-btn:hover {
-  font-weight: bolder;
-}
-
-.hamburger {
-  top: 15px;
-  width: 10%;
-  left: 15px;
-  padding: 5px;
-  font-size: 24px;
-  font-family: "Gabarito";
-  font-weight: bolder;
-  cursor: pointer;
-  color: red;
-}
-
-/* Configurar imagem de fundo com opacidade */
-.info {
-  position: relative;
-  background: url("./sesicomunica/img/imgFundoSesi.png") no-repeat center center;
-  background-size: cover;
-  padding: 50px 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  margin-top: 70px; /* Espaçamento para criar a parte branca abaixo da navbar */
-}
-
-.info .overlay {
-  position: relative;
-  background: rgba(0, 0, 0, 0.5); /* Escurece o fundo */
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-}
-
-.info h1 {
-  font-size: 48px;
-  font-family: "Gabarito", sans-serif;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Efeito de sombra */
-  margin-bottom: 20px;
-}
-
-.info p {
-  font-size: 20px;
-  font-family: "Gabarito", sans-serif;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Sombra no parágrafo */
-}
-
-@media (max-width: 768px) {
-  .botao-logar button {
-    padding: 8px 16px;
+  .infor-banner p {
     font-size: 14px;
   }
 }

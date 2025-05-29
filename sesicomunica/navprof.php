@@ -19,8 +19,6 @@
             <a href="calendarioprof.php">Calendário</a>
             <a href="comunicadosprof.php">Comunicados</a>
             <a href="formularioprof.php">Formulário</a>
-            <a role="menuitem" href="./galeria/galeria.php">Galeria</a>
-
         </div>
     </div>
 </div>

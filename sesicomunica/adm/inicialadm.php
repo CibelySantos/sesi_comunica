@@ -39,7 +39,6 @@ include 'nav.php';
 
   <?php include 'footer.php'; ?>
 
-  <script src="../js/nav-adm.js"></script>
 
 </body>
 </html>

@@ -2,46 +2,48 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f2f2f2;
   margin: 0;
-  padding: 20px;
+  padding: 0;
 }
 
 h1 {
   text-align: center;
   color: #333;
-  margin-bottom: 40px;
+  margin: 20px 0;
 }
 
 .galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  max-width: 600px;
-  margin: auto;
+  width: 40%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto; /* Centraliza horizontalmente */
 }
+
 
 
 .card {
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.495);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 0;
 }
 
 .card .conteudo {
-  padding: 30px;
+  padding: 20px;
   border-bottom: 1px solid #eee;
 }
 
 .card h3 {
   color: #d50000;
-  margin: 0 0 10px 0;
+  margin-bottom: 10px;
 }
 
 .card p {
-  color: #000000;
+  color: #000;
   margin: 0;
   white-space: pre-wrap;
 }
@@ -49,16 +51,15 @@ h1 {
 .card .imagens {
   display: flex;
   gap: 10px;
-  padding: 20px;
+  padding: 15px;
   justify-content: center;
   background-color: #fafafa;
   flex-wrap: wrap;
-  margin-bottom: 4px;
 }
 
 .card .imagem {
-  width: 150px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
@@ -76,17 +77,18 @@ h1 {
   background-color: #d50000;
   color: white;
   border: none;
-  padding: 15px 20px;
+  padding: 12px 16px;
   border-radius: 50px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
+  z-index: 1000;
 }
 
 .botao-criar:hover {
-  background-color: #0056b3;
+  background-color: #b00000;
 }
 
 /* Modal */
@@ -112,7 +114,6 @@ h1 {
   box-shadow: 0 0 20px rgba(255,255,255,0.3);
 }
 
-
 .fechar {
   position: absolute;
   top: 20px;
@@ -132,6 +133,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .icones {
@@ -149,92 +151,36 @@ h1 {
   color: #d00;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-.projeto {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.projeto-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.projeto-header h3 {
-  margin: 0;
-  font-size: 18px;
-  color: #444;
-}
-
-.projeto-imagens {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
-
-.projeto-imagens img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-  flex: 1 1 calc(33.333% - 10px);
-  object-fit: cover;
-}
-
-/* Ícones de ação */
-.actions {
-  display: flex;
-  gap: 8px;
-}
-
-.actions a {
-  text-decoration: none;
-  color: #007bff;
-  font-size: 18px;
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-  .projeto-imagens img {
-    flex: 1 1 calc(50% - 10px);
-  }
-}
-
-@media (max-width: 480px) {
-  .projeto-imagens img {
-    flex: 1 1 100%;
+/* Responsivo */
+@media (max-width: 600px) {
+  .galeria {
+    width: 100%;
+    padding: 10px;
   }
 
-  .projeto-header {
+  .card .imagem {
+    flex: 0 1 calc(50% - 10px); /* 2 por linha */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  .card .imagem:nth-child(3) {
+    flex: 0 1 calc(50% - 10px); /* terceira imagem ocupa linha inteira */
+  }
+
+  .topo-card {
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
   }
 
-  .actions {
-    margin-top: 10px;
+  .botao-criar {
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    padding: 10px 14px;
   }
 }
 

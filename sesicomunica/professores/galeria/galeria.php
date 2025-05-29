@@ -1,15 +1,30 @@
-<?php include 'db.php'; ?>
+<?php include '../../../conexao.php';
+
+session_start();
+
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0"); // Proxies
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+
   <title>Galeria de Projetos</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="./css/galeria.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 </head>
+
 <body>
+
+<?php include 'navgaleria.php'; ?>
 
   <h1>Galeria de Projetos</h1>
 

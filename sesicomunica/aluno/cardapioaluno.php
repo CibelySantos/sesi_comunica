@@ -1,5 +1,5 @@
-<?php 
-    include 'navaluno.php'; 
+<?php
+    include 'navaluno.php';
     include '../../conexao.php';
 ?>
 
@@ -47,5 +47,5 @@
     <?php include 'footeraluno.php' ?>
 
 </body>
-<script src="../js/nav-aluno.js"></script>
+
 </html>
