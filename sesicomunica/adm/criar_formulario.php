@@ -1,121 +1,107 @@
 <?php
-    include_once 'nav.php';
-    include_once '../../conexao.php';
+include_once 'nav.php';
+include_once '../../conexao.php';
 
-    session_start();
+session_start();
 
-    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
-    header("Pragma: no-cache"); // HTTP 1.0
-    header("Expires: 0"); // Proxies
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0"); // Proxies
 
-    if (!isset($_SESSION['id_users'])) {
-        header('Location: ../../index.php');
-        exit();
-    }
+if (!isset($_SESSION['id_users'])) {
+    header('Location: ../../index.php');
+    exit();
+}
 
-    if ($conn->connect_error) {
-        die("Erro de conexão: " . $conn->connect_error);
-    }
+if ($conn->connect_error) {
+    die("Erro de conexão: " . $conn->connect_error);
+}
 
-    // Handle AJAX requests
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST["nome_formulario"])) {
-            try {
-                $conn->begin_transaction();
+// Handle AJAX requests
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST["nome_formulario"])) {
+        try {
+            $conn->begin_transaction();
 
-                // Inserir na tabela de formulários
-                $sql_formulario = "INSERT INTO formularios (nome) VALUES (?)";
-                $stmt = $conn->prepare($sql_formulario);
-                $stmt->bind_param("s", $_POST["nome_formulario"]);
-                $stmt->execute();
-                $formulario_id = $conn->insert_id;
+            // Inserir na tabela de formulários
+            $sql_formulario = "INSERT INTO formularios (nome) VALUES (?)";
+            $stmt = $conn->prepare($sql_formulario);
+            $stmt->bind_param("s", $_POST["nome_formulario"]);
+            $stmt->execute();
+            $formulario_id = $conn->insert_id;
 
-                // Inserir público alvo
-                if (isset($_POST["publico"])) {
-                    $sql_publico = "INSERT INTO publico (formulario_id, publico_alvo) VALUES (?, ?)";
-                    $stmt_publico = $conn->prepare($sql_publico);
-                    $stmt_publico->bind_param("is", $formulario_id, $_POST["publico"]);
-                    $stmt_publico->execute();
-                }
-
-                // Inserir datas
-                if (isset($_POST["data_criacao"]) && isset($_POST["data_limite"])) {
-                    $sql_datas = "INSERT INTO data_formularios (formulario_id, data_envio, data_limite) VALUES (?, ?, ?)";
-                    $stmt_datas = $conn->prepare($sql_datas);
-                    $stmt_datas->bind_param("iss", $formulario_id, $_POST["data_criacao"], $_POST["data_limite"]);
-                    $stmt_datas->execute();
-                }
-
-                // Inserir perguntas e opções
-                if (isset($_POST["perguntas"]) && isset($_POST["tipos_pergunta"])) {
-                    $perguntas = $_POST["perguntas"];
-                    $tipos = $_POST["tipos_pergunta"];
-
-                    for ($i = 0; $i < count($perguntas); $i++) {
-                        // Inserir pergunta
-                        $sql_pergunta = "INSERT INTO perguntas (formulario_id, pergunta, tipo_pergunta) VALUES (?, ?, ?)";
-                        $stmt_pergunta = $conn->prepare($sql_pergunta);
-                        $stmt_pergunta->bind_param("iss", $formulario_id, $perguntas[$i], $tipos[$i]);
-                        $stmt_pergunta->execute();
-                        $pergunta_id = $conn->insert_id;
-
-                        // Se for pergunta objetiva, inserir opções
-                     if ($tipos[$i] === 'objetiva' && isset($_POST["opcoes"][$i])) {
-                        $opcoes = $_POST["opcoes"][$i];
-                        
-                        // Altere a tabela para 'questoes_objetivas'
-                        $sql_opcao = "INSERT INTO questoes_objetivas (pergunta_id, texto_opcao, ordem) VALUES (?, ?, ?)";
-                        $stmt_opcao = $conn->prepare($sql_opcao);
-                        
-                    foreach ($opcoes as $ordem => $opcao) {
-                            $ordem_num = $ordem + 1;
-                            $stmt_opcao->bind_param("isi", $pergunta_id, $opcao, $ordem_num);
-                            $stmt_opcao->execute();
-                        }
-                    }
-
-
-                        // Se for pergunta de classificação, inserir min e max
-                        if ($tipos[$i] === 'classificacao' && isset($_POST["classificacao_min"][$i]) && isset($_POST["classificacao_max"][$i])) {
-                            $sql_class = "UPDATE perguntas SET min_classificacao = ?, max_classificacao = ? WHERE id = ?";
-                            $stmt_class = $conn->prepare($sql_class);
-                            $min = $_POST["classificacao_min"][$i];
-                            $max = $_POST["classificacao_max"][$i];
-                            $stmt_class->bind_param("iii", $min, $max, $pergunta_id);
-                            $stmt_class->execute();
-                        }
-                    }
-                }
-
-                $conn->commit();
-                echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-                echo "<script>
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Formulário criado com sucesso!',
-                        confirmButtonText: 'Ok'
-                    }).then(() => {
-                        window.location.href = '../adm/criar_formulario.php';
-                    });
-                </script>";
-
-                exit;
-            } catch (Exception $e) {
-                $conn->rollback();
-               echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-                echo "<script>
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Erro ao criar formulário',
-                        text: '" . addslashes($e->getMessage()) . "',
-                        confirmButtonText: 'Ok'
-                    });
-                </script>";
-
+            // Inserir público alvo
+            if (isset($_POST["publico"])) {
+                $sql_publico = "INSERT INTO publico (formulario_id, publico_alvo) VALUES (?, ?)";
+                $stmt_publico = $conn->prepare($sql_publico);
+                $stmt_publico->bind_param("is", $formulario_id, $_POST["publico"]);
+                $stmt_publico->execute();
             }
+
+            // Inserir datas
+            if (isset($_POST["data_criacao"]) && isset($_POST["data_limite"])) {
+                $sql_datas = "INSERT INTO data_formularios (formulario_id, data_envio, data_limite) VALUES (?, ?, ?)";
+                $stmt_datas = $conn->prepare($sql_datas);
+                $stmt_datas->bind_param("iss", $formulario_id, $_POST["data_criacao"], $_POST["data_limite"]);
+                $stmt_datas->execute();
+            }
+
+            // Inserir perguntas
+            if (isset($_POST["perguntas"]) && isset($_POST["tipos_pergunta"])) {
+                $perguntas = $_POST["perguntas"];
+                $tipos = $_POST["tipos_pergunta"];
+
+                for ($i = 0; $i < count($perguntas); $i++) {
+                    // Inserir pergunta
+                    $sql_pergunta = "INSERT INTO perguntas (formulario_id, pergunta, tipo_pergunta) VALUES (?, ?, ?)";
+                    $stmt_pergunta = $conn->prepare($sql_pergunta);
+                    $stmt_pergunta->bind_param("iss", $formulario_id, $perguntas[$i], $tipos[$i]);
+                    $stmt_pergunta->execute();
+                    $pergunta_id = $conn->insert_id;
+
+                    // Removida inserção de opções objetivas
+
+                    // Se for pergunta de classificação, inserir min e max
+                    if ($tipos[$i] === 'classificacao' && isset($_POST["classificacao_min"][$i]) && isset($_POST["classificacao_max"][$i])) {
+                        $sql_class = "UPDATE perguntas SET min_classificacao = ?, max_classificacao = ? WHERE id = ?";
+                        $stmt_class = $conn->prepare($sql_class);
+                        $min = $_POST["classificacao_min"][$i];
+                        $max = $_POST["classificacao_max"][$i];
+                        $stmt_class->bind_param("iii", $min, $max, $pergunta_id);
+                        $stmt_class->execute();
+                    }
+                }
+            }
+
+            $conn->commit();
+            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+            echo "<script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Formulário criado com sucesso!',
+                    confirmButtonText: 'Ok'
+                }).then(() => {
+                    window.location.href = '../adm/criar_formulario.php';
+                });
+            </script>";
+
+            exit;
+        } catch (Exception $e) {
+            $conn->rollback();
+            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao criar formulário',
+                    text: '" . addslashes($e->getMessage()) . "',
+                    confirmButtonText: 'Ok'
+                });
+            </script>";
         }
     }
+}
 ?>
+
 
 
 <!DOCTYPE html>
@@ -203,7 +189,6 @@
                                             <label>Pergunta:</label>
                                             <select class="tipo-pergunta" onchange="handleTipoPergunta(this)">
                                                 <option value="dissertativa">Dissertativa</option>
-                                                <option value="objetiva">Objetiva</option>
                                                 <option value="classificacao">Classificação</option>
                                             </select>
                                         </div>
