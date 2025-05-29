@@ -16,7 +16,7 @@
   <div class="banner">
     <div class="banner-content">
       <div class="infor-banner">
-        <h1>Bem-vindo administrador!</h1>
+        <h1>Bem-vindo</h1>
         <p>Fique por dentro de todos os recados e cronogramas da nossa escola!</p>
       </div>
     </div>
