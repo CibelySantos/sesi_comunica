@@ -189,6 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <label>Pergunta:</label>
                                             <select class="tipo-pergunta" onchange="handleTipoPergunta(this)">
                                                 <option value="dissertativa">Dissertativa</option>
+                                            
                                                 <option value="classificacao">Classificação</option>
                                             </select>
                                         </div>

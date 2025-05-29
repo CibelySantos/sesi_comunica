@@ -15,7 +15,8 @@ function criarPergunta() {
     const tipoSelect = document.createElement('select');
     tipoSelect.className = 'tipo-pergunta';
     tipoSelect.innerHTML = `
-        <option value="dissertativa">Dissertativa</option>  
+        <option value="dissertativa">Dissertativa</option>
+    
         <option value="classificacao">Classificação</option>
     `;
     tipoSelect.onchange = function() { handleTipoPergunta(this); };
