@@ -7,9 +7,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="sesicomunica/css/style.css">
+        <link rel="stylesheet" href="sesicomunica/css/cssadm/inicialadm.css">
         <link rel="shortcut icon" type="" href="sesicomunica/img/icon.png">
+<<<<<<< HEAD
+        <script src="index.js" defer></script>
+  <title>Página inicial - SESI Comunica</title>
+</head>
+=======
                 <style>
+>>>>>>> 745cba8bfa25f335ef57aa9bb31a26878589fe45
 
             @media screen and (max-width: 768px) {
                 nav {
