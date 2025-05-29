@@ -6,42 +6,20 @@ $respostaSalva = false;
 
 // Salvar respostas
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['formulario_id'])) {
-
   $formularioId = intval($_POST['formulario_id']);
+  $submissaoId = time(); // ID de envio
 
-  // Insere na tabela submissoes para criar o registro e gerar o ID automático
-  $sqlSubmissao = "INSERT INTO submissoes (formulario_id) VALUES ($formularioId)";
-  if (!$conn->query($sqlSubmissao)) {
-    die("Erro ao salvar submissão: " . $conn->error);
-  }
-  $submissaoId = $conn->insert_id;
+  foreach ($_POST['respostas'] as $perguntaId => $resposta) {
+    $perguntaId = intval($perguntaId);
+    $respostaTexto = $conn->real_escape_string($resposta);
 
-  // Verifica e salva as respostas
-  if (isset($_POST['respostas']) && is_array($_POST['respostas'])) {
-    foreach ($_POST['respostas'] as $perguntaId => $resposta) {
-      $perguntaId = intval($perguntaId);
-      $resposta = $conn->real_escape_string($resposta);
-
-      // Valores padrão para os campos obrigatórios da tabela respostas
-      $texto_opcao = '';
-      $ordem = 0;
-
-      $sqlResposta = "INSERT INTO respostas 
-        (submissao_id, pergunta_id, resposta, texto_opcao, ordem, formulario_id) 
-        VALUES 
-        ($submissaoId, $perguntaId, '$resposta', '$texto_opcao', $ordem, $formularioId)";
-
-      if (!$conn->query($sqlResposta)) {
-        die("Erro ao salvar resposta: " . $conn->error);
-      }
-    }
+    $sqlInsert = "INSERT INTO respostas (submissao_id, pergunta_id, resposta, texto_opcao, ordem, formulario_id)
+                  VALUES ($submissaoId, $perguntaId, '$respostaTexto', '', 0, $formularioId)";
+    $conn->query($sqlInsert);
   }
 
-  $respostaSalva = true; // Para mostrar a mensagem de sucesso no formulário
-
+  $respostaSalva = true;
 }
-
-
 
 // Buscar dados do formulário selecionado
 if (isset($_GET['id'])) {

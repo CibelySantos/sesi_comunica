@@ -11,7 +11,6 @@
             <a href="../../logout.php"><img class="icone-user" src="../img/sair.png" alt="Perfil"></a>
         </div>
     </div>
-<<<<<<< HEAD
 
     <div class="menu">
         <div class="menu-container" id="menu">
@@ -24,21 +23,3 @@
     </div>
 </div>
 <script src="../js/nav-adm.js"></script>
-=======
-  </div>
-</nav>
-
-
-<button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">☰</button>
-
-<!-- O Menu/Modal -->
-<ul class="menu-container" id="menu" role="menu" aria-labelledby="hamburger">
-    <li role="none"><a role="menuitem" href="inicialprof.php">Página Inicial</a></li>
-    <li role="none"><a role="menuitem" href="calendarioprof.php">Calendário</a></li>
-    <li role="none"><a role="menuitem" href="formularioprof.php">Formulário</a></li>
-    <li role="none"><a role="menuitem" href="agendamentoprof.php">Agendamentos</a></li>
-    <li role="none"><a role="menuitem" href="./galeria/galeria.php">Galeria</a></li>
-</ul>
-
-<script src="../js/nav-prof.js"></script>
->>>>>>> 44c5685dff3e98c3ae5ed52d1d4a77b92be68051

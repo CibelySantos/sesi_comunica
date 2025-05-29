@@ -201,11 +201,11 @@
                                     <div class="pergunta-header">
                                         <div class="pergunta-titulo">
                                             <label>Pergunta:</label>
-                                            <select class="tipo-pergunta" disabled>
-                                                <option value="dissertativa" selected>Dissertativa</option>
+                                            <select class="tipo-pergunta" onchange="handleTipoPergunta(this)">
+                                                <option value="dissertativa">Dissertativa</option>
+                                                <option value="objetiva">Objetiva</option>
+                                                <option value="classificacao">Classificação</option>
                                             </select>
-                                            <input type="hidden" name="tipos_pergunta[]" value="dissertativa">
-
                                         </div>
                                         <button type="button" class="btn-remover-pergunta" 
                                         onclick="removerPergunta(this)">Remover</button>

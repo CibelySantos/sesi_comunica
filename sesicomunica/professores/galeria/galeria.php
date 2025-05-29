@@ -1,12 +1,4 @@
-<?php include 'db.php'; 
-
-session_start();
-
-header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
-header("Pragma: no-cache"); // HTTP 1.0
-header("Expires: 0"); // Proxies
-
-?>
+<?php include 'db.php'; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,13 +7,9 @@ header("Expires: 0"); // Proxies
   <title>Galeria de Projetos</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="./css/galeria.css">
-  <link rel="stylesheet" href="./css/navgaleria.css"> <!-- Adicionada a nav -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-
 <body>
-
-<?php include 'navgaleria.php'; ?>
 
   <h1>Galeria de Projetos</h1>
 
