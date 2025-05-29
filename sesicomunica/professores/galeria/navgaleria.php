@@ -6,11 +6,11 @@
 <nav class="nav-wrapper">
   <div class="alinhamento-nav">
     <a href="inicialadm.php" class="logo-link">
-      <img class="logo-comunica" src="../img/PROJETOGG.png" alt="Logo SESI Comunica" />
+      <img class="logo-comunica" src="../../img/PROJETOGG.png" alt="Logo SESI Comunica" />
     </a>
     <div class="perfil-user">
       <a href="../../logout.php" aria-label="Sair da conta">
-        <img class="icone-user" src="../img/sair.png" alt="Sair" />
+        <img class="icone-user" src="../../img/sair.png" alt="Sair" />
       </a>
     </div>
   </div>
@@ -21,11 +21,11 @@
 
 <!-- O Menu/Modal -->
 <ul class="menu-container" id="menu" role="menu" aria-labelledby="hamburger">
-    <li role="none"><a role="menuitem" href="inicialprof.php">Página Inicial</a></li>
-    <li role="none"><a role="menuitem" href="calendarioprof.php">Calendário</a></li>
-    <li role="none"><a role="menuitem" href="formularioprof.php">Formulário</a></li>
-    <li role="none"><a role="menuitem" href="agendamentoprof.php">Agendamentos</a></li>
-    <li role="none"><a role="menuitem" href="./galeria/galeria.php">Galeria</a></li>
+    <li role="none"><a role="menuitem" href="../inicialprof.php">Página Inicial</a></li>
+    <li role="none"><a role="menuitem" href="../calendarioprof.php">Calendário</a></li>
+    <li role="none"><a role="menuitem" href="../formularioprof.php">Formulário</a></li>
+    <li role="none"><a role="menuitem" href="../agendamentoprof.php">Agendamentos</a></li>
+    <li role="none"><a role="menuitem" href="galeria.php">Galeria</a></li>
 </ul>
 
-<script src="../js/nav-prof.js"></script>
+<script src="../../js/nav-prof.js"></script>

@@ -31,7 +31,9 @@ if (!isset($_SESSION['id_users'])) {
 
   <div class="content">
     <section class="banner">
-      <img src="../img/imgFundoSesi.png" alt="Imagem principal" class="main-image">
+      <img src="../img/fundo-tela-inicial.jpg" alt="Imagem principal" class="main-image">
+
+      <div class="overlay"></div>
 
       <div class="info">
         <h1>Bem-vindo Professor</h1>
