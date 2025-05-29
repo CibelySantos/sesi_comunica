@@ -48,6 +48,10 @@ h2::after {
   scrollbar-color: red #f0f0f0; 
 }
 
+#comunicado-antigo-modal{
+  margin-top: 8px;
+}
+
 .comunicado{
   width: 100%;
 }

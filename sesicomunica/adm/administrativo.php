@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 $numFormatado = str_pad($num++, 3, "0", STR_PAD_LEFT);
                                 echo "
                                     <a href='#' onclick='abrirComunicado($id)'>
-                                        <div class='comunicado'>
+                                        <div class='comunicado' id='comunicado-antigo-modal'>
                                             Comunicado $numFormatado -<br>$nome
                                         </div>
                                     </a>
