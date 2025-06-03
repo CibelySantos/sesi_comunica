@@ -1,5 +1,5 @@
 <?php
-include '../../conexao.php'; // conexão com o banco
+include '../../conexao.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

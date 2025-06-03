@@ -32,12 +32,12 @@
                 echo "<p><strong>Data do Cardápio:</strong> $data</p>";
 
                 // Exibir PDF embed na página (como visualização direta)
-                echo "<iframe src='exibir_pdf.php?id=$id' width='80%' height='600px' style='border: none;'></iframe>";
+                echo "<iframe src='exibir_pdf.php?id=$id#toolbar=0' width='80%' height='600px' style='border: none;'></iframe>";
 
                 // Botão para baixar o PDF
                 echo "<br><a href='baixar_pdf.php?id=$id' download style='padding: 10px 20px; background-color:rgb(225, 0, 0); color: white; text-decoration: none; border-radius: 8px;'>
-                        📥 Baixar PDF
-                      </a>";
+                        Baixar PDF
+                      </a><br>" ;
             } else {
                 echo "<p>⚠️ Nenhum cardápio encontrado.</p>";
             }
