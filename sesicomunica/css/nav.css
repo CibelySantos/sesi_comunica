@@ -11,6 +11,7 @@ body {
 /* Navbar */
 .nav-wrapper {
     width: 100%;
+    padding: 14px;
     background-color: #d90c0c;
 }
 

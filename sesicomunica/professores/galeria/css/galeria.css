@@ -71,9 +71,6 @@ h1 {
 }
 
 .botao-criar {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
   background-color: #d50000;
   color: white;
   border: none;
@@ -84,12 +81,13 @@ h1 {
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
-  z-index: 1000;
+  display: block;
+  width: fit-content;
+  margin: 40px auto 20px auto; /* centraliza e afasta do conteúdo e do footer */
+  text-align: center;
 }
 
-.botao-criar:hover {
-  background-color: #b00000;
-}
+
 
 /* Modal */
 .modal {

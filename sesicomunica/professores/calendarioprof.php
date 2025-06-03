@@ -16,7 +16,7 @@ header("Expires: 0"); // Proxies
   <link rel="shortcut icon" href="../img/icon.png">
   <title>Calendário - SESI Comunica</title>
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/cssadm/navadm.css">
+  <link rel="stylesheet" href="../css/nav.css">
   <link rel="stylesheet" href="../css/calendario.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>

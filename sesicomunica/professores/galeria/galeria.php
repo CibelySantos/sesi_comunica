@@ -122,6 +122,8 @@ while ($row = $result->fetch_assoc()) {
   });
 </script>
 
+<?php include('footergaleria.php'); ?>
+
 
 </body>
 </html>
