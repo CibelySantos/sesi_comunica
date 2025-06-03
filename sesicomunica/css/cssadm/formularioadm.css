@@ -326,7 +326,7 @@ body {
 }
 
 .botao-criar {
-  background-color: #d90c0c;
+  background-color: #d90c0c !important;
   color: white;
   border: none;
   padding: 12px 24px;
