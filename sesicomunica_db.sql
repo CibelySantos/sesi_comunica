@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Jun-2025 às 19:50
+-- Tempo de geração: 03-Jun-2025 às 21:23
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -122,7 +122,6 @@ CREATE TABLE `pdf` (
   `arquivo_pdf` mediumblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- --------------------------------------------------------
 
 --
@@ -167,15 +166,18 @@ CREATE TABLE `projetos` (
   `imagem2` varchar(255) DEFAULT current_timestamp(),
   `imagem3` varchar(255) DEFAULT current_timestamp(),
   `criado_em` timestamp NOT NULL DEFAULT current_timestamp(),
-  `curtidas` int(11) DEFAULT 0
+  `curtidas` int(11) DEFAULT 0,
+  `imagem4` varchar(255) NOT NULL,
+  `imagem5` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `projetos`
 --
 
-INSERT INTO `projetos` (`id`, `nome`, `descricao`, `imagem1`, `imagem2`, `imagem3`, `criado_em`, `curtidas`) VALUES
-(6, 'Professora Fabiana', 'Atividade de Geografia', 'img_683da2fb96e398.12639086.webp', 'img_683da2fb973be7.18502550.jpg', 'img_683da2fb978fd2.11144201.jpg', '2025-06-02 13:11:23', 0);
+INSERT INTO `projetos` (`id`, `nome`, `descricao`, `imagem1`, `imagem2`, `imagem3`, `criado_em`, `curtidas`, `imagem4`, `imagem5`) VALUES
+(6, 'Professora Fabiana', 'Atividade de Geografia', 'img_683da2fb96e398.12639086.webp', 'img_683da2fb973be7.18502550.jpg', 'img_683da2fb978fd2.11144201.jpg', '2025-06-02 13:11:23', 0, '', ''),
+(9, 'Professor Wshington', 'Obras de arte modernistas', 'img_683f46e97c3d46.80024431.png', 'img_683f46e97ca7e0.05862294.png', 'img_683f46e97d1ec4.32072500.png', '2025-06-03 19:03:05', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -438,7 +440,7 @@ ALTER TABLE `perguntas`
 -- AUTO_INCREMENT de tabela `projetos`
 --
 ALTER TABLE `projetos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `publico`
