@@ -5,7 +5,7 @@
 
 <nav class="nav-wrapper">
   <div class="alinhamento-nav">
-    <a href="inicialadm.php" class="logo-link">
+    <a href="../../index.php" class="logo-link">
       <img class="logo-comunica" src="../img/PROJETOGG.png" alt="Logo SESI Comunica" />
     </a>
   </div>

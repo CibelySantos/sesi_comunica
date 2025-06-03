@@ -209,6 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <option value="">Selecione</option>
                                 <option value="alunos">Alunos</option>
                                 <option value="professores">Professores</option>
+                                <option value="ambos">Ambos</option>
                                 </select>
                             </div>
 

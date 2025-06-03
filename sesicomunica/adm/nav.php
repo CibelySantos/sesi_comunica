@@ -29,4 +29,4 @@
     <li role="none"><a role="menuitem" href="cadastrar.php">Cadastro</a></li>
 </ul>
 
-    <script src="../js/nav-adm.js"></script>
+<script src="../js/nav-adm.js"></script>

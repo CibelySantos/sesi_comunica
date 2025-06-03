@@ -4,7 +4,7 @@
 
 <div class="nav-wrapper">
     <div class="alinhamento-nav">
-        <a href="inicialadm.php" class="logo-link">
+        <a href="inicialprof.php" class="logo-link">
             <img class="logo-comunica" src="../img/PROJETOGG.png" alt="Logo">
         </a>
         <div class="perfil-user">
