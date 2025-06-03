@@ -2,12 +2,12 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/cssprof/inicialprof.css">
-    <link rel="stylesheet" href="../css/nav.css">
-    <link rel="shortcut icon" href="../img/icon.png">
-    <title>Página Inicial - SESI Comunica</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/cssprof/inicialprof.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="shortcut icon" href="../img/icon.png">
+  <title>Página Inicial - SESI Comunica</title>
 </head>
 
 <body>
@@ -15,16 +15,14 @@
   <?php include 'navprof.php'; ?>
 
   <div class="content">
-    <section class="banner">
-      <img src="../img/fundo-tela-inicial.jpg" alt="Imagem principal" class="main-image">
-
-      <div class="overlay"></div>
-
-      <div class="info">
-        <h1>Bem-vindo Professor</h1>
-        <p>Fique por dentro de todos os recados e cronogramas da nossa escola.</p>
+    <div class="banner">
+      <div class="banner-content">
+        <div class="infor-banner">
+          <h1>Bem-vindo administrador!</h1>
+          <p>Fique por dentro de todos os recados e cronogramas da nossa escola!</p>
+        </div>
       </div>
-    </section>
+    </div>
 
     <section class="imagem-extra">
       <img src="../img/bannerCarrossel.png" alt="Banner adicional">
