@@ -52,10 +52,10 @@ nav {
     display: flex;
     gap: 30px;
     list-style: none;
-    margin: 0;
+    margin: -50;
     padding: 0 20px;
     position: static !important;
-    margin-top: 15px;
+    margin-top: 1px;
     transition: left 0.3s ease-in-out;
     margin-left: 0 !important;
 }
