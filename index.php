@@ -1,13 +1,17 @@
 <?php
-    include 'nav-index.php';
+include 'nav-index.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="sesicomunica/css/style.css">
-        <link rel="shortcut icon" type="" href="../sesicomunica/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="sesicomunica/css/style.css">
+  <link rel="stylesheet" href="sesicomunica/css/nav.css">
+  <link rel="shortcut icon" type="" href="../sesicomunica/img/icon.png">
+
   <title>Página inicial - SESI Comunica</title>
 </head>
 
@@ -21,10 +25,14 @@
       </div>
     </div>
   </div>
+  <section class="imagem-extra">
+    <img src="./sesicomunica/img/bannerCarrossel.png" alt="Banner adicional">
+  </section>
 
   <?php include 'footer-index.php'; ?>
 
 
 
 </body>
+
 </html>
