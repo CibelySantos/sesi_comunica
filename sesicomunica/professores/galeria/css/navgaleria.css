@@ -30,7 +30,7 @@ nav {
 }
 
 .logo-comunica {
-    max-height: 80px;
+    max-height: 100px;
     height: 120px;
 }
 
@@ -169,9 +169,6 @@ body.menu-modal-open {
     height: 80px; /* Exemplo de altura da navbar */
 }
 
-.logo-comunica {
-    max-height: 60px; /* Ajustar para caber na altura da nav */
-}
 
 .perfil-user img.icone-user {
     max-height: 35px; /* Ajustar */
