@@ -122,6 +122,10 @@ form {
   font-weight: 600;
 }
 
+.alinhamento-nav{
+  height: 120px !important;
+}
+
 /* Scroll na listagem quando muito grande */
 .listagem-usuarios::-webkit-scrollbar {
   width: 6px;
