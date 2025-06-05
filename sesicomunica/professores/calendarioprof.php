@@ -54,7 +54,7 @@ header("Expires: 0"); // Proxies
   </div>
 
   <?php include('../adm/footer.php'); ?>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
   <script src="../js/calendario-adm.js"></script>
 </body>
