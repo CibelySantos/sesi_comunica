@@ -192,7 +192,7 @@ if (isset($_GET['id'])) {
 
 <body>
 
-<?php include('navaluno.php'); ?>
+  <?php include('navaluno.php'); ?>
 
   <div class="container">
     <h1>Formulários</h1>
@@ -245,13 +245,13 @@ if (isset($_GET['id'])) {
 
               // Buscar opções da tabela questoes_objetivas
               if ($tipoPergunta === 'objetiva') {
-                $sqlOpcoes = "SELECT texto_opcao FROM questoes_objetivas 
-                            WHERE pergunta_id = $perguntaId 
-                            ORDER BY ordem ASC";
+                $sqlOpcoes = "SELECT texto FROM opcoes 
+                            WHERE pergunta_id = $perguntaId rea o formulário
+                            ORDER BY id ASC";
                 $resOpcoes = $conn->query($sqlOpcoes);
                 if ($resOpcoes && $resOpcoes->num_rows > 0) {
                   while ($op = $resOpcoes->fetch_assoc()) {
-                    $opcoes[] = htmlspecialchars($op['texto_opcao']);
+                    $opcoes[] = htmlspecialchars($op['texto']);
                   }
                 }
               }

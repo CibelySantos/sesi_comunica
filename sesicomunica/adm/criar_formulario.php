@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST["perguntas"]) && isset($_POST["tipos_pergunta"])) {
                 $perguntas = $_POST["perguntas"];
                 $tipos = $_POST["tipos_pergunta"];
+                $opcoes = $_POST['opcoes'] ?? [];
 
                 for ($i = 0; $i < count($perguntas); $i++) {
                     // Inserir pergunta
@@ -69,6 +70,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $max = $_POST["classificacao_max"][$i];
                         $stmt_class->bind_param("iii", $min, $max, $pergunta_id);
                         $stmt_class->execute();
+                    }
+
+                    if ($tipos[$i] === 'objetiva' && isset($opcoes[$i])) {
+                        foreach ($opcoes[$i] as $opcao) {
+                            $sql_opcao = "INSERT INTO opcoes (pergunta_id, texto) VALUES (?, ?)";
+                            $stmt_opcao = $conn->prepare($sql_opcao);
+                            $stmt_opcao->bind_param("is", $pergunta_id, $opcao);
+                            $stmt_opcao->execute();
+                        }
                     }
                 }
             }
@@ -106,6 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,7 +131,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
     <title>Criar Formulário - SESI Comunica</title>
 </head>
-    <body>
+
+<body>
 
     <div class="flex-container">
         <!-- Formulários existentes -->
@@ -130,43 +142,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div id="espacamento"></div>
             <?php
-                $sql = "SELECT f.id, f.nome,pub.publico_alvo, d.data_envio, d.data_limite
+            $sql = "SELECT f.id, f.nome,pub.publico_alvo, d.data_envio, d.data_limite
                         FROM formularios f
                         LEFT JOIN publico pub ON f.id = pub.formulario_id
                         LEFT JOIN data_formularios d ON f.id = d.formulario_id
                         ORDER BY d.data_envio DESC";
 
-                $result = $conn->query($sql);
-                if ($result && $result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        echo "<div class='card-formulario'>";
-                        echo "<div class='card-header'>";
-                        echo "<h3>" . htmlspecialchars($row['nome']) . "</h3>";
-                        echo "<div class='card-icons'>";
-                        echo "<a href='exportar_formularios.php' class='icon-link' title='Exportar CSV'><i class='fas fa-file-csv'></i></a>";
-                        echo "<a href='#' onclick='abrirModalEditar(" . $row['id'] . ")' class='icon-link'><i class='fas fa-edit'></i></a>";
-                        echo "<a href='#' onclick='confirmarExclusao(" . $row['id'] . ")' class='icon-link'><i class='fas fa-trash-alt'></i></a>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "<div class='card-content'>";
-                        echo "Público: " . htmlspecialchars($row['publico_alvo']) . "<br>";
-                        echo "Criado em: " . htmlspecialchars($row['data_envio']) . "<br>";
-                        echo "Limite: " . htmlspecialchars($row['data_limite']) . "<br>";
-                        echo "</div>";
-                        echo "</div>";
-                        
-                    }
-                } else {
-                    echo "<p>Nenhum formulário encontrado.</p>";
+            $result = $conn->query($sql);
+            if ($result && $result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<div class='card-formulario'>";
+                    echo "<div class='card-header'>";
+                    echo "<h3>" . htmlspecialchars($row['nome']) . "</h3>";
+                    echo "<div class='card-icons'>";
+                    echo "<a href='exportar_formularios.php' class='icon-link' title='Exportar CSV'><i class='fas fa-file-csv'></i></a>";
+                    echo "<a href='#' onclick='abrirModalEditar(" . $row['id'] . ")' class='icon-link'><i class='fas fa-edit'></i></a>";
+                    echo "<a href='#' onclick='confirmarExclusao(" . $row['id'] . ")' class='icon-link'><i class='fas fa-trash-alt'></i></a>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "<div class='card-content'>";
+                    echo "Público: " . htmlspecialchars($row['publico_alvo']) . "<br>";
+                    echo "Criado em: " . htmlspecialchars($row['data_envio']) . "<br>";
+                    echo "Limite: " . htmlspecialchars($row['data_limite']) . "<br>";
+                    echo "</div>";
+                    echo "</div>";
+
                 }
+            } else {
+                echo "<p>Nenhum formulário encontrado.</p>";
+            }
             ?>
         </div>
         <!-- Criação de formulário -->
         <div class="card-criacao-formulario">
-            
+
             <div class="card-criacao-formulario-content">
                 <div class="titulo-card-criacao-formulario">
-                        <h2>Criar novo formulário</h2>
+                    <h2>Criar novo formulário</h2>
                 </div>
                 <button class="botao-criar" onclick="abrirModal()">Novo Formulário</button>
             </div>
@@ -187,29 +199,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="pergunta-header">
                                         <div class="pergunta-titulo">
                                             <label>Pergunta:</label>
-                                            <select class="tipo-pergunta" onchange="handleTipoPergunta(this)">
+                                            <select class="tipo-pergunta" name="tipos_pergunta[]"
+                                                onchange="handleTipoPergunta(this)">
                                                 <option value="dissertativa">Dissertativa</option>
-                                            
+
                                                 <option value="classificacao">Classificação</option>
+
+                                                <option value="objetiva">Objetiva</option>
                                             </select>
                                         </div>
-                                        <button type="button" class="btn-remover-pergunta" 
-                                        onclick="removerPergunta(this)">Remover</button>
+                                        <div class="opcoes-container" style="display:none;">
+                                            <label>Opções:</label>
+                                            <div class="opcoes-list"></div>
+                                            <button type="button" onclick="addOpcao(this)">Adicionar Opção</button>
+                                        </div>
+                                        <button type="button" class="btn-remover-pergunta"
+                                            onclick="removerPergunta(this)">Remover</button>
                                     </div>
                                     <input type="text" name="perguntas[]" required>
                                     <input type="hidden" name="tipos_pergunta[]" value="dissertativa">
                                     <div class="opcoes-container"></div>
                                 </div>
                             </div>
-                            <button type="button" class="add-pergunta" onclick="criarPergunta()">+ Adicionar pergunta</button>
+                            <button type="button" class="add-pergunta" onclick="criarPergunta()">+ Adicionar
+                                pergunta</button>
 
                             <div class="form-group">
                                 <label for="publico">Público alvo:</label>
                                 <select name="publico" id="publico" required>
-                                <option value="">Selecione</option>
-                                <option value="alunos">Alunos</option>
-                                <option value="professores">Professores</option>
-                                <option value="ambos">Ambos</option>
+                                    <option value="">Selecione</option>
+                                    <option value="alunos">Alunos</option>
+                                    <option value="professores">Professores</option>
+                                    <option value="ambos">Ambos</option>
                                 </select>
                             </div>
 
@@ -230,12 +251,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <!-- Modal de Edição -->
-            <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="editarModalLabel">Editar Formulário</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Fechar"></button>
                         </div>
                         <div class="modal-body">
                             <form id="editar-form">
@@ -264,12 +287,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div id="editar-perguntas-container">
                                     <!-- Perguntas serão carregadas aqui -->
                                 </div>
-                                <button type="button" class="btn btn-secondary mt-3" onclick="criarPerguntaEditar()">+ Adicionar Pergunta</button>
+                                <button type="button" class="btn btn-secondary mt-3" onclick="criarPerguntaEditar()">+
+                                    Adicionar Pergunta</button>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-primary" onclick="salvarAlteracoes()">Salvar Alterações</button>
+                            <button type="button" class="btn btn-primary" onclick="salvarAlteracoes()">Salvar
+                                Alterações</button>
                         </div>
                     </div>
                 </div>
@@ -284,4 +309,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="../js/formulario.js" defer></script>
 
 </body>
+
 </html>

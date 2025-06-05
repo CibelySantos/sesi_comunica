@@ -63,6 +63,7 @@
 .container h1 {
   font-size: 32px;
   font-weight: bold;
+  color: black;
   border-bottom: 3px solid #d50000;
   width: fit-content;
   margin-top: 30px;

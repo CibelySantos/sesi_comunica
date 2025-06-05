@@ -16,16 +16,12 @@ function criarPergunta() {
     tipoSelect.className = 'tipo-pergunta';
     tipoSelect.innerHTML = `
         <option value="dissertativa">Dissertativa</option>
-    
+        <option value="objetiva">Objetiva</option>
         <option value="classificacao">Classificação</option>
     `;
-    tipoSelect.onchange = function() { handleTipoPergunta(this); };
-
-    const btnRemover = document.createElement('button');
-    btnRemover.type = 'button';
-    btnRemover.className = 'btn-remover-pergunta';
-    btnRemover.textContent = 'Remover';
-    btnRemover.onclick = function() { removerPergunta(this); };
+    tipoSelect.onchange = function () {
+        handleTipoPergunta(this);
+    };
 
     const input = document.createElement('input');
     input.type = 'text';
@@ -36,27 +32,38 @@ function criarPergunta() {
     const tipoHidden = document.createElement('input');
     tipoHidden.type = 'hidden';
     tipoHidden.name = 'tipos_pergunta[]';
-    tipoHidden.value = 'dissertativa';
+    tipoHidden.value = 'dissertativa'; // valor padrão, alterado em handleTipoPergunta
 
     const opcoesContainer = document.createElement('div');
     opcoesContainer.className = 'opcoes-container';
 
+    const btnRemover = document.createElement('button');
+    btnRemover.type = 'button';
+    btnRemover.className = 'btn-remover-pergunta';
+    btnRemover.textContent = 'Remover';
+    btnRemover.onclick = function () {
+        removerPergunta(this);
+    };
+
     perguntaHeader.appendChild(label);
     perguntaHeader.appendChild(tipoSelect);
     perguntaHeader.appendChild(btnRemover);
-    
+
     newQuestion.appendChild(perguntaHeader);
     newQuestion.appendChild(input);
     newQuestion.appendChild(tipoHidden);
     newQuestion.appendChild(opcoesContainer);
-    
+
     container.appendChild(newQuestion);
 }
+
 
 function handleTipoPergunta(select) {
     const perguntaItem = select.closest('.pergunta-item');
     const opcoesContainer = perguntaItem.querySelector('.opcoes-container');
     const tipoHidden = perguntaItem.querySelector('input[name="tipos_pergunta[]"]');
+
+    
     
     tipoHidden.value = select.value;
     opcoesContainer.innerHTML = '';
@@ -68,9 +75,10 @@ function handleTipoPergunta(select) {
         btnAddOpcao.textContent = '+ Adicionar alternativa';
         btnAddOpcao.onclick = function() { adicionarOpcao(opcoesContainer); };
         
-        opcoesContainer.appendChild(btnAddOpcao);
+        
         adicionarOpcao(opcoesContainer); // Adiciona primeira opção automaticamente
         adicionarOpcao(opcoesContainer); // Adiciona segunda opção automaticamente
+        opcoesContainer.appendChild(btnAddOpcao);
     } else if (select.value === 'classificacao') {
         const classificacaoDiv = document.createElement('div');
         classificacaoDiv.className = 'classificacao-container';

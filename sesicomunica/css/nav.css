@@ -39,6 +39,7 @@ nav {
 .perfil-user {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .perfil-user img.icone-user,
@@ -53,10 +54,8 @@ nav {
     display: flex;
     gap: 30px;
     list-style: none;
-    margin: -8;
     padding: 0 20px;
     position: static !important;
-    margin-top: -7px;
     transition: left 0.3s ease-in-out;
     margin-left: 0 !important;
 }

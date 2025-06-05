@@ -7,11 +7,9 @@ include 'nav-index.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="sesicomunica/css/style.css">
   <link rel="stylesheet" href="sesicomunica/css/nav.css">
-  <link rel="shortcut icon" type="" href="../sesicomunica/img/icon.png">
-
+  <link rel="shortcut icon" type="" href="sesicomunica/img/icon.png">
   <title>Página inicial - SESI Comunica</title>
 </head>
 

@@ -39,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login - SESI Comunica</title>
     <link rel="stylesheet" href="sesicomunica/css/login.css" />
+    <link rel="shortcut icon" type="" href="sesicomunica/img/icon.png">
 </head>
 <body>
 <?php if ($erro): ?>
@@ -72,6 +73,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
 
             <button type="submit">Entrar</button>
+            <div class="voltar-container">
+
+                <a class="button-voltar" href="index.php">Voltar</a>
+            </div>
         </form>
     </div>
 </div>
