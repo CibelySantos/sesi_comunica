@@ -57,7 +57,7 @@ $conn->close();
 
     <div class="container-adm">
         <?php if (!empty($pdfBase64)): ?>
-            <embed src="data:application/pdf;base64,<?php echo $pdfBase64; ?>" type="application/pdf" />
+            <embed src="data:application/pdf;base64,<?php echo $pdfBase64; ?>#toolbar=0" type="application/pdf" />
         <?php else: ?>
             <div style="text-align: center; color: red;">Nenhum PDF encontrado.</div>
         <?php endif; ?>
