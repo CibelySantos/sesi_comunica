@@ -186,6 +186,10 @@ button.editar-excluir-btn {
   align-items: center;
 }
 
+footer{
+  margin-top: 50px !important;
+}
+
 .fechar-btn:hover {
   color: red;
 }
