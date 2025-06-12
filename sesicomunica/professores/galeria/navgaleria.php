@@ -8,7 +8,7 @@
       <img class="logo-comunica" src="../../img/PROJETOGG.png" alt="Logo SESI Comunica" />
     </a>
     <div class="perfil-user">
-      <a href="../../logout.php" aria-label="Sair da conta">
+      <a href="../../../logout.php" aria-label="Sair da conta">
         <img class="icone-user" src="../../img/sair.png" alt="Sair" />
       </a>
     </div>
