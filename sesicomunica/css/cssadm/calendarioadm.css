@@ -51,6 +51,10 @@ body {
     background: #8ad1f3;
     color: #333;
 }
+.todos {
+    background: #55AE62;
+    color: #333;
+}
 .activity-text {
     color: #555;
     font-size: 16px;

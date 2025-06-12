@@ -50,6 +50,13 @@ header("Expires: 0"); // Proxies
           
         </div>
       </div>
+
+      <div class="activity-box">
+        <div class="label todos">Todos</div>
+        <div class="activity-text">
+          
+        </div>
+      </div>
     </div>
   </div>
 
