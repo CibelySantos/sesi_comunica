@@ -158,6 +158,8 @@ document.addEventListener("DOMContentLoaded", function () {
           .nextElementSibling,
         medio: document.querySelector(".activity-box .medio")
           .nextElementSibling,
+        todos: document.querySelector(".activity-box .todos")
+          .nextElementSibling,
       };
 
       // Limpa textos padrões
