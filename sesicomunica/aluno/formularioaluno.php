@@ -204,7 +204,12 @@ if (isset($_GET['id'])) {
 
     <div class="comunicados-container">
       <?php
-      $sql = "SELECT id, nome FROM formularios";
+      $sql = "
+        SELECT DISTINCT f.id, f.nome
+        FROM formularios f
+        INNER JOIN publico p ON f.id = p.formulario_id
+        WHERE p.publico_alvo = 'alunos' OR p.publico_alvo = 'ambos'
+      ";
       $result = $conn->query($sql);
       if ($result && $result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -246,7 +251,7 @@ if (isset($_GET['id'])) {
               // Buscar opções da tabela questoes_objetivas
               if ($tipoPergunta === 'objetiva') {
                 $sqlOpcoes = "SELECT texto FROM opcoes 
-                            WHERE pergunta_id = $perguntaId rea o formulário
+                            WHERE pergunta_id = $perguntaId
                             ORDER BY id ASC";
                 $resOpcoes = $conn->query($sqlOpcoes);
                 if ($resOpcoes && $resOpcoes->num_rows > 0) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Jun-2025 às 21:23
+-- Tempo de geração: 12-Jun-2025 às 15:18
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -44,17 +44,9 @@ CREATE TABLE `comunicados` (
 CREATE TABLE `data_formularios` (
   `id` int(11) NOT NULL,
   `formulario_id` int(11) NOT NULL,
-  `data_envio` date NOT NULL,
+  `data_envio` date NOT NULL DEFAULT current_timestamp(),
   `data_limite` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `data_formularios`
---
-
-INSERT INTO `data_formularios` (`id`, `formulario_id`, `data_envio`, `data_limite`) VALUES
-(1, 3, '2025-04-08', '2025-04-23'),
-(2, 4, '2025-04-08', '2025-04-23');
 
 -- --------------------------------------------------------
 
@@ -70,15 +62,6 @@ CREATE TABLE `eventos` (
   `data_inicio` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `eventos`
---
-
-INSERT INTO `eventos` (`id`, `titulo`, `descricao`, `categoria`, `data_inicio`) VALUES
-(11, 'MundoSENAI', 'Evento para as famílias conhecerem os curso do SENAI', 'medio', '2025-06-02 00:00:00'),
-(13, 'Festa Junina', 'Danças', 'fundamental1', '2025-06-14 00:00:00'),
-(14, 'Teste', 'teste', 'fundamental2', '2025-06-11 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -90,14 +73,6 @@ CREATE TABLE `formularios` (
   `nome` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `formularios`
---
-
-INSERT INTO `formularios` (`id`, `nome`) VALUES
-(3, 'Formulário de Egressos'),
-(4, 'Formulario das familias');
-
 -- --------------------------------------------------------
 
 --
@@ -108,6 +83,18 @@ CREATE TABLE `imagens` (
   `id` int(11) NOT NULL,
   `projeto_id` int(11) DEFAULT NULL,
   `caminho` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `opcoes`
+--
+
+CREATE TABLE `opcoes` (
+  `id` int(11) NOT NULL,
+  `pergunta_id` int(11) NOT NULL,
+  `texto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -138,20 +125,6 @@ CREATE TABLE `perguntas` (
   `max_classificacao` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `perguntas`
---
-
-INSERT INTO `perguntas` (`id`, `formulario_id`, `pergunta`, `tipo`, `tipo_pergunta`, `min_classificacao`, `max_classificacao`) VALUES
-(10, 3, 'Qual seu nome completo?', 'text', '', NULL, NULL),
-(11, 3, 'Está matriculado em alguma faculdade? Se sim qual a faculdade?', 'text', '', NULL, NULL),
-(13, 3, 'Esta trabalhando? Se sim, qual a sua área de atuação?', 'text', '', NULL, NULL),
-(14, 3, 'Pretende fazer alguma graduação?', 'text', '', NULL, NULL),
-(15, 4, 'Qual a faixa salarial?', 'text', '', NULL, NULL),
-(16, 4, 'Quantos filhos tem matriculado?', 'text', '', NULL, NULL),
-(17, 4, 'Qual seu nome completo?', 'text', '', NULL, NULL),
-(18, 4, 'Tem alfguma restrição alimentar?', 'text', '', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -166,18 +139,8 @@ CREATE TABLE `projetos` (
   `imagem2` varchar(255) DEFAULT current_timestamp(),
   `imagem3` varchar(255) DEFAULT current_timestamp(),
   `criado_em` timestamp NOT NULL DEFAULT current_timestamp(),
-  `curtidas` int(11) DEFAULT 0,
-  `imagem4` varchar(255) NOT NULL,
-  `imagem5` varchar(255) NOT NULL
+  `curtidas` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `projetos`
---
-
-INSERT INTO `projetos` (`id`, `nome`, `descricao`, `imagem1`, `imagem2`, `imagem3`, `criado_em`, `curtidas`, `imagem4`, `imagem5`) VALUES
-(6, 'Professora Fabiana', 'Atividade de Geografia', 'img_683da2fb96e398.12639086.webp', 'img_683da2fb973be7.18502550.jpg', 'img_683da2fb978fd2.11144201.jpg', '2025-06-02 13:11:23', 0, '', ''),
-(9, 'Professor Wshington', 'Obras de arte modernistas', 'img_683f46e97c3d46.80024431.png', 'img_683f46e97ca7e0.05862294.png', 'img_683f46e97d1ec4.32072500.png', '2025-06-03 19:03:05', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -190,14 +153,6 @@ CREATE TABLE `publico` (
   `formulario_id` int(11) NOT NULL,
   `publico_alvo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `publico`
---
-
-INSERT INTO `publico` (`id`, `formulario_id`, `publico_alvo`) VALUES
-(4, 3, 'alunos'),
-(5, 4, 'alunos');
 
 -- --------------------------------------------------------
 
@@ -215,32 +170,6 @@ CREATE TABLE `respostas` (
   `formulario_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `respostas`
---
-
-INSERT INTO `respostas` (`id`, `submissao_id`, `pergunta_id`, `resposta`, `texto_opcao`, `ordem`, `formulario_id`) VALUES
-(1, 3, 10, 'Lucas', '', 0, NULL),
-(2, 3, 11, 'Sim', '', 0, NULL),
-(4, 3, 13, 'Não', '', 0, NULL),
-(5, 3, 14, 'Sim', '', 0, NULL),
-(6, 4, 10, 'Teste', '', 0, NULL),
-(7, 4, 11, 'Não', '', 0, NULL),
-(9, 4, 13, 'Sim', '', 0, NULL),
-(10, 4, 14, 'Não', '', 0, NULL),
-(11, 5, 15, '2000', '', 0, NULL),
-(12, 5, 16, '3', '', 0, NULL),
-(13, 5, 17, 'Luis', '', 0, NULL),
-(14, 5, 18, 'Não', '', 0, NULL),
-(15, 6, 15, '20000', '', 0, NULL),
-(16, 6, 16, '1', '', 0, NULL),
-(17, 6, 17, 'Luis Felipe', '', 0, NULL),
-(18, 6, 18, 'Sim', '', 0, NULL),
-(25, 9, 10, 'Jacquys Barbosa da SIlva', '', 0, 3),
-(26, 9, 11, 'Nao', '', 0, 3),
-(28, 9, 13, 'Nao', '', 0, 3),
-(29, 9, 14, 'Nao', '', 0, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -252,17 +181,6 @@ CREATE TABLE `submissoes` (
   `formulario_id` int(11) NOT NULL,
   `data_envio` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `submissoes`
---
-
-INSERT INTO `submissoes` (`id`, `formulario_id`, `data_envio`) VALUES
-(3, 3, '2025-02-25 10:09:52'),
-(4, 3, '2025-02-25 10:10:36'),
-(5, 4, '2025-02-25 10:14:27'),
-(6, 4, '2025-02-25 10:14:39'),
-(9, 3, '2025-06-03 11:33:37');
 
 -- --------------------------------------------------------
 
@@ -325,6 +243,13 @@ ALTER TABLE `formularios`
 ALTER TABLE `imagens`
   ADD PRIMARY KEY (`id`),
   ADD KEY `projeto_id` (`projeto_id`);
+
+--
+-- Índices para tabela `opcoes`
+--
+ALTER TABLE `opcoes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pergunta_id` (`pergunta_id`);
 
 --
 -- Índices para tabela `pdf`
@@ -398,25 +323,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `comunicados`
 --
 ALTER TABLE `comunicados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `data_formularios`
 --
 ALTER TABLE `data_formularios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de tabela `eventos`
 --
 ALTER TABLE `eventos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `formularios`
 --
 ALTER TABLE `formularios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT de tabela `imagens`
@@ -425,46 +350,52 @@ ALTER TABLE `imagens`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `opcoes`
+--
+ALTER TABLE `opcoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT de tabela `pdf`
 --
 ALTER TABLE `pdf`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `perguntas`
 --
 ALTER TABLE `perguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT de tabela `projetos`
 --
 ALTER TABLE `projetos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `publico`
 --
 ALTER TABLE `publico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de tabela `respostas`
 --
 ALTER TABLE `respostas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de tabela `submissoes`
 --
 ALTER TABLE `submissoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restrições para despejos de tabelas
@@ -482,6 +413,12 @@ ALTER TABLE `data_formularios`
 --
 ALTER TABLE `imagens`
   ADD CONSTRAINT `imagens_ibfk_1` FOREIGN KEY (`projeto_id`) REFERENCES `projetos` (`id`);
+
+--
+-- Limitadores para a tabela `opcoes`
+--
+ALTER TABLE `opcoes`
+  ADD CONSTRAINT `opcoes_ibfk_1` FOREIGN KEY (`pergunta_id`) REFERENCES `perguntas` (`id`);
 
 --
 -- Limitadores para a tabela `perguntas`

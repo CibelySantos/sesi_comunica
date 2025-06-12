@@ -70,6 +70,13 @@
   display: flex;
 }
 
+.estrelas{
+  display: flex
+;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
 /* Cards dos comunicados */
 .comunicados-container {
   display: flex;

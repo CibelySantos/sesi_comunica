@@ -31,9 +31,17 @@ $formulario_id = intval($_GET['id']);
 try {
     $conn->begin_transaction();
 
-    // Excluir opções de resposta
+    // Excluir respostas
     $sql = "DELETE r FROM respostas r 
             INNER JOIN perguntas p ON r.pergunta_id = p.id 
+            WHERE p.formulario_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $formulario_id);
+    $stmt->execute();
+
+    // Excluir opções de resposta (ANTES de excluir perguntas!)
+    $sql = "DELETE o FROM opcoes o 
+            INNER JOIN perguntas p ON o.pergunta_id = p.id 
             WHERE p.formulario_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $formulario_id);
@@ -57,12 +65,19 @@ try {
     $stmt->bind_param("i", $formulario_id);
     $stmt->execute();
 
-    // Excluir o formulário
+    // Excluir submissões
+    $sql = "DELETE FROM submissoes WHERE formulario_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $formulario_id);
+    $stmt->execute();
+
+    // Excluir formulário
     $sql = "DELETE FROM formularios WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $formulario_id);
     $stmt->execute();
 
+    $stmt->close();
     $conn->commit();
 
     echo "

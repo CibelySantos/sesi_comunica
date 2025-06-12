@@ -214,14 +214,20 @@ if (isset($_GET['id'])) {
   <div class="container">
     <h1>Formulários</h1>
 
-     <!-- Barra de pesquisa -->
+    <!-- Barra de pesquisa -->
     <div class="pesquisa-container">
       <input type="text" id="barra-pesquisa" placeholder="Pesquisar formulários...">
     </div>
-    
+
     <div class="comunicados-container">
       <?php
-      $sql = "SELECT id, nome FROM formularios";
+      $sql = "
+        SELECT DISTINCT f.id, f.nome
+        FROM formularios f
+        INNER JOIN publico p ON f.id = p.formulario_id
+        WHERE p.publico_alvo = 'professores' OR p.publico_alvo = 'ambos'
+      ";
+
       $result = $conn->query($sql);
       if ($result && $result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -262,13 +268,13 @@ if (isset($_GET['id'])) {
 
               // Buscar opções da tabela questoes_objetivas
               if ($tipoPergunta === 'objetiva') {
-                $sqlOpcoes = "SELECT texto_opcao FROM questoes_objetivas 
-                            WHERE pergunta_id = $perguntaId 
-                            ORDER BY ordem ASC";
+                $sqlOpcoes = "SELECT texto FROM opcoes
+                            WHERE pergunta_id = $perguntaId
+                            ORDER BY id ASC";
                 $resOpcoes = $conn->query($sqlOpcoes);
                 if ($resOpcoes && $resOpcoes->num_rows > 0) {
                   while ($op = $resOpcoes->fetch_assoc()) {
-                    $opcoes[] = htmlspecialchars($op['texto_opcao']);
+                    $opcoes[] = htmlspecialchars($op['texto']);
                   }
                 }
               }

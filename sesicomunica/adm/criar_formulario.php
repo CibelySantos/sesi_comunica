@@ -19,6 +19,10 @@ if ($conn->connect_error) {
 
 // Handle AJAX requests
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $perguntas = $_POST['perguntas'] ?? [];
+    $tipos = $_POST['tipos_pergunta'] ?? [];
+    $opcoes = $_POST['opcoes'] ?? [];
+
     if (isset($_POST["nome_formulario"])) {
         try {
             $conn->begin_transaction();
@@ -40,9 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Inserir datas
             if (isset($_POST["data_criacao"]) && isset($_POST["data_limite"])) {
-                $sql_datas = "INSERT INTO data_formularios (formulario_id, data_envio, data_limite) VALUES (?, ?, ?)";
+                $sql_datas = "INSERT INTO data_formularios (formulario_id, data_limite) VALUES (?, ?)";
                 $stmt_datas = $conn->prepare($sql_datas);
-                $stmt_datas->bind_param("iss", $formulario_id, $_POST["data_criacao"], $_POST["data_limite"]);
+                $stmt_datas->bind_param("is", $formulario_id, $_POST["data_limite"]);
                 $stmt_datas->execute();
             }
 
@@ -138,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Formulários existentes -->
         <div class="coluna coluna-scroll">
             <div class="titulo-coluna">
-                <h2>📋 Formulários já criados</h2>
+                <h2>Formulários já criados</h2>
             </div>
             <div id="espacamento"></div>
             <?php
@@ -155,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo "<div class='card-header'>";
                     echo "<h3>" . htmlspecialchars($row['nome']) . "</h3>";
                     echo "<div class='card-icons'>";
-                    echo "<a href='exportar_formularios.php' class='icon-link' title='Exportar CSV'><i class='fas fa-file-csv'></i></a>";
+                    echo "<a href='exportar_formularios.php?id=" . $row['id'] . "' class='icon-link' title='Exportar formulário'><i class='fas fa-file-csv'></i></a>";
                     echo "<a href='#' onclick='abrirModalEditar(" . $row['id'] . ")' class='icon-link'><i class='fas fa-edit'></i></a>";
                     echo "<a href='#' onclick='confirmarExclusao(" . $row['id'] . ")' class='icon-link'><i class='fas fa-trash-alt'></i></a>";
                     echo "</div>";
@@ -195,33 +199,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
 
                             <div id="perguntas-container">
-                                <div class="form-group pergunta-item">
-                                    <div class="pergunta-header">
-                                        <div class="pergunta-titulo">
-                                            <label>Pergunta:</label>
-                                            <select class="tipo-pergunta" name="tipos_pergunta[]"
-                                                onchange="handleTipoPergunta(this)">
-                                                <option value="dissertativa">Dissertativa</option>
-
-                                                <option value="classificacao">Classificação</option>
-
-                                                <option value="objetiva">Objetiva</option>
-                                            </select>
-                                        </div>
-                                        <div class="opcoes-container" style="display:none;">
-                                            <label>Opções:</label>
-                                            <div class="opcoes-list"></div>
-                                            <button type="button" onclick="addOpcao(this)">Adicionar Opção</button>
-                                        </div>
-                                        <button type="button" class="btn-remover-pergunta"
-                                            onclick="removerPergunta(this)">Remover</button>
-                                    </div>
-                                    <input type="text" name="perguntas[]" required>
-                                    <input type="hidden" name="tipos_pergunta[]" value="dissertativa">
-                                    <div class="opcoes-container"></div>
-                                </div>
                             </div>
-                            <button type="button" class="add-pergunta" onclick="criarPergunta()">+ Adicionar
+
+                            <button type="button" class="add-pergunta mt-2" onclick="criarPergunta()">+ Adicionar
                                 pergunta</button>
 
                             <div class="form-group">
@@ -233,12 +213,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <option value="ambos">Ambos</option>
                                 </select>
                             </div>
-
-                            <div class="form-group">
-                                <label for="data_criacao">Data de criação:</label>
-                                <input type="date" name="data_criacao" required>
-                            </div>
-
                             <div class="form-group">
                                 <label for="data_limite">Data limite:</label>
                                 <input type="date" name="data_limite" required>
