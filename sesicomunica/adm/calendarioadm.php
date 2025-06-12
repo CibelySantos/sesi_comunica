@@ -57,6 +57,13 @@ if (!isset($_SESSION['id_users'])) {
 
         </div>
       </div>
+
+      <div class="activity-box">
+        <div class="label todos">Todos</div>
+        <div class="activity-text">
+          
+        </div>
+      </div>
     </div>
   </div>
 
@@ -81,6 +88,7 @@ if (!isset($_SESSION['id_users'])) {
               <option value="fundamental1">Ensino Fundamental I</option>
               <option value="fundamental2">Ensino Fundamental II</option>
               <option value="medio">Ensino Médio</option>
+              <option value="todos">Todos</option>
             </select>
           </label><br><br>
 

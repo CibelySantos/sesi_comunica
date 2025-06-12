@@ -140,11 +140,65 @@ document.addEventListener("DOMContentLoaded", function () {
             // info.dateStr vem no formato YYYY-MM-DD, que é aceito pelo input type=date
             document.getElementById("eventDate").value = info.dateStr;
 
-            // Limpa os outros campos para novo evento
-            document.getElementById("eventTitle").value = "";
-            document.getElementById("eventDescription").value = "";
-            document.getElementById("eventCategory").value = "fundamental1"; // valor padrão
-        },
+      // Coloca a data clicada no input de data do formulário
+      // info.dateStr vem no formato YYYY-MM-DD, que é aceito pelo input type=date
+      document.getElementById("eventDate").value = info.dateStr;
+
+      // Limpa os outros campos para novo evento
+      document.getElementById("eventTitle").value = "";
+      document.getElementById("eventDescription").value = "";
+      document.getElementById("eventCategory").value = "fundamental1"; // valor padrão
+    },
+  });
+
+  calendar.render();
+
+  fetch("carregaEventos.php")
+    .then((response) => response.json())
+    .then((eventos) => {
+      const divs = {
+        fundamental1: document.querySelector(".activity-box .fundamental1")
+          .nextElementSibling,
+        fundamental2: document.querySelector(".activity-box .fundamental2")
+          .nextElementSibling,
+        medio: document.querySelector(".activity-box .medio")
+          .nextElementSibling,
+        todos: document.querySelector(".activity-box .todos")
+          .nextElementSibling,
+      };
+
+      // Limpa textos padrões
+      for (const key in divs) {
+        divs[key].innerHTML = "";
+      }
+
+      if (eventos.length === 0) {
+        for (const key in divs) {
+          divs[key].innerHTML = "Não há nenhuma atividade para esse período";
+        }
+      } else {
+        eventos.forEach((evento) => {
+          const dataFormatada = formatarData(evento.start);
+          const texto = `<span class="highlight">${dataFormatada} - ${evento.title}</span><br>`;
+          if (divs[evento.category]) {
+            divs[evento.category].innerHTML += texto;
+          }
+        });
+
+        // Se algum grupo ainda estiver vazio, mostra a mensagem padrão
+        for (const key in divs) {
+          if (divs[key].innerHTML.trim() === "") {
+            divs[key].innerHTML = "Não há nenhuma atividade para esse período";
+          }
+        }
+      }
+
+      function formatarData(dataStr) {
+        const data = new Date(dataStr);
+        const dia = String(data.getDate()).padStart(2, "0");
+        const mes = String(data.getMonth() + 1).padStart(2, "0");
+        return `${dia} / ${mes}`;
+      }
     });
 
     calendar.render();

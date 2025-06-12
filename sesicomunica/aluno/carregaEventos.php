@@ -18,6 +18,9 @@ while ($row = $result->fetch_assoc()) {
     case 'medio':
       $cor = '#b3d9ff';
       break;
+    case 'todos':
+      $cor = '#55AE62';
+      break;
     default:
       $cor = '#cccccc'; // Cor para quando for categoria adm ou professores
   }
